@@ -1,0 +1,74 @@
+body {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+}
+
+@mixin h1Style($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 52px;
+  line-height: 52px;
+  letter-spacing: 0.02px;
+  font-weight: 400;
+}
+
+@mixin h2Style($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 0.02px;
+  font-weight: 400;
+  color: $color;
+
+}
+
+@mixin h3Style($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $color;
+
+}
+
+
+@mixin pStyle($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.02px;
+  font-weight: 400;
+  color: $color;
+
+}
+
+
+@mixin buttonStyle($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  color: $color;
+
+  text-transform: uppercase;
+}
+
+
+
+@mixin pBigStyle($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 400;
+  color: $color;
+  letter-spacing: 0.09px;
+}
+
+@mixin captionStyle($color: #fff) {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02px;
+  color: $color;
+
+}

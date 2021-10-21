@@ -1,0 +1,25 @@
+@use '../imports/imports.scss'as *;
+
+
+.pagination {
+  background: $forest;
+
+  h3 {
+    color: #fff;
+
+  }
+
+  transition: .3s ease all;
+
+  &:hover {
+    background: #000;
+  }
+}
+
+.resistance .pagination {
+  bottom: 45vh !important;
+}
+
+.occupation-talkback .pagination {
+  bottom: 75px !important;
+}

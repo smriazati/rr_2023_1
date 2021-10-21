@@ -1,0 +1,19 @@
+@use '../imports/imports.scss'as *;
+
+.icon {
+  display: flex;
+
+  &.icon-arrow {}
+
+  &.icon-arrow-down {
+    transform: rotate(90deg);
+  }
+
+  &.icon-light {
+    filter: invert(1);
+  }
+
+  &.icon-arrow-left {
+    transform: scaleX(-1);
+  }
+}

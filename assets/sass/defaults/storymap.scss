@@ -1,0 +1,101 @@
+@use '../imports/imports.scss'as *;
+
+.map {
+  width: 100%;
+  height: calc(100% - 54px);
+  width: 100vw;
+  height: calc(100vh - 54px);
+}
+
+.map-controls {
+  // width: 300px;
+  position: fixed;
+  top: 0;
+  left: 100;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+
+  padding: 90px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h3 {
+    @include pStyle();
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+
+  .hover-cursor {
+    transition: .3s ease all;
+    color: white;
+
+    span {
+      transition: .3s ease all;
+      color: white;
+    }
+
+    &:hover {
+      color: $sage;
+
+      span {
+        color: $sage;
+      }
+    }
+  }
+}
+
+.map-options {
+  li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+
+    >.icon {
+      // width: 30px;
+      height: 20px;
+      transition: .3s ease all;
+      flex: 0 0 20px;
+      margin-right: 5px;
+    }
+  }
+}
+
+
+.map-marker-list {
+  li>* {
+    display: flex;
+    margin-bottom: 15px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      background-color: #e71e4d;
+      transition: .3s ease all;
+      -webkit-mask-image: url('./assets/icons/pin.svg');
+      mask-image: url('./assets/icons/pin.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+    }
+
+    &:not(.viewed-marker):hover {
+      .icon {
+        background-color: white;
+      }
+    }
+
+    &.viewed-marker {
+      .icon {
+        background: $sage;
+      }
+
+      .title {
+        color: $sage;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@forward 'style.scss';
+@use 'style.scss'as *;
+
+
+// BREAKPOINTS 
+
+$full-padded-container: 1280px;
+$big-container: 1050px;
+$collapse-bp: 768px;
+$nav-bp: 1288px;
+$mobile-bp: 960px;
+$narrow-container: 960px;
+
+// STYLE 
+
+$transition: .5s ease-in all;
+$spacer: 15px;
+
+// MIXINS 
+
+$sage: #9bd279;
+$gray: #131313;
+$purple: #B38AFF;
+$forest: #4d643f;
