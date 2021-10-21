@@ -1,0 +1,3 @@
+![](/images/04/yosef_painting.png "")
+
+Before the war, the Zilberberg family owned and operated a grocery, with Josef’s father working in the cattle trade. During the war, Josef, his parents, and his two brothers were taken in by Anton Ozertchunk, a Ukrainian, who kept them hidden on his property. Much of their hiding was spent in miserable conditions, where Josef and his immediate family were clustered together under a pile of straw or in a pit for days on end.

@@ -1,0 +1,7 @@
+Resistance can be many things, and for each of the people you learned about today, resistance meant something different. Now, we want to know what resistance means to you.
+
+During The Holocaust, symbols were used as a tool of oppression. The Jews in Tuchyn were forced to wear a yellow Star of David to identify themselves apart from their non-Jewish neighbors, and even today we recognize the swastika as a symbol of hatred and violence. Later, the Nazi party would create a system of symbols to identify prisoners in concentration and death camps. Criminals wore green, upside-down triangles; political prisoners, Roma, and other nonconformists wore red, black, or brown triangles; Jehovah's Witnesses wore purple triangles; members of the LGBTQ+ community wore pink ones, and Jews continued to wear the Star of David.
+
+But symbols can also be a tool of resistance. Today, you will use the triangle template in front of you to create your own symbol, depicting what resistance means to you. Your symbols will be hung as the leaves on the trees of the forest installation. They will join the others created by students before and after you, creating a forest of resistance.
+
+Below are some examples of resistance symbols created by survivors and our design team.

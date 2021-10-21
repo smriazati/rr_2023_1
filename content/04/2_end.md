@@ -1,0 +1,4 @@
+﻿Following the end of the war in 1945, the Zilberberg family moved to Lodz before eventually taking part in the “Bricha” (meaning “Escape” in Hebrew), which was an illegal migration of Jews to the British Mandate of Palestine. Currently he resides in Israel where he has pursued his hobby of painting. While there are no photographs or videos of the massacre at Tuchyn, Josef has created paintings which recall many elements of the occupation and massacre.
+
+
+The Ozarchuk family (Anton Ozarchuk, Pelageya Ozarchuk, Nadezhda Ozarchuk, Mariya Ozarchuk, Marta Ozarchuk) were honored as The Righteous Among the Nations for their actions in saving the lives of the Zilberberg family. The Righteous Among the Nations, run by The World Holocaust Remembrance Center Yad Vashem, honors those who risked their own lives to save Jews during the Holocaust.
