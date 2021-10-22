@@ -1,39 +1,50 @@
 <template>
   <div :class="name" class="story">
-    <div v-show="activeState === 1" class="intro">
-      <div class="text-wrapper">
-        <nuxt-content :document="page.start" />
-        <button class="flex-row-reverse">
-          <nuxt-link to="/4/stories">Back to all stories</nuxt-link
-          ><span class="icon icon-arrow icon-arrow-left"><IconArrow /></span>
+    <div ref="sliderWrapper" class="slider-wrapper">
+      <div class="slider-area">
+        <div v-show="activeState === 1" class="intro slide-item">
+          <div class="text-wrapper">
+            <nuxt-content :document="page.start" />
+          </div>
+        </div>
+        <div v-show="activeState === 2" class="video slide-item">
+          <CloudinaryVideo
+            :src="videos[$route.params.id].src"
+            :controls="true"
+            :autoplay="false"
+            :subtitles="videos[$route.params.id].subtitles"
+            ref="videoComp"
+          />
+        </div>
+        <div v-show="activeState === 3" class="story-conclusion slide-item">
+          <div class="text-wrapper">
+            <nuxt-content :document="page.end" />
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls flex-row">
+        <button
+          :class="activeState === 1 ? 'active-slide' : ''"
+          @click="setActiveState(1)"
+        >
+          <span></span>
         </button>
-        <button @click="goToNextState">
-          <span>Watch the video interview</span
-          ><span class="icon icon-arrow"><IconArrow /></span>
+        <button
+          :class="activeState === 2 ? 'active-slide' : ''"
+          @click="setActiveState(2)"
+        >
+          <span></span>
+        </button>
+        <button
+          :class="activeState === 3 ? 'active-slide' : ''"
+          @click="setActiveState(3)"
+        >
+          <span></span>
         </button>
       </div>
     </div>
-    <div v-show="activeState === 2" class="video">
-      <video ref="video" controls>
-        <source src="/videos/04/placeholder.mp4" type="video/mp4" />
-      </video>
-      <button @click="goToPrevState" class="flex-row-reverse">
-        <span>Go back</span
-        ><span class="icon icon-arrow icon-arrow-left"><IconArrow /></span>
-      </button>
-      <button @click="goToNextState">
-        <span>Continue</span><span class="icon icon-arrow"><IconArrow /></span>
-      </button>
-    </div>
-    <div v-show="activeState === 3" class="story-conclusion">
-      <div class="text-wrapper">
-        <nuxt-content :document="page.end" />
-        <button @click="goToPrevState" class="flex-row-reverse">
-          <span>Go back to the video</span
-          ><span class="icon icon-arrow icon-arrow-left"><IconArrow /></span>
-        </button>
-      </div>
 
+    <div v-if="isPaginationVisible">
       <Pagination link="/5" message="Move on to the conclusion" />
     </div>
   </div>
@@ -62,25 +73,94 @@ export default {
       name: "occupation-stories-individual",
       states: [1, 2, 3],
       activeState: 1,
+      isPaginationVisible: false,
+      videos: {
+        1: {
+          src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926620/remembering-resistance-videos/04-placeholder_thon9a.mp4",
+          subtitles: {
+            src: "/placeholder_subs.vtt",
+            label: "English",
+            srclang: "en",
+          },
+        },
+        2: {
+          src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926620/remembering-resistance-videos/04-placeholder_thon9a.mp4",
+          subtitles: {
+            src: "/placeholder_subs.vtt",
+            label: "English",
+            srclang: "en",
+          },
+        },
+        3: {
+          src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926620/remembering-resistance-videos/04-placeholder_thon9a.mp4",
+          subtitles: {
+            src: "/placeholder_subs.vtt",
+            label: "English",
+            srclang: "en",
+          },
+        },
+      },
     };
   },
   mounted() {
     // console.log();
+    const wrapper = this.$refs.sliderWrapper;
+    if (!wrapper) {
+      return;
+    }
+    const texts = Array.from(wrapper.querySelectorAll(".text-wrapper"));
+    if (!texts) {
+      return;
+    }
+    texts.forEach((text) => {
+      this.showTitlesAsCaption(text);
+    });
   },
-  methods: {
-    goToNextState() {
-      if (this.activeState < 3) {
-        this.activeState = this.activeState + 1;
-        this.pauseVid();
+  watch: {
+    activeState() {
+      if (this.activeState === 3) {
+        this.isPaginationVisible = true;
       }
     },
-    goToPrevState() {
-      this.activeState = this.activeState - 1;
-      this.pauseVid();
-    },
+  },
+  methods: {
     pauseVid() {
-      if (this.$refs.video) {
-        this.$refs.video.pause();
+      const videoComponent = this.$refs.videoComp;
+      if (!videoComponent) {
+        return;
+      }
+      const video = videoComponent.$refs.video;
+      if (!video) {
+        return;
+      }
+      video.pause();
+    },
+    showTitlesAsCaption(textScroller) {
+      // console.log("ref", ref);
+      const imgs = Array.from(textScroller.querySelectorAll("img:not(.icon)"));
+      if (!imgs) {
+        return;
+      }
+      imgs.forEach((img) => {
+        const figure = document.createElement("figure");
+
+        const parent = img.parentElement;
+        parent.classList.add("img-container");
+        parent.dataset.lightbox = "true";
+        figure.appendChild(img);
+        const title = img.title;
+        if (title) {
+          const caption = document.createElement("figcaption");
+          caption.innerHTML = title;
+          figure.appendChild(caption);
+        }
+        parent.appendChild(figure);
+      });
+    },
+    setActiveState(num) {
+      this.activeState = num;
+      if (this.activeState !== 2) {
+        this.pauseVid();
       }
     },
   },
@@ -90,6 +170,9 @@ export default {
 
 <style lang="scss">
 .occupation-stories-individual {
+  .pagination {
+    bottom: 100px;
+  }
   button {
     span:last-child {
       padding-left: 0;

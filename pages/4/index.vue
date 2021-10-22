@@ -1,6 +1,7 @@
 <template>
   <div ref="wrapper" :class="name" class="text-scroller-page">
     <h1 class="visually-hidden">{{ name }}</h1>
+    <div class="nav-tracker-bar" ref="navList"></div>
     <ScrollHint />
     <div class="wrapper">
       <!-- <div ref="imageZoomer" class="image-wrapper">
@@ -66,9 +67,28 @@ export default {
         this.addClassToInlineImgs(textScroller);
         this.setTextScrollingAnimation(textScroller);
         this.togglePaginationOnTextScroller(textScroller);
+        this.setScrollNavBarAnimation();
       } else {
         this.togglePaginationOnWrapper();
       }
+    },
+    setScrollNavBarAnimation() {
+      const ref = this.$refs.navList;
+      const wrapper = this.$refs.wrapper;
+      if (!ref || !wrapper) {
+        return;
+      }
+      console.log(ref, wrapper);
+      gsap.to(ref, {
+        height: "100vh",
+        scrollTrigger: {
+          trigger: wrapper,
+          start: "top top",
+          end: "bottom bottom",
+          // markers: true,
+          scrub: true,
+        },
+      });
     },
     togglePaginationOnWrapper() {
       const wrapper = this.$refs.wrapper;
@@ -129,40 +149,70 @@ export default {
         this.togglePaginationOnWrapper();
       }
     },
+
     setTextScrollingAnimation(ref) {
       if (!ref) {
         return;
       }
-      const paragraphs = Array.from(
-        ref.querySelectorAll("p:not(.img-container)")
-      );
+      const paragraphs = Array.from(ref.querySelectorAll("p"));
       if (!paragraphs) {
         return;
       }
       paragraphs.forEach((p, i) => {
-        if (i > 0) {
-          gsap.set(p, {
-            autoAlpha: 0,
-            scale: 0.7,
-          });
-          gsap.to(p, {
-            autoAlpha: 1,
-            scale: 1,
-            scrollTrigger: {
-              trigger: p,
-              start: "top-=100% top",
-              end: "bottom+=30% bottom",
-              scrub: 1,
-            },
-          });
-        }
+        gsap.set(p, {
+          autoAlpha: 0,
+          scale: 0.9,
+        });
+        gsap.to(p, {
+          autoAlpha: 1,
+          scale: 1,
+          scrollTrigger: {
+            trigger: p,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: true,
+          },
+        });
       });
+
+      // const navTarget = this.$refs.navList;
+      // if (navTarget) {
+      //   const pageNav = document.createElement("NAV");
+      //   paragraphs.forEach((item, i) => {
+      //     const navItem = document.createElement("div");
+      //     navItem.classList.add(`nav-item-${i}`);
+      //     pageNav.appendChild(navItem);
+      //   });
+      //   console.log(pageNav);
+      //   navTarget.appendChild(pageNav);
+      // }
     },
   },
 };
 </script>
 
 <style lang="scss">
+@keyframes pFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
 .aftermath {
   &.text-scroller-page {
     .text-wrapper {
@@ -170,17 +220,27 @@ export default {
       max-width: 100%;
     }
   }
-}
-p.img-container {
-  width: 100%;
-  width: 100vw;
-  margin: 0 !important;
-  max-width: 100% !important;
-  max-width: 100vw !important;
-  img {
+  p {
+    // opacity: 0;
+  }
+
+  p.fade-in {
+    animation: pFadeIn 0.3s ease forwards;
+  }
+  p.fade-out {
+    animation: pFadeOut 0.3s ease forwards;
+  }
+  p.img-container {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100vw;
+    margin: 0 !important;
+    max-width: 100% !important;
+    max-width: 100vw !important;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 </style>

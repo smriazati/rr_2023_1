@@ -1,1 +1,1 @@
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis nulla sem. Nulla sagittis congue turpis vitae laoreet. 
+Here, we will have students work to answer knowledge-based questions to recall the information of this section. We will require students to answer a critical-thinking question in order to reflect on the content. This interactive element has two functions: 1) it is a way to help the students recall what they learned and 2) it will allow students to relate and reflect on the content.

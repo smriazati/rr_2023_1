@@ -3,9 +3,17 @@
     <h1 class="visually-hidden">{{ name }}</h1>
     <div class="stacked-divs">
       <div class="video-player-background">
-        <video muted autoplay loop>
-          <source src="/videos/03/videobg.mp4" type="video/mp4" />
-        </video>
+        <!-- <video muted autoplay loop>
+          <source src="/videos/03-videobg.mp4" type="video/mp4" />
+        </video> -->
+        <CloudinaryVideo
+          :src="bgVideo.src"
+          :controls="false"
+          :muted="true"
+          :loop="true"
+          :autoplay="true"
+          ref="bgVideoComp"
+        />
       </div>
       <div
         :class="isPlayerVisible ? 'visually-hidden' : ''"
@@ -35,9 +43,16 @@
         class="video-player-foreground"
       >
         <div ref="videoPlayer" class="video-player">
-          <video ref="video" controls>
-            <source src="/videos/03/placeholder.mp4" type="video/mp4" />
-          </video>
+          <!-- <video ref="video" controls>
+            <source src="/videos/03-placeholder.mp4" type="video/mp4" />
+          </video> -->
+          <CloudinaryVideo
+            :src="mainVideo.src"
+            :controls="true"
+            :autoplay="false"
+            :subtitles="mainVideo.subtitles"
+            ref="videoComp"
+          />
         </div>
 
         <div class="inline-instructions">
@@ -69,10 +84,21 @@ export default {
       areInlineInstructionsVisible: false,
       isFirstView: false,
       viewCount: 0,
+      bgVideo: {
+        src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926589/remembering-resistance-videos/03-videobg_c1x33c.mp4",
+      },
+      mainVideo: {
+        src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634931813/remembering-resistance-videos/output-720p-1200k_mchspw.mp4",
+        subtitles: {
+          src: "/placeholder_subs.vtt",
+          label: "English",
+          srclang: "en",
+        },
+      },
     };
   },
   mounted() {
-    this.addEventListenersToVideo(this.$refs.video);
+    // this.addEventListenersToVideo(this.$refs.video);
   },
   watch: {
     isVideoEnded() {
@@ -84,7 +110,7 @@ export default {
   methods: {
     setPlayerVisible() {
       this.isPlayerVisible = true;
-      this.playVid(this.$refs.video);
+      this.playVid();
       if (this.viewCount === 0) {
         this.isFirstView = true;
       } else {
@@ -94,7 +120,7 @@ export default {
     },
     setPlayerInvisible() {
       this.isPlayerVisible = false;
-      this.pauseVid(this.$refs.video);
+      this.pauseVid();
     },
     openInstructionsInline() {
       this.setPlayerInvisible();
@@ -108,11 +134,11 @@ export default {
     hidePagination() {
       this.isPaginationVisible = false;
     },
-    playVid(vid) {
-      vid.play();
+    playVid() {
+      this.$refs.videoComp.$refs.video.play();
     },
-    pauseVid(vid) {
-      vid.pause();
+    pauseVid() {
+      this.$refs.videoComp.$refs.video.pause();
     },
     addEventListenersToVideo(vid) {
       var media = vid;
@@ -176,6 +202,10 @@ export default {
     width: 100%;
     max-width: 100%;
     height: 100%;
+    .video-wrapper {
+      min-width: 100%;
+      min-height: 100%;
+    }
     video {
       width: 100%;
       height: 100%;
@@ -211,7 +241,7 @@ export default {
   .video-instructions {
     background: rgba(0, 0, 0, 0.12);
     position: relative;
-    z-index: 99;
+    z-index: 19;
     display: flex;
     justify-content: center;
     align-items: center;

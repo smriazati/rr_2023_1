@@ -18,7 +18,5 @@ Some of those who remained in the forests died of hunger and cold.
 
 ![Caption TKTK](/images/04/intro_02.jpg "Caption TKTK")
 
-By the liberation of Tuchyn on January 16, 1944, around 20 Jews remained in the area.
-
-In total, only 69 Jews survived Tuchyn, escaping to the United States and Israel. 
+By the liberation of Tuchyn on January 16, 1944, around 20 Jews remained in the area. In total, only 69 Jews survived Tuchyn, escaping to the United States and Israel. 
 

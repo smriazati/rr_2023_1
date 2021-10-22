@@ -47,8 +47,14 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/cloudinary'
   ],
+  cloudinary: {
+    // Cloudinary configuration options
+    cloudName: process.env.CLOUDINARYCLOUDNAME,
+    useComponent: true
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   env: {
     mapsApi: process.env.GOOGLEMAPSAPI,

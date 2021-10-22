@@ -1,0 +1,88 @@
+@use '../imports/imports.scss'as *;
+
+.slider-wrapper {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-item {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (max-width: 1280px) {
+    max-width: 90%;
+  }
+
+  &.intro,
+  &.story-conclusion {
+    .nuxt-content {
+      display: grid;
+      grid-template-columns: 2f 1fr;
+      grid-auto-rows: auto;
+      grid-column-gap: 30px;
+
+      figure {
+        padding: 0;
+        margin: 0;
+      }
+
+      p.img-container {
+        grid-column: 1 / 2;
+        justify-self: end;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      blockquote,
+      blockquote+p,
+      p:not(.img-container) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+
+        &+p:not(.img-container) {
+          grid-row: 2 / 3;
+        }
+
+        max-width: 50ch;
+      }
+
+      p:not(.img-container) {
+        place-self: center;
+      }
+
+      blockquote {
+        place-self: end;
+        margin-bottom: 100px;
+      }
+
+      blockquote+p {
+        place-self: end !important;
+      }
+    }
+
+    p.img-container {
+      display: block;
+      float: none;
+
+      figure {
+        width: auto;
+        float: none;
+        max-width: unset;
+      }
+    }
+  }
+}
+
+.slider-controls {
+  justify-content: center;
+
+  button {
+    margin: 0;
+  }
+
+  >*:not(:last-child) {
+    margin-right: 15px;
+  }
+}

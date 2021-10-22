@@ -1,6 +1,8 @@
 <template>
   <div ref="wrapper" :class="name" class="text-scroller-page">
     <h1 class="visually-hidden">{{ name }}</h1>
+    <div class="nav-tracker-bar" ref="navList"></div>
+
     <ScrollHint />
     <div class="wrapper">
       <div ref="imageZoomer" class="image-wrapper">
@@ -95,6 +97,7 @@ export default {
       if (textScroller) {
         this.setTextScrollingAnimation(textScroller);
         this.togglePaginationOnTextScroller(textScroller);
+        this.setScrollNavBarAnimation();
       } else {
         this.togglePaginationOnWrapper();
       }
@@ -113,26 +116,39 @@ export default {
         return;
       }
       paragraphs.forEach((p, i) => {
-        console.log(p, p.previousElementSibling);
-        if (i > 0) {
-          gsap.set(p, {
-            autoAlpha: 0,
-            scale: 0.9,
-          });
-          gsap.to(p, {
-            autoAlpha: 1,
-            scale: 1,
-            scrollTrigger: {
-              trigger: p.previousElementSibling,
-              start: `bottom-=${window.innerHeight / 4}px top`,
-              endTrigger: p,
-              end: `bottom+=${window.innerHeight / 4}px bottom`,
-              scrub: 1.3,
-              // pin: true,
-              // markers: true,
-            },
-          });
-        }
+        gsap.set(p, {
+          autoAlpha: 0,
+          scale: 0.9,
+        });
+        gsap.to(p, {
+          autoAlpha: 1,
+          scale: 1,
+          scrollTrigger: {
+            trigger: p,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: true,
+          },
+        });
+      });
+    },
+    setScrollNavBarAnimation() {
+      const ref = this.$refs.navList;
+      const wrapper = this.$refs.wrapper;
+      if (!ref || !wrapper) {
+        return;
+      }
+      // console.log(ref, wrapper);
+      gsap.to(ref, {
+        height: "100vh",
+        scrollTrigger: {
+          trigger: wrapper,
+          start: "top top",
+          end: "bottom bottom",
+          // markers: true,
+          scrub: true,
+        },
       });
     },
     setImageZoomingAnimation(ref) {
@@ -167,3 +183,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.introduction {
+  &.text-scroller-page .wrapper .nuxt-content p {
+    background: transparent !important;
+  }
+}
+</style>

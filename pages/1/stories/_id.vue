@@ -1,9 +1,18 @@
 <template>
-  <div :class="name">
+  <div ref="wrapper" :class="name">
     <h1 class="visually-hidden">{{ name }}</h1>
-    <div></div>
-    <nuxt-content :document="page" />
-    <Pagination link="/2" message="Next" />
+    <div ref="sliderWrapper" class="slider-wrapper">
+      <div class="slider-area">
+        <div class="slide-item">
+          <div ref="textWrapper" class="text-wrapper">
+            <nuxt-content :document="page" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-show="isPaginationVisible">
+      <Pagination link="/2" message="Next" />
+    </div>
   </div>
 </template>
 
@@ -23,34 +32,86 @@ export default {
 
   data() {
     return {
-      name: "occupation-stories",
+      name: "intro-stories-individual",
+      isPaginationVisible: false,
     };
   },
   mounted() {
     // console.log();
+    const textWrapper = this.$refs.textWrapper;
+    if (textWrapper) {
+      this.showTitlesAsCaption(textWrapper);
+    }
+
+    this.$nextTick(this.setAnimation);
+  },
+  methods: {
+    showPagination() {
+      this.isPaginationVisible = true;
+    },
+    setAnimation() {
+      const wrapper = this.$refs.wrapper;
+      if (wrapper) {
+        this.showPaginationOnWrapper(wrapper);
+      } else {
+        this.showPagination();
+      }
+    },
+    showPaginationOnWrapper(wrapper) {
+      ScrollTrigger.create({
+        trigger: wrapper,
+        start: `bottom bottom`,
+        // markers: true,
+        onToggle: (self) => {
+          // console.log(self.isActive);
+          if (self.isActive) {
+            this.showPagination();
+          }
+        },
+      });
+    },
+    showTitlesAsCaption(textScroller) {
+      // console.log("ref", ref);
+      const imgs = Array.from(textScroller.querySelectorAll("img:not(.icon)"));
+      if (!imgs) {
+        return;
+      }
+      imgs.forEach((img) => {
+        const figure = document.createElement("figure");
+
+        const parent = img.parentElement;
+        parent.classList.add("img-container");
+        parent.dataset.lightbox = "true";
+        figure.appendChild(img);
+        const title = img.title;
+        if (title) {
+          const caption = document.createElement("figcaption");
+          caption.innerHTML = title;
+          figure.appendChild(caption);
+        }
+        parent.appendChild(figure);
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss">
-.occupation-stories {
-  background: #000;
-  color: #fff;
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
-  .nuxt-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    h1 {
-      flex: 2;
-      padding: 15px;
-    }
-    img {
-      padding-left: 50px;
-      max-height: 800px;
-    }
+.intro-stories-individual {
+  .pagination {
+    bottom: 100px;
+  }
+  .slider-wrapper {
+    padding-top: 50px;
+  }
+  .text-wrapper p:not(.img-container) {
+    max-width: calc(80ch - 300px);
+  }
+  figure {
+    margin: 30px;
+    margin-top: 0;
+    max-height: 60vh;
+    overflow: hidden;
   }
 }
 </style>

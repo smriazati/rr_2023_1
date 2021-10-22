@@ -144,8 +144,8 @@ export default {
           id: 5,
           name: "horyn_river",
           title: "Horyn River",
-          lat: 50.706167,
-          lng: 26.557945,
+          lat: 50.710556,
+          lng: 26.557222, //
         },
       ],
     };

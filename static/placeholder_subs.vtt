@@ -1,0 +1,11 @@
+WEBVTT
+
+0
+00:00:00.000 --> 00:00:12.000
+<v Test>[Test]</v>
+
+NOTE This is a comment and must be preceded by a blank line
+
+1
+00:00:18.700 --> 02:13:00.000
+These are test subtitles
