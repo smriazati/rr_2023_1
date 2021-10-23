@@ -5,6 +5,12 @@
         <div v-show="activeState === 1" class="intro slide-item">
           <div class="text-wrapper">
             <nuxt-content :document="page.start" />
+            <div class="buttons-bar flex-row">
+              <button class="flat light align-right" @click="setActiveState(2)">
+                <span class="text">Watch the video interview</span
+                ><span class="arrow"><IconArrow /></span>
+              </button>
+            </div>
           </div>
         </div>
         <div v-show="activeState === 2" class="video slide-item">
@@ -15,10 +21,27 @@
             :subtitles="videos[$route.params.id].subtitles"
             ref="videoComp"
           />
+          <div class="buttons-bar flex-row">
+            <button class="flat light align-left" @click="setActiveState(1)">
+              <span class="icon-arrow icon icon-arrow-left"><IconArrow /></span
+              ><span class="text">Go back</span>
+            </button>
+            <button class="flat light align-right" @click="setActiveState(3)">
+              <span class="text">Next</span
+              ><span class="arrow"><IconArrow /></span>
+            </button>
+          </div>
         </div>
         <div v-show="activeState === 3" class="story-conclusion slide-item">
           <div class="text-wrapper">
             <nuxt-content :document="page.end" />
+            <div class="buttons-bar flex-row">
+              <button class="flat light align-left" @click="setActiveState(2)">
+                <span class="icon-arrow icon icon-arrow-left"
+                  ><IconArrow /></span
+                ><span class="text">Go back</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

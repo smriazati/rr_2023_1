@@ -6,12 +6,16 @@
         <div class="slide-item">
           <div ref="textWrapper" class="text-wrapper">
             <nuxt-content :document="page" />
+            <button class="flat light">
+              <span class="icon icon-arrow icon-arrow-left"><IconArrow /></span>
+              <nuxt-link to="/1/stories">Back to all stories</nuxt-link>
+            </button>
           </div>
         </div>
       </div>
     </div>
     <div v-show="isPaginationVisible">
-      <Pagination link="/2" message="Next" />
+      <Pagination link="/2" message="Learn about the German Occupation" />
     </div>
   </div>
 </template>
@@ -33,7 +37,7 @@ export default {
   data() {
     return {
       name: "intro-stories-individual",
-      isPaginationVisible: false,
+      isPaginationVisible: true,
     };
   },
   mounted() {
@@ -42,34 +46,8 @@ export default {
     if (textWrapper) {
       this.showTitlesAsCaption(textWrapper);
     }
-
-    this.$nextTick(this.setAnimation);
   },
   methods: {
-    showPagination() {
-      this.isPaginationVisible = true;
-    },
-    setAnimation() {
-      const wrapper = this.$refs.wrapper;
-      if (wrapper) {
-        this.showPaginationOnWrapper(wrapper);
-      } else {
-        this.showPagination();
-      }
-    },
-    showPaginationOnWrapper(wrapper) {
-      ScrollTrigger.create({
-        trigger: wrapper,
-        start: `bottom bottom`,
-        // markers: true,
-        onToggle: (self) => {
-          // console.log(self.isActive);
-          if (self.isActive) {
-            this.showPagination();
-          }
-        },
-      });
-    },
     showTitlesAsCaption(textScroller) {
       // console.log("ref", ref);
       const imgs = Array.from(textScroller.querySelectorAll("img:not(.icon)"));
@@ -112,6 +90,10 @@ export default {
     margin-top: 0;
     max-height: 60vh;
     overflow: hidden;
+  }
+
+  .slide-item {
+    margin-bottom: 80px;
   }
 }
 </style>

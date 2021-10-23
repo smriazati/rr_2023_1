@@ -73,7 +73,7 @@ export default {
       img {
         object-fit: cover;
         transform: scale(3);
-        opacity: 0.1;
+        opacity: 0.4;
         filter: blur(5px);
       }
     }

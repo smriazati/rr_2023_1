@@ -12,14 +12,14 @@
               alt="view instructions icon" /></span
           >Show instructions
         </li>
-        <li class="hover-cursor" @click="showTimeline">
+        <!-- <li class="hover-cursor" @click="showTimeline">
           <span class="icon">
             <img
               class="icon icon-timeline icon-light"
               src="/icons/timeline.svg"
               alt="view timeline icon" /></span
           >View timeline
-        </li>
+        </li> -->
         <li class="hover-cursor" id="recenterMap">
           <span class="icon">
             <img

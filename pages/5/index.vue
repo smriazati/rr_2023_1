@@ -167,7 +167,7 @@ export default {
 
       gsap.set(children[0], {
         autoAlpha: 0,
-        scale: 0.7,
+        scale: 0.9,
       });
 
       gsap.to(children[0], {
@@ -223,7 +223,7 @@ export default {
         scrollTrigger: {
           trigger: children[0],
           start: `bottom-=${window.innerHeight / 3} top`,
-          end: `bottom+=${window.innerHeight / 12} top`,
+          end: `bottom-=${window.innerHeight / 6} top`,
           scrub: 0.8,
           // markers: true,
         },
@@ -239,7 +239,7 @@ export default {
         x: 0,
         scrollTrigger: {
           trigger: children[4],
-          start: `bottom-=${window.innerHeight / 3} top`,
+          start: `bottom-=${window.innerHeight / 2} top`,
           end: `bottom-=${window.innerHeight / 4} top`,
           scrub: 0.8,
           // markers: true,
@@ -247,12 +247,12 @@ export default {
       });
       gsap.set(children[5], {
         autoAlpha: 0,
-        x: 300,
+        // x: 300,
         filter: "grayscale(1) brightness(0.3) contrast(3)",
       });
       gsap.to(children[5], {
         autoAlpha: 1,
-        x: 0,
+        // x: 0,
         filter: "grayscale(0) brightness(1) contrast(1)",
 
         scrollTrigger: {
@@ -326,7 +326,7 @@ export default {
       .grid5 {
         // quote
         grid-row: 1 / 2;
-        grid-column: 4 / span 3;
+        grid-column: 3 / span 4;
         padding: 30% 0;
         padding: 30vh 0;
       }

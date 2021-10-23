@@ -62,21 +62,25 @@ export default {
       required: false,
     },
   },
+  mounted() {
+    const vid = this.$refs.video;
+    if (vid) {
+      vid.addEventListener("ended", () => {
+        this.onVidEnd();
+      });
+    }
+  },
   data() {
     return {
-      isVidPlaying: false,
-      isVidPaused: true,
       isVidEnded: false,
     };
   },
-  watch: {
-    videoPlaystate() {
-      if (this.videoPlaystate === "paused") {
-        this.$refs.video.pause();
-      }
-      if (this.videoPlaystate === "playing") {
-        this.$refs.video.play();
-      }
+  methods: {
+    onVidEnd() {
+      console.log("emitting end");
+
+      this.isVidEnded = true;
+      this.$emit("vid-ended");
     },
   },
   computed: {

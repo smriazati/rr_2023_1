@@ -23,10 +23,17 @@ export default {
   },
   data() {
     return {
-      name: "occupation-talkback",
+      name: "resistance-talkback",
       galleryCount: 12,
     };
   },
 };
 </script>
 
+<style lang="scss">
+.resistance-talkback {
+  .pagination {
+    bottom: 100px;
+  }
+}
+</style>

@@ -80,7 +80,7 @@ export default {
       }
       console.log(ref, wrapper);
       gsap.to(ref, {
-        height: "100vh",
+        height: "calc(100vh - 54px)",
         scrollTrigger: {
           trigger: wrapper,
           start: "top top",
@@ -154,81 +154,60 @@ export default {
       if (!ref) {
         return;
       }
-      const paragraphs = Array.from(ref.querySelectorAll("p"));
+      const paragraphs = gsap.utils.toArray(ref.querySelectorAll("p"));
       if (!paragraphs) {
         return;
       }
-      paragraphs.forEach((p, i) => {
-        gsap.set(p, {
-          autoAlpha: 0,
-          scale: 0.9,
-        });
-        gsap.to(p, {
-          autoAlpha: 1,
-          scale: 1,
+
+      paragraphs.forEach((panel, i) => {
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: p,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: true,
+            trigger: panel,
+            start: `top-=${panel.offsetHeight / 2}px top`,
+            end: `top+=${panel.offsetHeight / 2}px top`,
+            // markers: true,
+            scrub: true,
           },
         });
+        gsap.set(panel, {
+          autoAlpha: 0,
+          scale: 0.9,
+          "-webkit-filter": "blur(30px)",
+          filter: "blur(30px)",
+        });
+        tl.to(panel, {
+          scale: 1,
+          autoAlpha: 1,
+          duration: 1,
+          "-webkit-filter": "blur(0px)",
+          filter: "blur(0px)",
+        })
+          .to(panel, {
+            autoAlpha: 1,
+            duration: 3,
+            "-webkit-filter": "blur(0px)",
+            filter: "blur(0px)",
+          })
+          .to(panel, {
+            scale: 0.9,
+            autoAlpha: 0,
+            duration: 2,
+            "-webkit-filter": "blur(30px)",
+            filter: "blur(30px)",
+          });
       });
-
-      // const navTarget = this.$refs.navList;
-      // if (navTarget) {
-      //   const pageNav = document.createElement("NAV");
-      //   paragraphs.forEach((item, i) => {
-      //     const navItem = document.createElement("div");
-      //     navItem.classList.add(`nav-item-${i}`);
-      //     pageNav.appendChild(navItem);
-      //   });
-      //   console.log(pageNav);
-      //   navTarget.appendChild(pageNav);
-      // }
     },
   },
 };
 </script>
 
 <style lang="scss">
-@keyframes pFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes pFadeOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
 .aftermath {
   &.text-scroller-page {
     .text-wrapper {
       width: 100%;
       max-width: 100%;
     }
-  }
-  p {
-    // opacity: 0;
-  }
-
-  p.fade-in {
-    animation: pFadeIn 0.3s ease forwards;
-  }
-  p.fade-out {
-    animation: pFadeOut 0.3s ease forwards;
   }
   p.img-container {
     width: 100%;
@@ -239,7 +218,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 }

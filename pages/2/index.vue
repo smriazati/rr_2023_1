@@ -15,11 +15,11 @@
       <div class="close-overlay" @click="closeIntro"></div>
       <InstructionModal :content="intro" @close-modal="closeIntro" />
     </div>
-
+    <!-- 
     <div v-if="isTimelineVisible" class="modal-container">
       <div class="close-overlay" @click="closeTimeline"></div>
       <InstructionModal :content="timeline" @close-modal="closeTimeline" />
-    </div>
+    </div> -->
     <div v-show="showMapControls">
       <MapControls
         :markers="markers"
@@ -41,7 +41,7 @@ import { mapState } from "vuex";
 export default {
   async asyncData({ $content }) {
     const intro = await $content("02/introduction").fetch();
-    const timeline = await $content("02/timeline").fetch();
+    // const timeline = await $content("02/timeline").fetch();
 
     const chumot_house = await $content("02/chumot_house").fetch();
     const german_hq = await $content("02/german_hq").fetch();
@@ -89,7 +89,7 @@ export default {
     };
     return {
       intro,
-      timeline,
+      // timeline,
       markerContent,
     };
   },

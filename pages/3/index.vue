@@ -3,9 +3,6 @@
     <h1 class="visually-hidden">{{ name }}</h1>
     <div class="stacked-divs">
       <div class="video-player-background">
-        <!-- <video muted autoplay loop>
-          <source src="/videos/03-videobg.mp4" type="video/mp4" />
-        </video> -->
         <CloudinaryVideo
           :src="bgVideo.src"
           :controls="false"
@@ -43,15 +40,13 @@
         class="video-player-foreground"
       >
         <div ref="videoPlayer" class="video-player">
-          <!-- <video ref="video" controls>
-            <source src="/videos/03-placeholder.mp4" type="video/mp4" />
-          </video> -->
           <CloudinaryVideo
             :src="mainVideo.src"
             :controls="true"
             :autoplay="false"
             :subtitles="mainVideo.subtitles"
             ref="videoComp"
+            @vid-ended="onVidEnd"
           />
         </div>
 
@@ -97,17 +92,13 @@ export default {
       },
     };
   },
-  mounted() {
-    // this.addEventListenersToVideo(this.$refs.video);
-  },
-  watch: {
-    isVideoEnded() {
-      if (this.isVideoEnded) {
-        this.showPagination();
-      }
-    },
-  },
+
   methods: {
+    onVidEnd() {
+      console.log("this end");
+      this.isVideoEnded = true;
+      this.showPagination();
+    },
     setPlayerVisible() {
       this.isPlayerVisible = true;
       this.playVid();
@@ -139,36 +130,6 @@ export default {
     },
     pauseVid() {
       this.$refs.videoComp.$refs.video.pause();
-    },
-    addEventListenersToVideo(vid) {
-      var media = vid;
-
-      // Playing event
-      media.addEventListener("playing", () => {
-        // console.log("Playing event triggered");
-        this.isVideoStarted = true;
-      });
-
-      // Pause event
-      media.addEventListener("pause", () => {
-        // console.log("Pause event triggered");
-      });
-
-      // Seeking event
-      media.addEventListener("seeking", () => {
-        // console.log("Seeking event triggered");
-      });
-
-      // Volume changed event
-      media.addEventListener("volumechange", () => {
-        // console.log("Volumechange event triggered");
-      });
-
-      // Volume changed event
-      media.addEventListener("ended", () => {
-        console.log("Ended event triggered");
-        this.showPagination();
-      });
     },
   },
 };
@@ -202,6 +163,9 @@ export default {
     width: 100%;
     max-width: 100%;
     height: 100%;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+
     .video-wrapper {
       min-width: 100%;
       min-height: 100%;
