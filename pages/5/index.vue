@@ -1,5 +1,5 @@
 <template>
-  <div ref="page" :class="name">
+  <div ref="page" :class="name" class="dark-pattern-bg transition-bg">
     <h1 class="visually-hidden">{{ name }}</h1>
     <section class="flex-col-reverse">
       <ScrollHint />
@@ -48,7 +48,9 @@
             Photograph of Jewish Cemetery in Tuchyn, 2020, Nataliia Ivchyk.
           </figcaption>
         </figure>
-        <div class="grid7 grid-the-end text-wrapper flex-row align-center">
+        <div
+          class="grid7 grid-the-end text-wrapper light flex-row align-center"
+        >
           <figure>
             <img
               src="/images/05/conclusion_04.jpg"
@@ -142,9 +144,6 @@ export default {
         return;
       }
 
-      // arrow animations
-      console.log("Start animation.");
-
       const grid = this.$refs.grid;
       if (grid) {
         this.setGridAnimation(grid);
@@ -181,7 +180,7 @@ export default {
         autoAlpha: 0,
         x: 300,
       });
-      console.log(children[1]);
+      // console.log(children[1]);
       gsap.to(children[1], {
         autoAlpha: 1,
         x: 0,
@@ -267,16 +266,32 @@ export default {
       // fade in "the end "
       // console.log(children);
       const page = this.$refs.page;
-      gsap.set(page, {
-        background: "#131313",
-      });
+      // gsap.set(page, {
+      //   background: "#131313",
+      // });
       gsap.to(page, {
-        background: "#eaeaea",
+        // background: "#eaeaea",
         scrollTrigger: {
           trigger: children[5],
           start: `bottom-=${window.innerHeight / 6} top`,
-          end: `bottom+=${window.innerHeight / 12} top`,
           scrub: true,
+          // markers: true,
+
+          onToggle: (self) => {
+            console.log(self.direction, self.isActive);
+            if (self.direction === 1 && self.isActive) {
+              page.classList.add("green-pattern-bg");
+              if (page.classList.contains("dark-pattern-bg")) {
+                page.classList.remove("dark-pattern-bg");
+              }
+            }
+            if (self.direction === -1 && !self.isActive) {
+              page.classList.add("dark-pattern-bg");
+              if (page.classList.contains("green-pattern-bg")) {
+                page.classList.remove("green-pattern-bg");
+              }
+            }
+          },
         },
       });
 
@@ -327,8 +342,8 @@ export default {
         // quote
         grid-row: 1 / 2;
         grid-column: 3 / span 4;
-        padding: 30% 0;
-        padding: 30vh 0;
+        padding: 40% 0;
+        padding: 40vh 0;
       }
 
       .grid1 {

@@ -1,5 +1,9 @@
 <template>
-  <div class="map-controls">
+  <div :class="isExpanded ? 'expanded' : 'collapsed'" class="map-controls">
+    <button class="menu-toggle" @click="toggleMenu">
+      <span v-if="isExpanded" class="text">Close Map Menu</span>
+      <span v-else class="text">Open Map Menu</span>
+    </button>
     <h2 class="visually-hidden">Map controls</h2>
     <nav class="map-options">
       <h3>Map options</h3>
@@ -50,8 +54,15 @@ export default {
       type: Array,
     },
   },
-
+  data() {
+    return {
+      isExpanded: false,
+    };
+  },
   methods: {
+    toggleMenu() {
+      this.isExpanded = !this.isExpanded;
+    },
     showIntro() {
       this.$emit("show-intro");
     },

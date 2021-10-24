@@ -92,20 +92,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.story-container {
-  display: grid;
-  max-width: 1000px;
-  margin: 0 auto;
-  grid-template-columns: minmax(200px, 50ch) 2fr;
-  // @media (min-width: 1280px) {
-  //   grid-template-columns: 1fr 2fr;
-  // }
-  grid-gap: 30px;
-  .image-wrapper {
-    figure {
-      margin-bottom: 30px;
-    }
-  }
-}
-</style>

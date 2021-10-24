@@ -5,11 +5,17 @@
   height: calc(100% - 54px);
   width: 100vw;
   height: calc(100vh - 54px);
+
+  @media (max-width: $mobile-bp) {
+    height: 100%;
+    height: 100vh;
+  }
 }
 
 .map-controls {
   // width: 300px;
   position: fixed;
+  z-index: 112;
   top: 0;
   left: 100;
   height: 100vh;

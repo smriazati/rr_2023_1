@@ -76,9 +76,6 @@ export default {
 
 <style lang="scss">
 .intro-stories-individual {
-  .pagination {
-    bottom: 100px;
-  }
   .slider-wrapper {
     padding-top: 50px;
   }
@@ -93,7 +90,15 @@ export default {
   }
 
   .slide-item {
-    margin-bottom: 80px;
+    @media (min-width: 960px) {
+      margin-bottom: 80px;
+      padding-top: 100px;
+    }
+    @media (max-width: 960px) {
+      h1 {
+        text-align: center;
+      }
+    }
   }
 }
 </style>

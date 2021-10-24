@@ -93,7 +93,7 @@ export default {
 
   data() {
     return {
-      name: "occupation-stories-individual",
+      name: "aftermath-stories-individual",
       states: [1, 2, 3],
       activeState: 1,
       isPaginationVisible: false,
@@ -192,13 +192,28 @@ export default {
 
 
 <style lang="scss">
-.occupation-stories-individual {
+.aftermath-stories-individual {
   .pagination {
     bottom: 100px;
   }
   button {
     span:last-child {
       padding-left: 0;
+    }
+  }
+  .buttons-bar {
+    margin-top: 30px;
+    button {
+      a,
+      span {
+        transition: 0.3s ease all;
+      }
+    }
+    button:hover {
+      a,
+      span {
+        color: darken(#fff, 30);
+      }
     }
   }
   .icon img {

@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     hideNavInIntroduction() {
-      if (this.page === "1") {
+      if (this.page === "1" || this.page === "index") {
         this.$store.commit("site/hideExhibitNav");
       } else {
         if (!this.isExhibitNavVisible) {

@@ -11,7 +11,7 @@
   @include buttonStyle(#FFF);
 
   &:hover {
-    background: $forest;
+    // background: $forest;
     text-decoration: none;
   }
 
@@ -22,6 +22,37 @@
   }
 }
 
+@mixin buttonHoverFx {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out 0s;
+
+  span,
+  a {
+    z-index: 2;
+    position: relative;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  &::before {
+    background-color: $forest;
+    content: "";
+    transform: translateX(-150%);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 140%;
+    width: 200%;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  &:hover::before {
+    transform: translateX(-50%);
+  }
+
+}
+
+
 button {
   background: transparent;
   border: 0;
@@ -29,15 +60,16 @@ button {
 
   &:not(.flat) {
     @include baseBtnStyle;
+    @include buttonHoverFx;
     color: #fff;
     display: flex;
 
     &.bright {
       background: $forest;
 
-      &:hover {
-        background: darken($forest, 20);
-      }
+      // &:hover {
+      //   background: darken($forest, 20);
+      // }
 
       .icon {
         filter: invert(1);
@@ -107,3 +139,6 @@ button {
     padding-left: 15px;
   }
 }
+
+
+// button hover fx

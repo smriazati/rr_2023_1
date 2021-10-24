@@ -6,8 +6,10 @@
 
 <style lang="scss">
 .exhibit-logo {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 300px;
+  max-height: 300px;
+  max-width: 20vh;
+  max-height: 20vh;
   img {
     width: 100%;
     height: 100%;

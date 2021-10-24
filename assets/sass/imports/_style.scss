@@ -1,3 +1,6 @@
+$mobile-bp: 960px;
+
+
 body {
   font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
 }
@@ -8,6 +11,11 @@ body {
   line-height: 52px;
   letter-spacing: 0.02px;
   font-weight: 400;
+
+  @media (max-width: $mobile-bp) {
+    font-size: 36px;
+    line-height: 40px;
+  }
 }
 
 @mixin h2Style($color: #fff) {
@@ -17,6 +25,11 @@ body {
   letter-spacing: 0.02px;
   font-weight: 400;
   color: $color;
+
+  @media (max-width: $mobile-bp) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 
 }
 
@@ -29,6 +42,10 @@ body {
   text-transform: uppercase;
   color: $color;
 
+  @media (max-width: $mobile-bp) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 
@@ -40,6 +57,10 @@ body {
   font-weight: 400;
   color: $color;
 
+  @media (max-width: $mobile-bp) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 
@@ -62,6 +83,11 @@ body {
   font-weight: 400;
   color: $color;
   letter-spacing: 0.09px;
+
+  @media (max-width: $mobile-bp) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 @mixin captionStyle($color: #fff) {

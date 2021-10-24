@@ -198,5 +198,8 @@ export default {
   &.text-scroller-page .wrapper .nuxt-content p {
     background: transparent !important;
   }
+  &.text-scroller-page > .wrapper {
+    background: rgba(10, 10, 10, 0.4);
+  }
 }
 </style>
