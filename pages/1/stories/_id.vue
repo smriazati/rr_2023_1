@@ -38,6 +38,16 @@ export default {
     return {
       name: "intro-stories-individual",
       isPaginationVisible: true,
+      pageNames: {
+        1: "Meet Luba Chomut",
+        2: "Meet Yosef Zilberberg",
+        3: "Meet Miriam Schwartzman",
+      },
+    };
+  },
+  head() {
+    return {
+      title: this.pageNames[this.$route.params.id],
     };
   },
   mounted() {

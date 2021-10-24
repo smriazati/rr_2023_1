@@ -1,5 +1,5 @@
 <template>
-  <div class="default-layout">
+  <div class="default-layout" :class="`route-${page}`">
     <ExhibitNav />
     <nuxt />
   </div>
@@ -51,5 +51,12 @@ export default {
   flex-direction: column;
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+.route-index,
+.route-1 {
+  .exhibit-nav {
+    opacity: 0;
+  }
 }
 </style>

@@ -97,6 +97,11 @@ export default {
       states: [1, 2, 3],
       activeState: 1,
       isPaginationVisible: false,
+      pageNames: {
+        1: "Laura Oberlender",
+        2: "Yosef Zilberberg",
+        3: "Miriam Schwartzman",
+      },
       videos: {
         1: {
           src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926620/remembering-resistance-videos/04-placeholder_thon9a.mp4",
@@ -123,6 +128,11 @@ export default {
           },
         },
       },
+    };
+  },
+  head() {
+    return {
+      title: this.pageNames[this.$route.params.id],
     };
   },
   mounted() {

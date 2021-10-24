@@ -19,5 +19,16 @@ export default {
       name: "occupation-talkback",
     };
   },
+  head() {
+    return {
+      title: this.name
+        .replace(/-/g, " ")
+        .split(" ")
+        .map((word) => {
+          return word[0].toUpperCase() + word.substring(1);
+        })
+        .join(" "),
+    };
+  },
 };
 </script>

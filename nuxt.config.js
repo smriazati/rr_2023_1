@@ -4,23 +4,24 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'rr_v2',
+    titleTemplate: "%s | Remembering Resistance",
+    title: 'Remembering Resistance',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Remembering Resistance description goes here' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        src: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap",
-        as: "style"
-      }
+      // {
+      //   rel: 'stylesheet',
+      //   src: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+      //   as: "style"
+      // }
     ],
     script: [
       {
@@ -67,6 +68,15 @@ export default {
     extractCSS: true,
     loaders: {
       limit: 0,
+    }
+  },
+  buildModules: [
+    '@nuxtjs/google-fonts'
+  ],
+  googleFonts: {
+    prefetch: true,
+    families: {
+      'Atkinson+Hyperlegible': true,
     }
   }
 }

@@ -7,6 +7,7 @@
         :autoplay="autoplay"
         :loop="loop"
         :muted="muted"
+        disablePictureInPicture
       >
         <source :src="src" type="video/mp4" />
         <source type="mp4" />
@@ -26,6 +27,7 @@
         :autoplay="autoplay"
         :loop="loop"
         :muted="muted"
+        disablePictureInPicture
       >
         <source :src="src" type="video/mp4" />
         <source type="mp4" />

@@ -50,6 +50,8 @@
   color: white;
   width: 1280px;
   max-width: 1280px;
+  border: 0;
+  outline: 0;
 
   @media (max-width: 1280px) {
     width: 90%;
@@ -83,7 +85,7 @@
       background: $sage;
     }
 
-    position: fixed;
+    position: absolute;
     z-index: 114;
     padding: 30px;
     display: flex;

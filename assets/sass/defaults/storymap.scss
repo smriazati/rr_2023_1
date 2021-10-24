@@ -15,7 +15,12 @@
 .map-controls {
   // width: 300px;
   position: fixed;
-  z-index: 112;
+
+  @media (max-width: $mobile-bp) {
+    z-index: 112;
+
+  }
+
   top: 0;
   left: 100;
   height: 100vh;
