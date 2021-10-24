@@ -32,6 +32,32 @@
   flex-direction: column;
   justify-content: space-between;
 
+  @media (max-width: $mobile-bp) {
+    overflow-y: scroll;
+    padding: 30px;
+
+    >* {
+      margin-bottom: 30px;
+    }
+
+    &.collapsed {
+      padding: 0;
+      height: unset;
+    }
+
+    &.expanded {
+      height: 100%;
+
+      button {
+        bottom: unset;
+        left: unset;
+        margin-left: 0;
+        flex: 0 0 50px;
+      }
+    }
+
+  }
+
   h3 {
     @include pStyle();
     text-transform: uppercase;

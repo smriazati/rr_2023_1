@@ -28,6 +28,11 @@
       // grid-auto-rows: auto;
       // grid-column-gap: 30px;
       padding-top: 100px;
+
+      @media (max-width: $mobile-bp) {
+        padding-top: 30px;
+      }
+
       display: flex;
       flex-direction: column;
       justify-content: center;

@@ -7,6 +7,7 @@
   // background: #365821;
   background: #000;
   position: relative;
+
   overflow: hidden;
 
   &:before {
@@ -137,13 +138,17 @@
     font-size: 14px;
   }
 
-
+  // .pagination
   @media(max-width: $mobile-bp) {
     display: flex;
     align-items: center;
     bottom: 30px !important;
     display: flex;
     align-items: center;
+
+    .wrapper {
+      margin: 0 auto;
+    }
 
     h3 {
       display: none;
@@ -259,6 +264,7 @@
   }
 
   @media (max-width: $mobile-bp) {
+
     .menu-toggle {
       display: block;
       // top: 0;
@@ -266,6 +272,12 @@
       bottom: 15px;
       left: 15px;
       background: $gray;
+    }
+
+    &.expanded {
+      .menu-toggle {
+        position: relative;
+      }
     }
 
     &.collapsed {

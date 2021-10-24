@@ -10,13 +10,14 @@
 <script>
 export default {
   destroyed() {
+    this.hasScrolled = false;
     window.removeEventListener("scroll", this.handleScroll);
   },
   data() {
     return {
       hasScrolled: false,
       showScrollHint: false,
-      delay: 3, // seconds
+      delay: 1, // seconds
     };
   },
   mounted() {

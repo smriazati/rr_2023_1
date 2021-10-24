@@ -348,6 +348,9 @@ export default {
         grid-column: 3 / span 4;
         padding: 40% 0;
         padding: 40vh 0;
+        @media (max-width: 960px) {
+          grid-column: 1 / span 8;
+        }
       }
 
       .grid1 {
@@ -355,41 +358,80 @@ export default {
         grid-column: 5 / span 3;
         padding-top: 20%;
         padding-bottom: 100px;
+        @media (max-width: 960px) {
+          padding-top: 0;
+          padding-bottom: 0;
+          grid-column: 1 / span 8;
+        }
       }
       .grid3 {
         grid-row: 2 / 6;
         grid-column: 1 / 5;
+        @media (max-width: 960px) {
+          grid-column: 1 / span 8;
+          grid-row: 4 / 5;
+        }
       }
       .grid4 {
         grid-row: 5 / 6;
         grid-column: 5 / span 4;
+        @media (max-width: 960px) {
+          grid-column: 1 / span 8;
+        }
       }
 
       .grid2 {
         grid-row: 6 / 7;
         grid-column: 1 / 4;
         place-self: end;
+        @media (max-width: 960px) {
+          padding-top: 50vh;
+          grid-column: 1 / span 8;
+        }
       }
       .grid6 {
         padding-top: 20%;
         padding-top: 20vh;
         grid-row: 6 / 7;
         grid-column: 4 / span 5;
+        @media (max-width: 960px) {
+          grid-column: 1 / span 8;
+          grid-row: 7 / 8;
+          padding-top: 0;
+        }
       }
       .grid7 {
         grid-row: 7 / 8;
         grid-column: 2 / span 6;
+        @media (max-width: 960px) {
+          grid-column: 1 / span 8;
+        }
         place-self: center;
         padding-top: 400px;
         padding-bottom: 25%;
         padding-bottom: 25vh;
+
+        @media (max-width: 960px) {
+          &.flex-row {
+            flex-direction: column;
+          }
+          grid-column: 1 / span 8;
+          grid-row: 8 / 9;
+          padding-top: 50vh;
+
+          button.align-left {
+            margin: 0 auto;
+          }
+        }
         figure {
           margin-top: 30px;
           flex: 0 0 50%;
         }
         .text {
           flex: 2;
-          padding-left: 30px;
+          @media (min-width: 960px) {
+            padding-left: 30px;
+          }
         }
         p + p {
           margin: 30px 0;

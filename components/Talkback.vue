@@ -26,8 +26,6 @@ export default {
   align-items: center;
   .text-wrapper {
     text-align: center;
-    max-width: 50ch;
-    margin: 0 auto;
     &.left {
       p {
         text-align: left;

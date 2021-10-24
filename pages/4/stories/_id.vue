@@ -195,6 +195,7 @@ export default {
       if (this.activeState !== 2) {
         this.pauseVid();
       }
+      window.scrollTo(0, 0);
     },
   },
 };

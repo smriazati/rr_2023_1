@@ -70,11 +70,17 @@ export default {
       vid.addEventListener("ended", () => {
         this.onVidEnd();
       });
+
+      vid.addEventListener("fullscreenchange", () => {
+        // console.log("Full Screen Toggle");
+        this.toggleFullscreen();
+      });
     }
   },
   data() {
     return {
       isVidEnded: false,
+      isFullscreen: false,
     };
   },
   methods: {
@@ -82,7 +88,26 @@ export default {
       console.log("emitting end");
 
       this.isVidEnded = true;
+
+      if (this.isFullscreen) {
+        this.closeFullscreen();
+      }
       this.$emit("vid-ended");
+    },
+    toggleFullscreen() {
+      this.isFullscreen = !this.isFullscreen;
+    },
+    closeFullscreen() {
+      this.isFullscreen = false;
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
     },
   },
   computed: {
