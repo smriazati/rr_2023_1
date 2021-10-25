@@ -174,6 +174,13 @@ export default {
     .video-wrapper {
       min-width: 100%;
       min-height: 100%;
+      display: flex;
+      @media (min-width: 960px) {
+        margin-bottom: 30px;
+      }
+      @media (max-width: 960px) {
+        padding: 30px;
+      }
     }
     video {
       width: 100%;
@@ -204,6 +211,11 @@ export default {
     .video-player {
       display: flex;
       justify-content: center;
+      @media (max-width: 960px) {
+        max-height: 70vh;
+        max-width: 124vh;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -214,6 +226,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .text-wrapper {
       padding: 30px;
       border-radius: 30px;
@@ -230,6 +243,10 @@ export default {
       transition: 0.3s ease all;
       &:hover {
         color: #fff;
+      }
+      @media (max-width: 960px) {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }

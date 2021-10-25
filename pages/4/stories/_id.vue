@@ -204,9 +204,6 @@ export default {
 
 <style lang="scss">
 .aftermath-stories-individual {
-  .pagination {
-    bottom: 100px;
-  }
   button {
     span:last-child {
       padding-left: 0;

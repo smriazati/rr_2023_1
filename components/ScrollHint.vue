@@ -17,7 +17,7 @@ export default {
     return {
       hasScrolled: false,
       showScrollHint: false,
-      delay: 1, // seconds
+      delay: 1.5, // seconds
     };
   },
   mounted() {

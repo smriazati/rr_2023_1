@@ -120,10 +120,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.video-wrapper {
-  display: flex;
-  margin-bottom: 30px;
-}
-</style>

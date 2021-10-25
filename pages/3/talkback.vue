@@ -40,11 +40,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.resistance-talkback {
-  .pagination {
-    bottom: 100px;
-  }
-}
-</style>

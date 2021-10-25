@@ -107,3 +107,19 @@
   outline: 0;
   border: none;
 }
+
+
+@media (max-width: $mobile-bp) and (orientation: landscape) {
+  .story-container .image-wrapper figure {
+    // max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      flex: 0 0 400px;
+      object-fit: contain;
+      overflow: hidden;
+    }
+  }
+}

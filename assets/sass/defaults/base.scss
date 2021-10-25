@@ -180,8 +180,17 @@ figcaption,
       display: inline;
       position: absolute;
       font-size: 150px;
+
+
+
       left: -50px;
       top: 75px;
+
+      @media (max-width: $mobile-bp) {
+        font-size: 80px;
+        left: -25px;
+        top: 50px;
+      }
     }
 
     p {

@@ -105,10 +105,10 @@ export default {
 }
 
 .menu-toggle.expanded .line-3 {
-  -webkit-transform: rotate(-45deg) translateY(4px) translateX(1px);
-  -moz-transform: rotate(-45deg) translateY(4px) translateX(1px);
-  -o-transform: rotate(-45deg) translateY(4px) translateX(1px);
-  transform: rotate(-45deg) translateY(4px) translateX(1px);
+  -webkit-transform: rotate(-45deg) translateY(6px) translateX(2px);
+  -moz-transform: rotate(-45deg) translateY(6px) translateX(2px);
+  -o-transform: rotate(-45deg) translateY(6px) translateX(2px);
+  transform: rotate(-45deg) translateY(6px) translateX(2px);
   top: 39px;
   left: 8px;
 }

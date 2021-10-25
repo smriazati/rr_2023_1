@@ -273,11 +273,12 @@ export default {
       // gsap.set(page, {
       //   background: "#131313",
       // });
+      // console.log(children[6]);
       gsap.to(page, {
         // background: "#eaeaea",
         scrollTrigger: {
-          trigger: children[5],
-          start: `bottom-=${window.innerHeight / 6} top`,
+          trigger: children[6],
+          start: `top-=${window.innerHeight / 2}px top`,
           scrub: true,
           // markers: true,
 
@@ -331,10 +332,10 @@ export default {
       max-width: 1280px;
       margin: 0 auto;
       @media (max-width: 1280px) {
-        width: 90%;
-        width: 90vw;
-        max-width: 90%;
-        max-width: 90vw;
+        width: 85%;
+        width: 85vw;
+        max-width: 85%;
+        max-width: 85vw;
       }
       p {
         margin: 0;
@@ -418,6 +419,7 @@ export default {
           grid-column: 1 / span 8;
           grid-row: 8 / 9;
           padding-top: 50vh;
+          padding-bottom: 60px;
 
           button.align-left {
             margin: 0 auto;
