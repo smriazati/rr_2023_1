@@ -1,8 +1,22 @@
 <template>
   <div ref="page" :class="name" class="dark-pattern-bg transition-bg">
     <h1 class="visually-hidden">{{ name }}</h1>
+    <div class="scroll-progress-bar-wrapper">
+      <ScrollProgressBar :height="wrapperHeight" />
+    </div>
     <section class="flex-col-reverse">
       <ScrollHint />
+      <div class="bg-image">
+        <figure>
+          <img
+            src="/images/05/conclusion_04.jpg"
+            alt="Painting of two whites doves perched next to large gray stones."
+          />
+          <figcaption>
+            Painting of Doves, by Yosef Zilberberg, Courtesy Yosef Zilberberg.
+          </figcaption>
+        </figure>
+      </div>
       <div ref="grid" class="text-wrapper text-grid">
         <div class="grid5 grid-quote">
           <blockquote>
@@ -22,8 +36,8 @@
 
         <figure class="grid3 full-width grid-first-image">
           <img
-            src="/images/05/conclusion_01.jpg"
-            alt="Photograph of Memorial Monument in Tuchyn, 2016, Jared McBride."
+            src="/images/05/conclusion_mon_01.jpg"
+            alt="Photograph of a four-tiered stone monument with Ukrainian text on the lower tiers and a Star of David on the top tier."
           />
           <figcaption>
             Photograph of Memorial Monument in Tuchyn, 2016, Jared McBride.
@@ -31,10 +45,10 @@
         </figure>
         <figure class="grid4 full-width grid-second-image">
           <img
-            src="/images/05/conclusion_02.jpg"
-            alt="Photograph of Memorial Monument in Tuchyn, 2016, Jared McBride."
+            src="/images/05/conclusion_mon_02.jpg"
+            alt="Close up Image of the text of the monument. Text reads In memory of three thousand Jews, residents of Tuchin, who raised the banner of revolt in the Tuchin ghetto. Murdered, burned, and buried alive by murderers, in September 1942. In honor of their sacred memory!"
           />
-          <figcaption>
+          <figcaption class="visually-hidden">
             Photograph of Memorial Monument in Tuchyn, 2016, Jared McBride.
           </figcaption>
         </figure>
@@ -42,10 +56,10 @@
         <figure class="grid6 full-width grid-third-image">
           <img
             src="/images/05/conclusion_03.jpg"
-            alt="Photograph of Jewish Cemetery in Tuchyn, 2020, Nataliia Ivchyk."
+            alt="Photograph of a green field with ruins of a single buidling in the background."
           />
           <figcaption>
-            Photograph of Jewish Cemetery in Tuchyn, 2020, Nataliia Ivchyk.
+            Jewish Cemetery in Tuchyn, 2020, Courtesy Nataliia Ivchyk.
           </figcaption>
         </figure>
         <div
@@ -54,7 +68,7 @@
           <figure>
             <img
               src="/images/05/conclusion_04.jpg"
-              alt="Painting of Doves, by Yosef Zilberberg, n.d., Yosef Zilberberg."
+              alt="Painting of two whites doves perched next to large gray stones."
             />
             <figcaption>
               Painting of Doves, by Yosef Zilberberg, n.d., Yosef Zilberberg.
@@ -70,7 +84,7 @@
             </p>
             <nav>
               <button class="align-left">
-                <nuxt-link to="/1">Start over</nuxt-link>
+                <nuxt-link to="/">Start over</nuxt-link>
               </button>
             </nav>
           </div>
@@ -91,6 +105,7 @@ export default {
       images,
     };
   },
+  scrollToTop: true,
   head() {
     return {
       title: this.name.charAt(0).toUpperCase() + this.name.slice(1),
@@ -99,19 +114,27 @@ export default {
   data() {
     return {
       name: "conclusion",
+      wrapperHeight: null,
     };
   },
   mounted() {
     this.showTitlesAsCaption();
-    this.$nextTick(this.setAnimation());
+    this.setAnimation();
+    this.setWrapperHeight();
 
-    window.addEventListener("resize", this.setAnimation());
+    window.addEventListener("resize", () => {
+      this.setAnimation();
+      this.setWrapperHeight();
+    });
   },
 
   unmounted() {
     window.removeEventListener("resize", this.setAnimation());
   },
   methods: {
+    setWrapperHeight() {
+      this.wrapperHeight = this.$refs.page.offsetHeight;
+    },
     showTitlesAsCaption() {
       const ref = this.$refs.imageWrapper;
       if (!ref) {
@@ -136,37 +159,19 @@ export default {
         parent.appendChild(figure);
       });
     },
-    registerPlugins() {
-      gsap.registerPlugin(ScrollTrigger);
-    },
+
     setAnimation() {
-      this.registerPlugins();
-      //   console.log(gsap);
-
-      if (!gsap || !ScrollTrigger) {
-        console.log("Cancelling animation, no GSAP or ST exists.");
-        return;
-      }
-
       const grid = this.$refs.grid;
       if (grid) {
         this.setGridAnimation(grid);
       }
     },
     setGridAnimation(grid) {
+      const gsap = this.$gsap;
       const children = Array.from(grid.children);
       if (!children) {
         return;
       }
-      // const children = grid.childElements
-      // console.log(children);
-
-      // children.forEach((child, i) => {
-      //   // console.log(child);
-      //   gsap.set(child, {
-      //     autoAlpha: 0,
-      //   });
-      // });
 
       gsap.set(children[0], {
         autoAlpha: 0,
@@ -267,39 +272,6 @@ export default {
         },
       });
 
-      // fade in "the end "
-      // console.log(children);
-      const page = this.$refs.page;
-      // gsap.set(page, {
-      //   background: "#131313",
-      // });
-      // console.log(children[6]);
-      gsap.to(page, {
-        // background: "#eaeaea",
-        scrollTrigger: {
-          trigger: children[6],
-          start: `top-=${window.innerHeight / 2}px top`,
-          scrub: true,
-          // markers: true,
-
-          onToggle: (self) => {
-            console.log(self.direction, self.isActive);
-            if (self.direction === 1 && self.isActive) {
-              page.classList.add("green-pattern-bg");
-              if (page.classList.contains("dark-pattern-bg")) {
-                page.classList.remove("dark-pattern-bg");
-              }
-            }
-            if (self.direction === -1 && !self.isActive) {
-              page.classList.add("dark-pattern-bg");
-              if (page.classList.contains("green-pattern-bg")) {
-                page.classList.remove("green-pattern-bg");
-              }
-            }
-          },
-        },
-      });
-
       gsap.set(children[6], {
         autoAlpha: 0,
       });
@@ -320,6 +292,57 @@ export default {
 
 <style lang="scss">
 .conclusion {
+  p,
+  blockquote {
+    @include pBigStyle();
+  }
+
+  .grid-the-end {
+    p,
+    figcaption,
+    blockquote {
+      color: white;
+    }
+
+    p.small {
+      color: white;
+      @include pStyle();
+    }
+
+    text-align: left;
+
+    button:before {
+      background: darken($forest, 10);
+    }
+  }
+}
+
+.conclusion {
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    figure {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        // min-width: 100%;
+        // max-height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+      figcaption {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+      }
+    }
+  }
   section {
     display: flex;
     justify-content: center;

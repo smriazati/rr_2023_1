@@ -34,21 +34,21 @@
     transition: all 0.5s ease-in-out 0s;
   }
 
-  &::before {
-    background-color: $forest;
-    content: "";
-    transform: translateX(-150%);
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 140%;
-    width: 200%;
-    transition: all 0.5s ease-in-out 0s;
-  }
+  // &::before {
+  //   background-color: $forest;
+  //   content: "";
+  //   transform: translateX(-150%);
+  //   position: absolute;
+  //   left: 0px;
+  //   top: 0px;
+  //   height: 140%;
+  //   width: 200%;
+  //   transition: all 0.5s ease-in-out 0s;
+  // }
 
-  &:hover::before {
-    transform: translateX(-50%);
-  }
+  // &:hover::before {
+  //   transform: translateX(-50%);
+  // }
 
 }
 
@@ -65,7 +65,7 @@ button {
     display: flex;
 
     &.bright {
-      background: $forest;
+      background: $sage;
 
       // &:hover {
       //   background: darken($forest, 20);
@@ -142,3 +142,27 @@ button {
 
 
 // button hover fx
+
+.circle-btn:not(.flat) {
+  width: 100px;
+  height: 100px;
+
+  &.big {
+    width: 200px;
+    height: 200px;
+  }
+
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  a {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+}

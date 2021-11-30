@@ -1,8 +1,10 @@
 <template>
   <div class="error-layout">
-    <h1 v-if="error.statusCode === 404">Page not found</h1>
+    <h1 v-if="error.statusCode === 404">Oops, there&rsquo;s nothing here!</h1>
     <h1 v-else>An error occurred</h1>
-    <NuxtLink to="/">Home page</NuxtLink>
+    <button>
+      <NuxtLink to="/">Go to the exhibit</NuxtLink>
+    </button>
   </div>
 </template>
 
@@ -19,5 +21,9 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  h1 {
+    margin-bottom: 30px;
+  }
 }
 </style>

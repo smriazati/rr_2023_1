@@ -1,3 +1,4 @@
-![](/images/04/schwartzman_02.jpg "")
+In 1950, Maria and Alex moved to the Polish capital Warsaw, which was ruined during the war. After the war people began rebuilding the city and it felt like a “revival” for Maria. She loved city life. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Maria, her husband Alexander, Basia, and their son Eugeniusz eventually made aliyah, or emigrated, to Tel Aviv in Israel in 1957. There, Maria took the name Miriam, Basia became Batia, and Eugeniusz took the name Gideon. Basia had two sons, Ronny and David. Ronny was killed serving his country as an Israeli soldier during the Lebanon War. Miriam passed away in 2008. Hear her son Gideon speak about his mother and this difficult past.
+

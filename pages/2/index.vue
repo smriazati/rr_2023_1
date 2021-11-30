@@ -4,28 +4,20 @@
     <Pagination
       v-if="isPaginationVisible"
       link="/2/talkback"
-      message="Reflect on the occupation"
+      message="Review What You Learned"
     />
     <Storymap
+      ref="storymap"
       :animActive="true"
       :markers="markers"
       :visitedOnce="visitedOnce"
     />
-    <div v-if="isIntroVisible" class="modal-container">
-      <div class="close-overlay" @click="closeIntro"></div>
-      <InstructionModal :content="intro" @close-modal="closeIntro" />
+    <div v-if="isIntroVisible" class="modal-container transparent">
+      <!-- <div class="close-overlay" @click="closeIntro"></div> -->
+      <StorymapIntro @close-modal="closeIntro" />
     </div>
-    <!-- 
-    <div v-if="isTimelineVisible" class="modal-container">
-      <div class="close-overlay" @click="closeTimeline"></div>
-      <InstructionModal :content="timeline" @close-modal="closeTimeline" />
-    </div> -->
-    <div v-show="showMapControls">
-      <MapControls
-        :markers="markers"
-        @show-intro="showIntro()"
-        @show-timeline="showTimeline()"
-      />
+    <div v-show="areMapControlsActive">
+      <MapControls :markers="markers" @show-intro="showIntro()" />
     </div>
 
     <div v-if="isModalVisible" class="modal-container">
@@ -41,7 +33,6 @@ import { mapState } from "vuex";
 export default {
   async asyncData({ $content }) {
     const intro = await $content("02/introduction").fetch();
-    // const timeline = await $content("02/timeline").fetch();
 
     const chumot_house = await $content("02/chumot_house").fetch();
     const german_hq = await $content("02/german_hq").fetch();
@@ -89,7 +80,6 @@ export default {
     };
     return {
       intro,
-      // timeline,
       markerContent,
     };
   },
@@ -99,10 +89,8 @@ export default {
       isPaginationVisible: false,
       isIntroVisible: false,
       isModalVisible: false,
-      isIntroActive: false,
       viewedAllStories: false,
-      showMapControls: false,
-      isTimelineVisible: false,
+      areMapControlsActive: false,
       markers: [
         {
           id: 0,
@@ -175,22 +163,21 @@ export default {
     panAnimComplete() {
       if (this.panAnimComplete) {
         this.$store.commit(`occupation/setFlyoverComplete`);
-        setTimeout(this.activateIntro, 1500);
+        // setTimeout(this.activateIntro, 1500);
+        this.showMapControls();
       }
     },
   },
   mounted() {
     if (this.visitedOnce) {
-      this.showMapControls = true;
+      this.areMapControlsActive = true;
     }
+
+    this.showIntro();
   },
   methods: {
     showPagination() {
       this.isPaginationVisible = true;
-    },
-    activateIntro() {
-      this.isIntroActive = true;
-      this.showIntro();
     },
     closeModal() {
       this.isModalVisible = false;
@@ -201,19 +188,22 @@ export default {
     },
     closeIntro() {
       this.isIntroVisible = false;
-      this.showMapControls = true;
+
+      // if visited once, click return button. if visited first, click pan to button
+      if (this.visitedOnce || this.areMapControlsActive) {
+        const showMap = this.$refs.storymap.$refs.onReturnButton;
+        showMap.click();
+      } else {
+        const panToMap = this.$refs.storymap.$refs.panToButton;
+        panToMap.click();
+      }
+      // console.log(panToMap, showMap);
     },
     showIntro() {
       this.isIntroVisible = true;
-      this.showMapControls = false;
     },
-    showTimeline() {
-      this.isTimelineVisible = true;
-      this.showMapControls = false;
-    },
-    closeTimeline() {
-      this.isTimelineVisible = false;
-      this.showMapControls = true;
+    showMapControls() {
+      this.areMapControlsActive = true;
     },
   },
   computed: {

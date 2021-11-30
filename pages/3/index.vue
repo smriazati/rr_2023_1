@@ -1,67 +1,63 @@
 <template>
   <div :class="name">
     <h1 class="visually-hidden">{{ name }}</h1>
-    <div class="stacked-divs">
-      <div class="video-player-background">
-        <CloudinaryVideo
-          :src="bgVideo.src"
-          :controls="false"
-          :muted="true"
-          :loop="true"
-          :autoplay="true"
-          ref="bgVideoComp"
-        />
+    <div class="video-intro">
+      <div class="video-background">
+        <VimeoComponentBg ref="vidBg" vidId="650435263" />
       </div>
-      <div
-        :class="isPlayerVisible ? 'visually-hidden' : ''"
-        class="video-instructions"
-      >
-        <div class="text-wrapper center">
-          <h2>Resistance</h2>
-          <p>
-            Watch a short film about how the Jewish people of Tuchyn resisted
-            occupation.
-          </p>
-          <p>Complete the video to unlock the next page.</p>
-          <button class="cursor-hover bright" @click="setPlayerVisible">
-            <span>Play video</span>
-          </button>
+      <div class="video-intro-text">
+        <div class="call-out">
+          <div class="text-wrapper">
+            <h1 class="center">Resistance to Oppression</h1>
+            <p class="big">
+              The Jews of Tuchyn were not just victims under German occupation.
+              Instead, Jewish people resisted German and Ukrainian persecution
+              in many different ways.
+            </p>
+          </div>
+          <div class="text-wrapper instructions">
+            <p>
+              Watch a short film to learn about how Jews stood up to this
+              oppression.
+            </p>
+            <p>
+              As you watch this video, think about a time you practiced
+              resistance in your life. What did you do? How do you feel about it
+              now?
+            </p>
+            <button class="cursor-hover bright" @click="showFilm()">
+              <span>Play video</span>
+            </button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div
-        :class="
-          isPlayerVisible
-            ? isFirstView
-              ? 'show-player-first-view'
-              : 'show-player'
-            : 'hide-player'
-        "
-        class="video-player-foreground"
-      >
-        <div ref="videoPlayer" class="video-player">
-          <CloudinaryVideo
-            :src="mainVideo.src"
-            :controls="true"
-            :autoplay="false"
-            :subtitles="mainVideo.subtitles"
-            ref="videoComp"
-            @vid-ended="onVidEnd"
-          />
+    <div v-show="isFilmActive" class="resistance-film">
+      <div class="col flex-col">
+        <div class="iframe-wrapper">
+          <vimeo-player
+            ref="vid"
+            key="650434994"
+            video-url="https://vimeo.com/650434994"
+            video-id="650434994"
+            :options="options"
+            @playing="onVidPlaying"
+            @ended="onVidEnded"
+          >
+          </vimeo-player>
         </div>
+        <div v-show="!isPaginationVisible" class="text">
+          <p class="small muted">Complete the video to unlock the next page.</p>
+        </div>
+      </div>
+      <button class="flat close-button" @click="hideFilm">
+        <span class="icon icon-close"></span>
+      </button>
+    </div>
 
-        <div class="inline-instructions">
-          <button class="flat" @click="openInstructionsInline">
-            <span>View instructions</span>
-          </button>
-        </div>
-      </div>
-      <div v-show="isPaginationVisible">
-        <Pagination
-          link="/3/talkback"
-          message="Reflect on the resistance movement"
-        />
-      </div>
+    <div v-show="isPaginationVisible">
+      <Pagination link="/3/talkback" message="Reflect on Resistance" />
     </div>
   </div>
 </template>
@@ -77,52 +73,25 @@ export default {
   data() {
     return {
       name: "resistance",
-      isVideoStarted: false,
-      isVideoEnded: false,
+      isFilmEnded: false,
       isPaginationVisible: false,
-      isPlayerVisible: false,
-      areInlineInstructionsVisible: false,
-      isFirstView: false,
-      viewCount: 0,
-      bgVideo: {
-        src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634926589/remembering-resistance-videos/03-videobg_c1x33c.mp4",
-      },
-      mainVideo: {
-        src: "https://res.cloudinary.com/dn8rmd4ql/video/upload/v1634931813/remembering-resistance-videos/output-720p-1200k_mchspw.mp4",
-        subtitles: {
-          src: "/placeholder_subs.vtt",
-          label: "English",
-          srclang: "en",
-        },
+      isFilmActive: false,
+      options: {
+        controls: true,
+        loop: false,
+        autoplay: false,
+        muted: false,
+        portrait: false,
+        title: false,
+        byline: false,
       },
     };
   },
 
   methods: {
-    onVidEnd() {
-      console.log("this end");
-      this.isVideoEnded = true;
+    onVidEnded() {
+      this.isFilmEnded = true;
       this.showPagination();
-    },
-    setPlayerVisible() {
-      this.isPlayerVisible = true;
-      this.playVid();
-      if (this.viewCount === 0) {
-        this.isFirstView = true;
-      } else {
-        this.isFirstView = false;
-      }
-      this.viewCount = this.viewCount + 1;
-    },
-    setPlayerInvisible() {
-      this.isPlayerVisible = false;
-      this.pauseVid();
-    },
-    openInstructionsInline() {
-      this.setPlayerInvisible();
-    },
-    toggleInlineInstructions() {
-      this.areInlineInstructionsVisible = !this.areInlineInstructionsVisible;
     },
     showPagination() {
       this.isPaginationVisible = true;
@@ -130,124 +99,123 @@ export default {
     hidePagination() {
       this.isPaginationVisible = false;
     },
-    playVid() {
-      this.$refs.videoComp.$refs.video.play();
+    showFilm() {
+      this.isFilmActive = true;
+      this.pauseBgVid();
+      this.playFilm();
     },
-    pauseVid() {
-      this.$refs.videoComp.$refs.video.pause();
+    hideFilm() {
+      this.isFilmActive = false;
+      this.playBgVid();
+    },
+    onVidPlaying() {
+      this.isFilmPlaying = true;
+    },
+    pauseFilm() {
+      this.$refs.vid.pause();
+    },
+    playFilm() {
+      this.$refs.vid.play();
+    },
+    pauseBgVid() {
+      if (this.$refs.vidBg) {
+        this.$refs.vidBg.$refs.player.pause();
+      }
+    },
+    playBgVid() {
+      if (this.$refs.vidBg) {
+        this.$refs.vidBg.$refs.player.play();
+      }
     },
   },
 };
 </script>
 
 <style lang="scss">
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes blurVid {
-  from {
-    filter: blur(0px) grayscale(0) brightness(1) contrast(1);
-  }
-  to {
-    filter: blur(3px) grayscale(0.2) brightness(0.3) contrast(1.5);
-  }
-}
 .resistance {
+  .pagination {
+    z-index: 999;
+  }
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 
-  .video-player-background {
-    background: black;
+  .video-intro {
+    position: relative;
     width: 100%;
-    max-width: 100%;
     height: 100%;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-
-    .video-wrapper {
-      min-width: 100%;
-      min-height: 100%;
-      display: flex;
-      @media (min-width: 960px) {
-        margin-bottom: 30px;
-      }
-      @media (max-width: 960px) {
-        padding: 30px;
-      }
-    }
-    video {
+    .video-background {
+      position: absolute;
+      z-index: 9;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      animation: blurVid 2.5s ease forwards;
-
-      // filter: blur(3px) grayscale(0.2) brightness(0.3) contrast(1.5);
     }
   }
-  .video-player-foreground {
-    width: 90%;
-    max-width: 90%;
+  .video-intro-text {
+    width: 50ch;
+    position: absolute;
+    z-index: 11;
+    left: calc((100% - 50ch) / 2);
+    max-height: 80%;
     height: 100%;
+    max-width: 80%;
+    // width: auto;
+    top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    z-index: 11;
-    opacity: 0;
-    &.show-player-first-view {
-      animation: fadeIn 2.5s ease forwards;
+    align-items: center;
+    .call-out {
+      background: rgba($gray, 0.8);
+      @media (max-height: 620px) {
+        overflow-y: scroll;
+      }
+      border: 0;
     }
-    &.show-player {
-      animation: fadeIn 0.1s ease forwards;
+    p.big {
+      font-size: 24px;
+      line-height: 30px;
     }
-    .video-player {
+  }
+  .resistance-film {
+    position: fixed;
+    z-index: 909;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vw;
+    background: rgba($gray, 0.95);
+
+    div.col {
       display: flex;
       justify-content: center;
-      @media (max-width: 960px) {
-        max-height: 70vh;
-        max-width: 124vh;
-        margin: 0 auto;
+      align-items: center;
+      height: 100vh;
+      min-height: 100vh;
+    }
+    .text {
+      text-align: right;
+      max-width: 1280px;
+      margin-top: 30px;
+      width: 100%;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      p {
+        font-size: 16px;
+        font-style: italic;
+        color: lighten($gray, 60);
       }
     }
-  }
-
-  .video-instructions {
-    background: rgba(0, 0, 0, 0.12);
-    position: relative;
-    z-index: 19;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .text-wrapper {
-      padding: 30px;
-      border-radius: 30px;
-      background: rgba(0, 0, 0, 0.42);
-    }
-  }
-
-  .inline-instructions {
-    color: #a1a1a1;
-
-    button {
-      padding-top: 15px;
-      color: #a1a1a1;
-      transition: 0.3s ease all;
-      &:hover {
-        color: #fff;
-      }
-      @media (max-width: 960px) {
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .iframe-wrapper {
+      padding: 0;
+      margin: 0;
+      max-width: 1280px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

@@ -1,5 +1,5 @@
-﻿![Image of German Head Quarters, established in a Tuchyn schoolhouse. The school still stands today.](/images/02/german_hq_01.jpg "Image of German Head Quarters, established in a Tuchyn schoolhouse. The school still stands today.")
+![Black and white drawing of Ukranians denying grain to a Jewish person](/images/02/gendarmerie_01.jpg "German Ukrainian-language anti-Jewish poster: “We will give nothing to yids!” (Yid is an offensive term meaning Jewish person.) The German military posted anti-Jewish placards like this everywhere and ordered local Ukrainians not to give asylum to Jewish residents. Courtesy YIVO Institute for Jewish Research.")
 
-![Image of Ukrainians greeting Nazis somewhere in Western Ukraine.](/images/02/german_hq_02.jpg "Image of Ukrainians greeting Nazis somewhere in Western Ukraine.")
+![Sepiatone photograph of soldiers standing around and forcing Jewish people to stand in ditches and dig their own graves](/images/02/gendarmerie_02.jpg "Staszow, Poland, Wehrmacht soldiers forcing Jewish people to dig their own graves. The Wehrmacht was Germany's defense power that assisted in the invasion of the Soviet Union in 1941. Wehrmacht worked closely with Gestapo forces to enforce antisemitic polices and commit war crimes. Courtesy Yad Vashem.")
 
-![Jewish hiding dugout in Zborov, Ukraine built in 1943](/images/02/german_hq_03.jpg "Jewish hiding dugout in Zborov, Ukraine built in 1943")
+![Black and white photograph of a man wearing large glasses](/images/02/gendarmerie_03.jpg "Ze'ev Portnoy, photo taken after the war. He was only nine years old when the German military occupied Tuchyn in 1941. Courtesy The Jews of Tuchyn and Kripe in Front of Their Murderers.")

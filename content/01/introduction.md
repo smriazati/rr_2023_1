@@ -1,11 +1,11 @@
-Far away in Ukraine sits a village named Tuchyn. It is surrounded by farmland and forests. 
+Far away in Ukraine sits a small town named Tuchyn. Farmland and forests surround it. 
 
-During the Holocaust, the Germans took over Tuchyn. In September 1942, the Jews of Tuchyn rose up against the Nazis. They set fire to their homes and fought back. 
+The German army took over Tuchyn in July 1941. The Germans and their Ukrainian helpers constantly persecuted the Jewish community and treated them with violence. 
 
-Thousands of people fled to the surrounding forests. Many Jews ultimately perished at the hands of the Germans and their Ukrainian neighbors.
+In September 1942, the Jewish residents of Tuchyn learned that the Germans planned to kill them all. The Jews resisted by setting fire to their homes and fighting back. 
 
-Few people know about this uprising. In this exhibit, you will uncover this history yourselves as you hear from people who lived through it. 
+Thousands of people fled to the forests but many were caught. Almost all Tuchyn’s Jews perished at the hands of the Germans and their own Ukrainian neighbors.
 
-Explore this digital exhibit. Share this story with your communities. Consider how we can all resist intolerance in our communities.
+In this exhibition, you will learn about this “Holocaust by Bullets” through family stories. You will find out about many forms of resistance during this mass genocide.
 
-
+Unearth these roots of resistance. Share these stories with people you know. Consider how you can stand up to intolerance in your own lives.

@@ -1,22 +1,14 @@
-It is estimated that nearly 2,000 Jews escaped into the forests surrounding Tuchyn. 
+During the fires and the chaos, about 2,000 Jews escaped into the forest around Tuchyn.
 
-Around half of them had been captured and killed within three days of the ghetto fire. 
+Germans and Ukrainians murdered the Jews remaining in the ghetto and launched a manhunt for those who had escaped. Within three days, about half were recaptured and killed.
 
-Many realized that they could not survive in the forests and attempted to return to Tuchyn in search of food, shelter, and clothing. 
+Many people, especially women and children were starving and freezing in the forest. German officials announced they would not harm any remaining escapees if they returned.
 
 ![Caption TKTK](/images/04/intro_01.jpg "Caption TKTK")
 
-Those who returned to the village were shot and killed.
+Hoping the Germans would honor this promise, many women and children came back to Tuchyn. After a few days, several hundred Jews were taken to the Jewish cemetery and town park and shot.
 
-753 Jews were shot in the Jewish cemetery. 
+On January 16, 1944, the Soviet Army liberated the town and much of the region. About 3,000 Jews from Tuchyn had died and only 69 survived.
 
-240 Jews were killed by Ukrainian partisans in the Kudrinka forest.
-
-More than 300 Jews, Ukrainians, and Poles were massacred by the German Gendarmerie in the town park. 
-
-Some of those who remained in the forests died of hunger and cold.
-
-![Caption TKTK](/images/04/intro_02.jpg "Caption TKTK")
-
-By the liberation of Tuchyn on January 16, 1944, around 20 Jews remained in the area. In total, only 69 Jews survived Tuchyn, escaping to the United States and Israel. 
+Tuchyn is one of thousands of Jewish shtetls in Eastern Europe destroyed in this Holocaust by Bullets.
 

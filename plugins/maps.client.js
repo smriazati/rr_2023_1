@@ -85,13 +85,23 @@ export default function (context, inject) {
             }
 
             const bounds = new window.google.maps.LatLngBounds()
+            const colors = [
+                '#54a131',
+                '#70a131',
+                '#8ca131',
+                '#a19a31',
+                '#a17e31',
+                '#a16231'
+            ]
+            const markerSeenColor = "#131313";
 
-            markers.forEach((m) => {
+            markers.forEach((m, i) => {
                 // console.log(m.id)
+                console.log(i)
                 const position = new window.google.maps.LatLng(parseFloat(m.lat), parseFloat(m.lng))
                 const marker = new window.google.maps.Marker({
                     position,
-                    icon: mapMarkerIcon("#e71e4d"),
+                    icon: mapMarkerIcon(colors[i]),
                     clickable: true,
                 })
 
@@ -108,19 +118,19 @@ export default function (context, inject) {
 
                 marker.addListener("mouseout", () => {
                     if (!markerSeen) {
-                        marker.setIcon(mapMarkerIcon("#e71e4d"))
+                        marker.setIcon(mapMarkerIcon(colors[i]))
                         // console.log('mouseout', m.id);
                     }
                 });
 
-                const green = "#86d099";
                 marker.addListener("click", () => {
                     // console.log('clicked', m.id);
-                    marker.setIcon(mapMarkerIcon(green))
+                    marker.setIcon(mapMarkerIcon(markerSeenColor))
                     markerSeen = true;
                     context.store.commit(`occupation/setActiveStory`, m.id);
                 });
 
+                
                 // add listeners to map controls navigation
                 const mapControlListItem = document.getElementById(`marker-${m.id}`);
                 if (mapControlListItem) {
@@ -128,7 +138,7 @@ export default function (context, inject) {
                     // click event
                     google.maps.event.addDomListener(mapControlListItem, "click", () => {
                         markerSeen = true;
-                        marker.setIcon(mapMarkerIcon(green))
+                        marker.setIcon(mapMarkerIcon(markerSeenColor))
                     });
 
                     // hover event 
@@ -141,7 +151,7 @@ export default function (context, inject) {
     
                     google.maps.event.addDomListener(mapControlListItem, "mouseout", () => {
                         if (!markerSeen) {
-                            marker.setIcon(mapMarkerIcon("#e71e4d"))
+                            marker.setIcon(mapMarkerIcon(colors[i]))
                             // console.log('mouseout', m.id);
                         }
                     });
@@ -215,7 +225,8 @@ export default function (context, inject) {
 
             function animationComplete() {
                 setTimeout( () => { 
-                    setTimeout (() => {showMarkers()}, 2000)
+                    // setTimeout (() => {showMarkers()}, 2000)
+                    showMarkers();
                     context.store.commit(`occupation/setPanAnimComplete`); // animation TIMER complete
                 }, animationDuration);
             }

@@ -1,3 +1,5 @@
-![](/images/04/yosef_painting.png "")
+# Aftermath: Yosef Zilberberg
 
-Before the war, the Zilberberg family owned and operated a grocery, with Josef’s father working in the cattle trade. During the war, Josef, his parents, and his two brothers were taken in by Anton Ozertchunk, a Ukrainian, who kept them hidden on his property. Much of their hiding was spent in miserable conditions, where Josef and his immediate family were clustered together under a pile of straw or in a pit for days on end.
+During the war, Yosef Zilberberg and his family survived in hiding. Anton Ozertchuk, a Ukrainian, hid them on his property. They lived for over a year in miserable conditions, clustered together under a barn that held sheep. While Yosef’s immediate family survived the war, the majority of his family perished. Many of Yosef’s aunts, uncles, and cousins died at the hands of the Germans and Ukrainians. 
+
+The Zilberberg family continued to hide with Anton for a time after the liberation of the area by Russian forces. Hear Yosef recall a poignant memory with Anton.  

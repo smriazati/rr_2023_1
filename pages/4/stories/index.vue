@@ -1,27 +1,12 @@
 <template>
   <div :class="name" class="stories-landing-page">
-    <div class="text-wrapper">
-      <nuxt-content :document="page" />
-    </div>
-    <div class="image-wrapper">
-      <nuxt-link to="/4/stories/1" class="flat">
-        <figure>
-          <img src="/images/01/stories_01.jpg" alt="" />
-          <figcaption>Laura Oberlender</figcaption>
-        </figure>
-      </nuxt-link>
-      <nuxt-link to="/4/stories/2" class="flat">
-        <figure>
-          <img src="/images/01/stories_02.jpg" alt="" />
-          <figcaption>Yosef Zilberberg</figcaption>
-        </figure>
-      </nuxt-link>
-      <nuxt-link to="/4/stories/3" class="flat">
-        <figure>
-          <img src="/images/01/stories_03.jpg" alt="" />
-          <figcaption>Miriam Schwartzman</figcaption>
-        </figure>
-      </nuxt-link>
+    <div class="story-lp-images-wrapper">
+      <StoryLandingPageImages
+        :items="stories"
+        :sectionIndex="4"
+        title="Aftermath and Rebirth"
+        msg="Click below to hear what happened to the people and families from Tuchyn in the aftermath of the Holocaust and war. "
+      />
     </div>
   </div>
 </template>
@@ -37,6 +22,23 @@ export default {
   data() {
     return {
       name: "aftermath-stories",
+      stories: [
+        {
+          src: "/images/01/intro_01.png",
+          name: "Luba Chomut",
+          alt: "Young girl in a dark dress.",
+        },
+        {
+          src: "/images/01/intro_02.png",
+          name: "Yosef Zilberberg",
+          alt: "Adolescent boy in a shirt and jacket",
+        },
+        {
+          src: "/images/01/intro_03.png",
+          name: "Mania Schwartzman",
+          alt: "Young woman in 1940s era clothing",
+        },
+      ],
     };
   },
   head() {

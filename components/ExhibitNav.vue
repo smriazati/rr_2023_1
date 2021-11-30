@@ -48,6 +48,7 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
+
   mounted() {
     const nav = this.$refs.navLinks;
     if (nav) {
@@ -65,7 +66,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+.route-null {
+  .exhibit-nav {
+    display: none;
+  }
+}
 .menu-toggle .line-1 {
   top: 0px;
   -webkit-transform-origin: left center;
@@ -111,5 +117,112 @@ export default {
   transform: rotate(-45deg) translateY(6px) translateX(2px);
   top: 39px;
   left: 8px;
+}
+
+.exhibit-nav {
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #404a3b;
+
+  //   color: #fff;
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
+
+    li {
+      flex: 1;
+      text-align: center;
+      font-size: 14px;
+      //   text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        color: rgb(213, 213, 213);
+        transform: scale(1);
+        transition: 0.3s ease all;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+      }
+
+      &:hover {
+        a {
+          background: $gray;
+          color: $white;
+        }
+      }
+
+      a.nuxt-link-active {
+        background: $forest;
+        color: $white;
+        &:hover {
+          cursor: default;
+        }
+        // transform: scale(1.1);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: $mobile-bp) {
+    .menu-toggle {
+      display: block;
+      // top: 0;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+
+      rect {
+        transition: 0.3s ease all;
+        fill: #fff;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        rect {
+          fill: $sage;
+        }
+      }
+    }
+
+    &.collapsed {
+      ul {
+        display: none;
+      }
+
+      background: transparent;
+      width: 50px;
+    }
+  }
+
+  &.expanded {
+    height: 100vh;
+    width: 80vw;
+    display: flex;
+    z-index: 113;
+    flex-direction: column;
+    justify-content: center;
+
+    ul {
+      flex-direction: column;
+
+      li {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+    }
+  }
 }
 </style>

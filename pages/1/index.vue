@@ -1,24 +1,23 @@
 <template>
   <div ref="wrapper" :class="name" class="text-scroller-page">
     <h1 class="visually-hidden">{{ name }}</h1>
-    <div class="nav-tracker-bar" ref="navList"></div>
-    <ScrollHint />
+    <div class="scroll-progress-bar-wrapper">
+      <ScrollProgressBar :height="wrapperHeight" />
+    </div>
     <div class="wrapper">
-      <div ref="imageZoomer" class="image-wrapper">
-        <div class="image-zoom-wrapper">
-          <img
-            src="/images/01/bgimg.jpg"
-            alt="Painting of figure walking into a forest"
-          />
-        </div>
+      <div class="image-zoom-wrapper">
+        <ImageZoomer
+          :height="wrapperHeight"
+          :src="img.src"
+          :alt="img.alt"
+          :caption="img.caption"
+        />
       </div>
-      <div ref="textScroller" class="text-scroller">
-        <div class="text-wrapper light centered">
-          <nuxt-content :document="page" />
-        </div>
+      <div class="text-scroller-wrapper">
+        <TextScroller :panels="panels" @scrolled-to-end="showPagination()" />
       </div>
       <div v-show="isPaginationVisible">
-        <Pagination link="/1/stories" message="Meet the characters" />
+        <Pagination link="/1/stories" message="Meet the people" />
       </div>
     </div>
   </div>
@@ -36,6 +35,21 @@ export default {
     return {
       name: "introduction",
       isPaginationVisible: false,
+      wrapperHeight: null,
+      img: {
+        src: "/images/01/bgimg.jpg",
+        alt: "Painting of a person (small in frame) running into a forest.",
+        caption:
+          "Escape into the Forests, Painting by Yosef Zilberberg, Courtesy Yosef Zilberberg.",
+      },
+      panels: [
+        "Far away in Ukraine sits a small town named Tuchyn. Farmland and forests surround it.",
+        "The German army took over Tuchyn in July 1941. The Germans and their Ukrainian helpers constantly persecuted the Jewish community and treated them with violence.",
+        "In September 1942, the Jewish residents of Tuchyn learned that the Germans planned to kill them all. The Jews resisted by setting fire to their homes and fighting back.",
+        "Thousands of people fled to the forests but many were caught. Almost all Tuchyn’s Jews perished at the hands of the Germans and their own Ukrainian neighbors.",
+        "In this exhibition, you will learn about this “Holocaust by Bullets” through family stories. You will find out about many forms of resistance during this mass genocide.",
+        "Unearth these roots of resistance. Share these stories with people you know. Consider how you can stand up to intolerance in your own lives.",
+      ],
     };
   },
   head() {
@@ -44,155 +58,20 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(this.setAnimation);
+    this.setWrapperHeight();
+    window.addEventListener("resize", () => {
+      this.setWrapperHeight();
+    });
   },
   methods: {
-    registerPlugins() {
-      gsap.registerPlugin(ScrollTrigger);
+    setWrapperHeight() {
+      this.wrapperHeight = window.innerHeight * this.panels.length;
     },
     showPagination() {
       this.isPaginationVisible = true;
     },
     hidePagination() {
       this.isPaginationVisible = false;
-    },
-    togglePaginationOnWrapper() {
-      const wrapper = this.$refs.wrapper;
-      ScrollTrigger.create({
-        trigger: wrapper,
-        start: `bottom-=${window.innerHeight / 2}px bottom`,
-        onToggle: (self) => {
-          if (self.isActive) {
-            this.showPagination();
-          }
-        },
-      });
-    },
-    togglePaginationOnTextScroller(textScroller) {
-      const lastPar = Array.from(textScroller.querySelectorAll("p")).pop();
-      if (lastPar) {
-        ScrollTrigger.create({
-          trigger: lastPar,
-          start: `top-=${window.innerHeight / 2}px top`,
-          end: "bottom",
-          onToggle: (self) => {
-            if (self.isActive) {
-              this.showPagination();
-            }
-          },
-        });
-      } else {
-        this.togglePaginationOnWrapper();
-      }
-    },
-    setAnimation() {
-      this.registerPlugins();
-
-      if (!gsap || !ScrollTrigger) {
-        console.log("Cancelling animation, no GSAP or ST exists.");
-        return;
-      }
-
-      const textScroller = this.$refs.textScroller;
-      if (textScroller) {
-        this.setTextScrollingAnimation(textScroller);
-        this.togglePaginationOnTextScroller(textScroller);
-        this.setScrollNavBarAnimation();
-      } else {
-        this.togglePaginationOnWrapper();
-      }
-
-      const imageZoomer = this.$refs.imageZoomer;
-      if (imageZoomer) {
-        this.setImageZoomingAnimation(imageZoomer);
-      }
-    },
-    setTextScrollingAnimation(ref) {
-      if (!ref) {
-        return;
-      }
-      const paragraphs = gsap.utils.toArray(ref.querySelectorAll("p"));
-      if (!paragraphs) {
-        return;
-      }
-
-      paragraphs.forEach((panel, i) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: panel,
-            start: `top-=${panel.offsetHeight / 2}px top`,
-            end: `top+=${panel.offsetHeight / 2}px top`,
-            // markers: true,
-            scrub: true,
-          },
-        });
-        gsap.set(panel, {
-          autoAlpha: 0,
-          scale: 0.9,
-          "-webkit-filter": "blur(30px)",
-          filter: "blur(30px)",
-        });
-        tl.to(panel, {
-          scale: 1,
-          autoAlpha: 1,
-          duration: 1,
-          "-webkit-filter": "blur(0px)",
-          filter: "blur(0px)",
-        })
-          .to(panel, {
-            autoAlpha: 1,
-            duration: 3,
-            "-webkit-filter": "blur(0px)",
-            filter: "blur(0px)",
-          })
-          .to(panel, {
-            scale: 0.9,
-            autoAlpha: 0,
-            duration: 2,
-            "-webkit-filter": "blur(30px)",
-            filter: "blur(30px)",
-          });
-      });
-    },
-    setScrollNavBarAnimation() {
-      const ref = this.$refs.navList;
-      const wrapper = this.$refs.wrapper;
-      if (!ref || !wrapper) {
-        return;
-      }
-      gsap.to(ref, {
-        height: "100vh",
-        scrollTrigger: {
-          trigger: wrapper,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true,
-        },
-      });
-    },
-    setImageZoomingAnimation(ref) {
-      if (!ref) {
-        return;
-      }
-      const imgWrapper = ref.querySelector(".image-zoom-wrapper");
-      const pageWrapper = ref.parentElement;
-      if (!imgWrapper || !pageWrapper) {
-        return;
-      }
-      gsap.set(imgWrapper, {
-        scale: 3,
-        autoAlpha: 0.2,
-      });
-      gsap.to(imgWrapper, {
-        scale: 1,
-        autoAlpha: 0.5,
-        scrollTrigger: {
-          trigger: pageWrapper,
-          start: "0",
-          end: "bottom bottom",
-          scrub: 1.5,
-        },
-      });
     },
   },
 };

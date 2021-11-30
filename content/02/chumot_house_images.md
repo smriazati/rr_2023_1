@@ -1,5 +1,5 @@
-![Photograph of Laura’s mother and father before the war.](/images/02/chumot_house_03.jpg "Photograph of Laura’s mother and father before the war.")
+![Painting of family being attacked in their home](/images/02/chomut_house_01.jpg "Ukrainians breaking into Yosef’s cousin’s house. They threatened to kill him unless he gave up his valuables. By Yosef Zilberberg, Courtesy Yosef Zilberberg.")
 
-![Photograph of a 1941 pogrom in Liv, Ukraine about 3 hours away from Tuchyn.](/images/02/chumot_house_02.jpg "Photograph of a 1941 pogrom in Liv, Ukraine about 3 hours away from Tuchyn.") 
+![Painting of family being attacked in their home](/images/02/chomut_house_02.png "A pogrom organized by a group of Ukrainian policemen under the auspices of German forces. Before World War II, pogroms occurred in Eastern Europe for centuries. By Yosef Zilberberg, Courtesy Yosef Zilberberg.")
 
-![Yosef Zilberberg’s painting from after the war --showing Ukrainians breaking into his cousin’s house to kill him unless he gave up valuables.](/images/02/chumot_house_01.jpg "Yosef Zilberberg’s painting from after the war --showing Ukrainians breaking into his cousin’s house to kill him unless he gave up valuables.") 
+![Photo of dark-haired woman and man in formal 1930s era clothing](/images/02/chomut_house_03.jpg "Laura’s mother and father Perla and Itkak Chomut before the war, Courtesy Michael Emmett.")

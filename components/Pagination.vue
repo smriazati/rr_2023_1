@@ -1,7 +1,8 @@
 <template>
-  <nav ref="pagination" class="pagination">
+  <nav ref="pagination" class="pagination" :class="back ? 'back-btn' : ''">
     <nuxt-link :to="link" class="wrapper">
-      <h3>Next section</h3>
+      <h3 v-if="!back">Next section</h3>
+      <h3 v-else>Previous section</h3>
       <span class="cta" :to="link"
         >{{ message }} <IconArrow class="icon-light"
       /></span>
@@ -20,72 +21,201 @@ export default {
       type: String,
       required: true,
     },
+    back: {
+      type: Boolean,
+      required: false,
+    },
   },
   data() {
     return {
       isCollapsed: false,
     };
   },
-  mounted() {
-    const ref = this.$refs.pagination;
-    if (ref) {
-      // this.dragElement(this.$refs.pagination);
-    }
-  },
-  methods: {
-    dragElement(elmnt) {
-      var pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
-
-      const draggableItemWidth = 300;
-      const draggableItemHeight = elmnt.offsetHeight;
-      elmnt.onmousedown = dragMouseDown;
-
-      function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-      }
-
-      function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-
-        if (
-          e.clientX < window.innerWidth - draggableItemWidth &&
-          e.clientX > 0
-        ) {
-          pos1 = pos3 - e.clientX;
-          pos3 = e.clientX;
-          elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-        }
-
-        if (
-          e.clientY < window.innerHeight - draggableItemHeight &&
-          e.clientY > 0
-        ) {
-          pos2 = pos4 - e.clientY;
-          pos4 = e.clientY;
-          elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-        }
-
-        // set the element's new position:
-      }
-
-      function closeDragElement() {
-        // stop moving when mouse button is released:
-        document.onmouseup = null;
-        document.onmousemove = null;
-      }
-    },
-  },
 };
 </script>
+<style lang='scss'>
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes arrowBounce {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(15px);
+  }
+}
+
+@keyframes arrowBounceFlipped {
+  from {
+    transform: translateX(0px) rotate(180deg);
+  }
+
+  to {
+    transform: translateX(-15px) rotate(180deg);
+  }
+}
+
+.pagination {
+  overflow: hidden;
+
+  position: fixed;
+  z-index: 130;
+
+  animation: slideIn 0.8s ease-in forwards;
+  bottom: 25vh;
+  right: 30px;
+  color: #fff;
+  text-align: center;
+
+  .wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+  }
+
+  h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  a {
+    // box-shadow: 0 0 30px #091502d6;
+    background: $gray;
+    transition: 0.3s ease background;
+    &:hover {
+      background: $forest;
+    }
+    // overflow: hidden;
+    @media (min-width: $mobile-bp) {
+      border-radius: 15px;
+    }
+    min-width: 300px;
+
+    min-height: 10vh;
+    max-height: 15vh;
+
+    @media (max-height: 800px) {
+      max-height: 300px;
+    }
+    // // hover FX
+    // transition: 0.3s ease all;
+    // * {
+    //   position: relative;
+    // }
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 200%;
+    //   height: 100%;
+    //   background: $forest;
+    //   transition: 0.9s ease-out all;
+    //   transform: translateX(-100%);
+    //   @media (min-width: $mobile-bp) {
+    //     border-radius: 15px;
+    //   }
+    //   overflow: hidden;
+    // }
+
+    // &:hover {
+    //   // background: $gray;
+    //   &:before {
+    //     transform: translateX(0%);
+    //   }
+    // }
+  }
+  *:hover {
+    text-decoration: none;
+  }
+
+  .cta {
+    display: flex;
+    justify-content: center;
+
+    > .icon {
+      margin-left: 15px;
+      animation: arrowBounce 0.9s ease-in alternate infinite;
+    }
+  }
+}
+
+.pagination.back-btn {
+  left: 30px;
+  right: unset;
+  .cta {
+    flex-direction: row-reverse;
+    > .icon {
+      margin-right: 15px;
+      margin-left: unset;
+      animation: arrowBounceFlipped 0.9s ease-in alternate infinite;
+    }
+  }
+}
+
+// .pagination mobile
+@media (max-width: $mobile-bp) {
+  .pagination {
+    display: flex;
+    position: relative;
+    align-items: center;
+    bottom: 0px !important;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .wrapper {
+      margin: 0 auto;
+    }
+
+    h3 {
+      display: none;
+    }
+  }
+}
+
+// pagination custom positions
+@media (min-width: $mobile-bp) {
+  .resistance .pagination {
+    bottom: 45vh;
+  }
+
+  .occupation-talkback .pagination {
+    bottom: 75px;
+  }
+
+  .intro-stories-individual .pagination {
+    bottom: 100px;
+  }
+
+  .aftermath-stories-individual .pagination {
+    bottom: 100px;
+  }
+
+  .resistance-talkback .pagination {
+    bottom: 100px;
+  }
+}
+
+// .pagination mobile positions
+@media (max-width: $mobile-bp) {
+  .occupation .pagination,
+  .resistance .pagination {
+    position: fixed;
+  }
+}
+</style>

@@ -1,0 +1,1 @@
+![Image of man sitting in between two women, all smiling.](/images/04/mania_01.jpg 'Photo of Maria (Mania) Schwartzman Kouts, Alexander Kouts and Basia Schwartzman, c. 1940s, Courtesy Gideon Kouts. ')

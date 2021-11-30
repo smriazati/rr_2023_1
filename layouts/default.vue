@@ -1,5 +1,6 @@
 <template>
   <div class="default-layout" :class="`route-${page}`">
+    <ExhibitLogo />
     <ExhibitNav />
     <nuxt :key="$route.fullPath" />
   </div>
@@ -14,6 +15,7 @@ export default {
       page: this.$route.name,
     };
   },
+  scrollToTop: true,
   mounted() {
     this.hideNavInIntroduction();
   },

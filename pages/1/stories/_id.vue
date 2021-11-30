@@ -1,47 +1,39 @@
 <template>
-  <div ref="wrapper" :class="name">
+  <div ref="wrapper" :class="name" class="stories-individual">
     <h1 class="visually-hidden">{{ name }}</h1>
-    <div ref="sliderWrapper" class="slider-wrapper">
-      <div class="slider-area">
-        <div class="slide-item">
-          <div ref="textWrapper" class="text-wrapper">
-            <nuxt-content :document="page" />
-            <button class="flat light">
-              <span class="icon icon-arrow icon-arrow-left"><IconArrow /></span>
-              <nuxt-link to="/1/stories">Back to all stories</nuxt-link>
-            </button>
-          </div>
-        </div>
-      </div>
+    <div v-if="this.$route.params.id === '1'">
+      <StoriesIntro1 />
     </div>
+    <div v-if="this.$route.params.id === '2'">
+      <StoriesIntro2 />
+    </div>
+    <div v-if="this.$route.params.id === '3'">
+      <StoriesIntro3 />
+    </div>
+
     <div v-show="isPaginationVisible">
-      <Pagination link="/2" message="Learn about the German Occupation" />
+      <Pagination
+        link="/1/stories"
+        message="Back to All Stories"
+        :back="true"
+      />
+      <Pagination link="/2" message="Explore Map of Tuchyn" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  async asyncData({ $content, params, error }) {
-    const validRoutes = ["1", "2", "3"];
-    if (!validRoutes.includes(params.id)) {
-      return error({ statusCode: 404, message: "oops" });
-    } else {
-      const page = await $content(`01/stories_0${params.id}`).fetch();
-      return {
-        page,
-      };
-    }
-  },
+import animation from "~/mixins/storyAnimations.js";
 
+export default {
   data() {
     return {
       name: "intro-stories-individual",
-      isPaginationVisible: true,
+      isPaginationVisible: false,
       pageNames: {
         1: "Meet Luba Chomut",
         2: "Meet Yosef Zilberberg",
-        3: "Meet Miriam Schwartzman",
+        3: "Meet Mania Schwartzman",
       },
     };
   },
@@ -51,64 +43,11 @@ export default {
     };
   },
   mounted() {
-    // console.log();
-    const textWrapper = this.$refs.textWrapper;
-    if (textWrapper) {
-      this.showTitlesAsCaption(textWrapper);
-    }
+    this.setAnim();
+    this.$nextTick(() => {
+      this.showPaginationAtBodyEnd();
+    });
   },
-  methods: {
-    showTitlesAsCaption(textScroller) {
-      // console.log("ref", ref);
-      const imgs = Array.from(textScroller.querySelectorAll("img:not(.icon)"));
-      if (!imgs) {
-        return;
-      }
-      imgs.forEach((img) => {
-        const figure = document.createElement("figure");
-
-        const parent = img.parentElement;
-        parent.classList.add("img-container");
-        parent.dataset.lightbox = "true";
-        figure.appendChild(img);
-        const title = img.title;
-        if (title) {
-          const caption = document.createElement("figcaption");
-          caption.innerHTML = title;
-          figure.appendChild(caption);
-        }
-        parent.appendChild(figure);
-      });
-    },
-  },
+  mixins: [animation],
 };
 </script>
-
-<style lang="scss">
-.intro-stories-individual {
-  .slider-wrapper {
-    padding-top: 50px;
-  }
-  .text-wrapper p:not(.img-container) {
-    max-width: calc(80ch - 300px);
-  }
-  figure {
-    margin: 30px;
-    margin-top: 0;
-    max-height: 60vh;
-    overflow: hidden;
-  }
-
-  .slide-item {
-    @media (min-width: 960px) {
-      margin-bottom: 80px;
-      padding-top: 100px;
-    }
-    @media (max-width: 960px) {
-      h1 {
-        text-align: center;
-      }
-    }
-  }
-}
-</style>

@@ -25,12 +25,10 @@ export default {
       type: Boolean,
     },
   },
-  methods: {
-    showIntro() {
-      this.isIntroVisible = !this.isIntroVisible;
-    },
-  },
   mounted() {
+    // set map start location
+
+    // animate
     if (!this.visitedOnce) {
       this.$maps.showMap(
         this.$refs.map,
@@ -39,12 +37,13 @@ export default {
         this.markers,
         "tuchyn"
       );
-      if (this.animActive) {
-        setTimeout(() => {
-          this.$refs.panToButton.click();
-        }, 2500);
-      }
+      // if (this.animActive) {
+      // //   setTimeout(() => {
+      // //     // this.$refs.panToButton.click();
+      // //   }, 2500);
+      // }
     } else {
+      // don't animate
       this.$maps.showMap(
         this.$refs.map,
         this.tuchyn.lat,
@@ -52,7 +51,7 @@ export default {
         this.markers,
         "tuchyn"
       );
-      this.$refs.onReturnButton.click();
+      // this.$refs.onReturnButton.click();
     }
   },
   data() {
@@ -69,3 +68,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.map {
+  width: 100%;
+  height: calc(100% - 54px);
+  width: 100vw;
+  height: calc(100vh - 54px);
+
+  @media (max-width: $mobile-bp) {
+    height: 100%;
+    height: 100vh;
+  }
+}
+</style>

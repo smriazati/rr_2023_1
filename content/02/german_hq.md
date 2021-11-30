@@ -1,16 +1,14 @@
 # German HQ
 
-> The German soldiers set themselves up in Tuchyn. In the first days, they took over all the offices: city hall, the post office, the schools.
--Miriam Shvartzman-Kotz, Tuchyn (1967)
+The German military maintained an outpost known as the gendarmerie in Tuchyn, a site of violence and abuse. When the German military arrived, they created an auxiliary police force. They also brought with them their antisemitic policies and exacerbated local anti-Jewish sentiments. 
 
-The Germans arrived in Tuchyn in the summer of 1941. There were mixed reactions from residents of Tuchyn. Many Ukrainians were thrilled at German arrival because life under Soviet Communism was difficult. Rumors had spread that Germany would make Ukraine an independent country and give Ukrainian citizens the control to plunder Jews’ goods without restriction. 
+One Jewish youth, Ze’ev Portnoy, experienced the cruelties of the gendarmerie when German officers captured him. They drove him to the gendarmerie with his hands and feet bound. Ze’ev was locked in a cell with signs of torture and murder. After a few days, officers ordered Ze’ev to chop wood and dig his own grave. Instead, Ze’ev ran and escaped to another village. 
 
-> They called outcries of welcome to the Germans and shouted, ‘Death to the Jews.’
---Shalom Cholevski, a Jewish resident in 1941 
+> They… locked me in a small room that had a window with bars on it. There were abandoned clothes and objects there, apparently of Jews who had been ‘taken care of’ there.
+– Ze’ev Portnoy
 
-Many of the Jews were terrified and attempted to flee into Russia. Some believed rumors from Polish Jews refugees that German control was not that bad. When the Germans came marching through the city, the Jews hid in their houses. Some built hiding shelters in their homes.  
+This antisemitic violence went hand in hand with systemic discrimination. The Gestapo commander placed a tax on Jews and collected their valuable possessions. Jews were also forced to labor to produce goods for Germany. They worked without pay under terrible conditions. Despite the economic profits of Jewish forced labor, German officials eventually ordered the establishment of the Tuchyn ghetto to exterminate all remaining Jewish residents.
 
-At first, the Germans left the Jews alone but they gave Ukrainians the authority to do as they wished to Jews residents. When the Germans began establishing more control, they began stealing valuables from Jews and forcing them to work. For many Jews, having a work card meant you could live. 
+## What is antisemitism?
 
-> Of course, no one had any idea of what was ahead. And despite this, my father enlarged the basement, built a wall of boards, and concealed it with firewood and straw. The place was intended to be a hiding place in difficult times.
--- Zeev Portnoy, a young Jewish resident in 1941
+Antisemitism is prejudice against or hatred of Jewish people. According to Nazi ideology, Jews constituted a separate and dangerous race that could never assimilate into European society. This racist ideology was widespread throughout Europe. People often feared and scapegoated Jewish people for their religious beliefs and their so-called “racial characteristics.” Governments blamed Jews for their country’s economic shortcomings. Many Ukrainians condemned local Jews for the region’s hardship under Soviet occupation. It did not matter what European Jewry did —antisemites did not view them as equal or as human beings.

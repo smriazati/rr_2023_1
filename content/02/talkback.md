@@ -1,1 +1,20 @@
-Here, we will have students work to answer knowledge-based questions to recall the information of this section. We will require students to answer a critical-thinking question in order to reflect on the content. This interactive element has two functions: 1) it is a way to help the students recall what they learned and 2) it will allow students to relate and reflect on the content.
+Please take a moment to define these terms:
+
+
+      Word: Judenrat
+Definition: A council representing the Jewish community under German occupation during World War II.  
+
+      Word: Ghetto 
+Definition: Segregated space where the Germans forced Jews to live in close quarters with limited resources. 
+
+      Word: Pogrom
+Definition: A violent riot aimed at the robbery and killing of Jewish people.
+
+      Word: Synagogue
+Definition: A sacred place of worship, study, and social life for Jewish people.
+
+      Word: Antisemitism 
+Definition: Prejudice against or hatred of Jews. 
+
+
+Click here to see these definitions

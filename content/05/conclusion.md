@@ -1,11 +1,12 @@
 > They tried to bury us, they didn’t know we were seeds.
-Dinos Christianopoulos
+Dinos Christianopoulos, Greek poet
 
-In 2011, Zeev Portnoy, Yosef Zilberberg, and Miriam Schwartzman Koutz’s son Gideon erected a monument on the site of the Tuchyn ghetto in honor of the uprising and the lives lost. 
+In 2011, Yosef Zilberberg, Ze’ev Portnoy, Miriam Schwartzman Kouts’ son Gideon, and others returned to Tuchyn. They erected a monument on the site of the ghetto that honored the uprising and the lives lost. 
 
-The places  where people died lie unmarked today, No traces remain of the massacres that happened there.   
+Most forests, cemeteries, and fields where people died in Tuchyn and throughout Ukraine lie unmarked today. Few traces remain of the massacres that happened there.   
 
-With this exhibit, we remember what happened. 
+With this exhibit, we resist this silence and root ourselves in remembering.
 
-As you leave the digital exhibit, consider these questions. How are people are treated as less-than in your community today? How can we as a community prevent intolerance and violence in all of its forms?
+Consider how people are treated in your lives. What seeds of resistance do you take from Tuchyn? Where can you plant them?
+ 
 

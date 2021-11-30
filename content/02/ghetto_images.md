@@ -1,5 +1,5 @@
-![Jewish families prepare to be removed to a ghetto, taking what belongings they could. Source: ushmm.org](/images/02/ghetto_01.jpg "Jewish families prepare to be removed to a ghetto, taking what belongings they could. Source: ushmm.org")
+![Black and White photo of people living and working clustered around a wire fence ](/images/02/ghetto_01.jpg "Jewish residents inside the Lviv ghetto in Ukraine, Courtesy Ghetto Fighters’ House Museum.")
 
-![Artistic rendition of the Tuchyn ghetto uprising. Source: Tuchyn (1990).](/images/02/ghetto_02.jpg "Artistic rendition of the Tuchyn ghetto uprising. Source: Tuchyn (1990).")
+![Black and white drawing of simple humanoid figures bursting through a wire fence to flee a burning and destroyed village](/images/02/ghetto_02.jpg "Artistic rendition of the Tuchyn ghetto during the fires, The Jews of Tuchin and Kripe in Front of Their Murderers.")
 
-![Jewish residents inside the Lviv ghetto in Ukraine. Source: news.virginia.edu.](/images/02/ghetto_03.jpg "Jewish residents inside the Lviv ghetto in Ukraine. Source: news.virginia.edu.")
+![Painting of a boarded up green door and green shuttered windows](/images/02/ghetto_03.jpg "An abandoned home in Tuchyn, by Yosef Zilberberg, Courtesy Yosef Zilberberg.")
