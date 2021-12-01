@@ -1,7 +1,7 @@
 <template>
   <div
     ref="wrapper"
-    class="instruction-modal modal-wrapper full-width transparent"
+    class="instruction-modal"
     tabindex="0"
     @keydown.esc="closeModal"
   >
@@ -86,13 +86,19 @@ export default {
 </script>
 
 <style lang="scss">
+.instruction-modal {
+  outline: 0;
+  &:focus {
+    outline: 0;
+  }
+}
 .story-map-intro {
   display: grid;
   height: 100%;
   min-height: 100%;
   width: 100%;
   min-width: 100%;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 50vw);
   grid-template-rows: 1fr min-content 1fr;
   grid-template-areas:
     "h q"
@@ -116,10 +122,14 @@ export default {
       max-width: 640px;
       margin-left: auto;
       margin-right: auto;
+      @media (max-width: 1280px) {
+        max-width: 100%;
+      }
     }
   }
   header {
-    padding-top: 150px;
+    padding-top: 10vh;
+
     grid-area: h;
     > * {
       display: flex;

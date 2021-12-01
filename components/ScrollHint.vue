@@ -2,7 +2,13 @@
   <div class="scroll-hint">
     <div v-if="!hasScrolled && showScrollHint" ref="arrow" class="icon-wrapper">
       <p class="visually-hidden">Scroll down</p>
-      <IconArrow class="icon-arrow-down icon-light" />
+      <!-- <IconArrow class="icon-arrow-down icon-light" /> -->
+      <SystemIcon
+        type="arrow"
+        :width="30"
+        color="light"
+        class="icon-arrow-down"
+      />
     </div>
   </div>
 </template>

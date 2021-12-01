@@ -139,6 +139,10 @@ figcaption,
     }
   }
 
+  .collapse-pd-right {
+    padding-right: 0;
+  }
+
   p,
   ul,
   ol {
@@ -226,27 +230,12 @@ figcaption,
 
 body {
   background-color: lighten($gray, 10);
-  background: url("/tree-texture-big.jpg") no-repeat;
+  background: url("/tree-texture-big.jpg") no-repeat, rgba(86, 91, 84, 0.68);
   background-size: cover;
   background-attachment: fixed;
+  background-blend-mode: overlay;
 }
 
-.transition-bg {
-  transition: 1s ease background;
-}
-
-.dark-pattern-bg {
-  @include darkPatternBg;
-
-}
-
-.green-pattern-bg {
-  @include greenPatternBg;
-}
-
-.purple {
-  color: $purple;
-}
 
 .sage {
   color: $sage;
@@ -333,6 +322,10 @@ body {
 
   >*:last-child {
     margin-bottom: 0;
+  }
+
+  &.green-bg {
+    background: rgba($forest, .3)
   }
 }
 

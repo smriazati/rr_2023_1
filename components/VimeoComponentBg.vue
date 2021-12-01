@@ -1,5 +1,8 @@
 <template>
-  <div class="vimeo-component-bg">
+  <div
+    :class="isVidPlaying ? 'fade-in-video' : ''"
+    class="init-vid-fade vimeo-component-bg"
+  >
     <div v-if="vidId" ref="vidWrapper" class="vid-wrapper vid-background">
       <vimeo-player
         class="video-foreground"
@@ -8,6 +11,8 @@
         :video-url="`https://vimeo.com/${vidId}`"
         :video-id="vidId"
         :options="options"
+        @ready="onVidReady"
+        @playing="onVidPlaying"
       >
       </vimeo-player>
     </div>
@@ -35,6 +40,7 @@ export default {
         title: false,
         byline: false,
       },
+      isVidPlaying: false,
     };
   },
   methods: {
@@ -43,9 +49,12 @@ export default {
     },
     onVidReady() {
       // console.log("ready now");
+      // this.isVidReady = true;
+      // this.$emit("on-vid-ready");
     },
     onVidPlaying() {
       // console.log("playing now");
+      this.isVidPlaying = true;
       // this.$emit("on-vid-playing");
     },
     onVidEnded() {
@@ -61,6 +70,13 @@ export default {
 </script>
 
 <style lang="scss">
+.init-vid-fade {
+  opacity: 0;
+  transition: 1s ease-out all;
+}
+.fade-in-video {
+  opacity: 1;
+}
 .vimeo-component-bg {
   //   flex: 1;
   padding: 0;

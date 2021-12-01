@@ -8,6 +8,9 @@ export default {
     height: {
       type: Number,
     },
+    fullHeight: {
+      type: Boolean,
+    },
   },
   mounted() {
     this.setAnim();
@@ -21,13 +24,17 @@ export default {
     setAnim() {
       const gsap = this.$gsap;
       const ref = this.$refs.scrollProgressBar;
+      let heightOffset = 54;
+      if (this.fullHeight) {
+        heightOffset = 0;
+      }
       gsap.to(ref, {
         height: "100vh",
         scrollTrigger: {
           trigger: ref,
           start: "top top",
-          end: `+=${this.height - window.innerHeight}px`,
-          scrub: true,
+          end: `+=${this.height - window.innerHeight - heightOffset}px`,
+          scrub: 1.1,
         },
       });
     },
@@ -40,7 +47,7 @@ export default {
   position: fixed;
   width: 25px;
   top: 0;
-  left: 45px;
+  left: 0px;
   z-index: 22;
   @media (max-width: $mobile-bp) {
     width: 10px;

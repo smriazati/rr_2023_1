@@ -1,6 +1,6 @@
 <template>
   <div class="default-layout" :class="`route-${page}`">
-    <ExhibitLogo />
+    <!-- <ExhibitLogo /> -->
     <ExhibitNav />
     <nuxt :key="$route.fullPath" />
   </div>

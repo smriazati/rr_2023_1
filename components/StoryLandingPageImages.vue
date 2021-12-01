@@ -1,6 +1,6 @@
 <template>
   <div class="story-landing-page-images">
-    <div class="text-wrapper call-out">
+    <div class="text-wrapper center">
       <h2 v-if="title" class="collapsed-mb">{{ title }}</h2>
       <p v-if="msg" class="small">
         {{ msg }}
@@ -140,13 +140,11 @@ export default {
       display: flex;
       flex-direction: column;
       .img {
-        // overflow: hidden;
-        // clip-path: circle(50%);
         img {
           position: relative;
           z-index: 10;
-          filter: grayscale(1);
-          // transform: scale(0.95);
+          filter: blur(1px) grayscale(1) brightness(0.9);
+          // opacity: 0.3;
           transition: 3s ease filter;
         }
       }
@@ -161,7 +159,8 @@ export default {
       }
       &:hover {
         img {
-          // filter: grayscale(0);
+          filter: blur(0px) grayscale(0) brightness(1);
+          opacity: 1;
           // transform: scale(1);
         }
       }

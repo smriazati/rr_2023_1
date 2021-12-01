@@ -10,9 +10,11 @@
       <!-- <div ref="logo" class="logo-wrapper">
         <ExhibitLogo />
       </div> -->
+      <ExhibitLogo />
       <div class="text-wrapper-container flex-col site-container">
         <div ref="text" class="home-page-text flex-col align-center">
           <div class="text-wrapper light">
+            <!-- <img src="/tree.svg" alt="" width="100" height="100" /> -->
             <h2 ref="title" class="h1 collapsed-mb home-page-title">
               <span class="small-text">The</span>Tuchyn Story
             </h2>
@@ -188,6 +190,7 @@ export default {
       // opacity: 0;
       flex: 1;
       position: relative;
+      z-index: 5;
       width: 100%;
       height: 100%;
       height: 100vh;

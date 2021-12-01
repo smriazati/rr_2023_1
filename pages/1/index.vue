@@ -2,7 +2,7 @@
   <div ref="wrapper" :class="name" class="text-scroller-page">
     <h1 class="visually-hidden">{{ name }}</h1>
     <div class="scroll-progress-bar-wrapper">
-      <ScrollProgressBar :height="wrapperHeight" />
+      <ScrollProgressBar :height="wrapperHeight" :fullHeight="true" />
     </div>
     <div class="wrapper">
       <div class="image-zoom-wrapper">
@@ -17,7 +17,7 @@
         <TextScroller :panels="panels" @scrolled-to-end="showPagination()" />
       </div>
       <div v-show="isPaginationVisible">
-        <Pagination link="/1/stories" message="Meet the people" />
+        <Pagination link="/1/stories" message="Meet the People" />
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@ export default {
           "Escape into the Forests, Painting by Yosef Zilberberg, Courtesy Yosef Zilberberg.",
       },
       panels: [
-        "Far away in Ukraine sits a small town named Tuchyn. Farmland and forests surround it.",
-        "The German army took over Tuchyn in July 1941. The Germans and their Ukrainian helpers constantly persecuted the Jewish community and treated them with violence.",
+        "Far away in Ukraine sits a small town named Tuchyn.<br /> Farmland and forests surround it.",
+        "The German army took over Tuchyn in July 1941.<br /> The Germans and their Ukrainian helpers constantly persecuted the Jewish community and treated them with violence.",
         "In September 1942, the Jewish residents of Tuchyn learned that the Germans planned to kill them all. The Jews resisted by setting fire to their homes and fighting back.",
         "Thousands of people fled to the forests but many were caught. Almost all Tuchyn’s Jews perished at the hands of the Germans and their own Ukrainian neighbors.",
         "In this exhibition, you will learn about this “Holocaust by Bullets” through family stories. You will find out about many forms of resistance during this mass genocide.",

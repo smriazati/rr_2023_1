@@ -10,7 +10,17 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Roots of Resistance: The Tuchyn Story teaches students about Jewish resistance during the Holocaust in the village of Tuchyn, Ukraine.' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/1/bgimg.jpg',
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Painting of a person (small in frame) running into a forest.',
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

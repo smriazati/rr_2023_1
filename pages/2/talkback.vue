@@ -99,7 +99,7 @@ export default {
   min-width: 100vw;
   height: 100%;
   min-height: 100vh;
-  background: #35452b73;
+  // background: #35452b73;
   display: flex;
   justify-content: center;
   align-items: center;

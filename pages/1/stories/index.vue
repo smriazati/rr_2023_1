@@ -1,7 +1,7 @@
 <template>
   <div :class="name" class="stories-landing-page">
     <div class="main-row flex-row">
-      <div class="text-wrapper call-out">
+      <div class="text-wrapper call-out green-bg">
         <h1 class="center">Tuchyn Before<br />World War II</h1>
         <p>
           In the 1930s, Tuchyn was a shtetl, a predominantly Jewish town, in

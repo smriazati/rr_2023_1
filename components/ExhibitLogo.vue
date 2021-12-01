@@ -1,11 +1,11 @@
 <template>
   <figure ref="logo" class="exhibit-logo">
-    <nuxt-link to="/">
-      <img
-        src="/images/logo.png"
-        alt="A logo that says Roots of Resistance, with the symbol of a tree. The tree  shows both its branches and roots. "
-      />
-    </nuxt-link>
+    <!-- <nuxt-link to="/"> -->
+    <img
+      src="/images/logo.png"
+      alt="A logo that says Roots of Resistance, with the symbol of a tree. The tree  shows both its branches and roots. "
+    />
+    <!-- </nuxt-link> -->
   </figure>
 </template>
 <script>
@@ -18,9 +18,10 @@ export default {
   mounted() {
     if (this.animate || this.$route.path === "/") {
       this.setAnimation();
-    } else {
-      this.setFixedPos();
     }
+    window.addEventListener("resize", () => {
+      this.setFixedPos();
+    });
   },
   watch: {
     $route() {
@@ -34,10 +35,17 @@ export default {
       const logo = this.$refs.logo;
 
       if (logo) {
-        logo.style.width = "80px";
-        logo.style.height = "80px";
-        logo.style.left = "15px";
-        logo.style.top = "15px";
+        if (window.innerWidth > 600) {
+          logo.style.width = `${350}px`;
+          logo.style.height = `${350}px`;
+          logo.style.left = `${(window.innerWidth - 350) / 2}px`;
+          logo.style.top = "15px";
+        } else {
+          logo.style.width = `${150}px`;
+          logo.style.height = `${150}px`;
+          logo.style.left = `${(window.innerWidth - 150) / 2}px`;
+          logo.style.top = "15px";
+        }
       }
     },
     setAnimation() {
@@ -59,6 +67,7 @@ export default {
         scale: 1.1,
         left: `${(window.innerWidth - halfWindowW) / 2}px`,
         top: `${(window.innerHeight - halfWindowW) / 2}px`,
+        zIndex: 10,
       });
 
       logoTimeline.to(logo, {
@@ -76,12 +85,13 @@ export default {
       logoTimeline.to(
         logo,
         {
-          width: `80px`,
-          height: `80px`,
-          left: `15px`,
-          top: `15px`,
+          width: `${350}px`,
+          height: `${350}px`,
+          left: `${(window.innerWidth - 350) / 2}px`,
+          top: `0`,
           duration: backgroundEnterDuration,
           ease: "sine.out",
+          zIndex: 3,
         },
         logoEnterDuration
       );

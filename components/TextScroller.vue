@@ -5,18 +5,18 @@
       v-for="(item, index) in panels"
       :key="index"
     >
-      <p>{{ item }}</p>
+      <p v-html="item"></p>
       <button
         class="flat icon icon-light icon-arrow-up"
         v-if="index !== 0"
-        @click="goToPrevSection"
+        @click="goToSection(index - 1)"
       >
         <span><IconArrow /></span>
       </button>
       <button
         class="flat icon icon-light icon-arrow-down"
         v-if="index < panelNum - 1"
-        @click="goToNextSection"
+        @click="goToSection(index + 1)"
       >
         <span><IconArrow /></span>
       </button>
@@ -54,16 +54,6 @@ export default {
     },
   },
   methods: {
-    // boxRotation() {
-    //   const gsap = this.$gsap;
-    //   gsap.to(".box", { rotation: 27, x: 100, duration: 1 });
-    // },
-    goToPrevSection() {
-      this.goToSection(this.activeSection - 1);
-    },
-    goToNextSection() {
-      this.goToSection(this.activeSection);
-    },
     goToSection(i) {
       const gsap = this.$gsap;
       this.setActiveSection(i);
@@ -123,6 +113,12 @@ body {
 .text-scroller {
   width: 100%;
   background: rgba(10, 10, 10, 0.4);
+  button.icon {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
   .panel {
     height: 100vh;
     position: sticky;

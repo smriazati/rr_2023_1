@@ -26,7 +26,8 @@
               now?
             </p>
             <button class="cursor-hover bright" @click="showFilm()">
-              <span>Play video</span>
+              <span class="text collapse-pd-right">Play video</span>
+              <SystemIcon type="play" :width="20" color="light" />
             </button>
           </div>
         </div>
@@ -35,15 +36,18 @@
 
     <div v-show="isFilmActive" class="resistance-film">
       <div class="col flex-col">
-        <div class="iframe-wrapper">
+        <div
+          :class="isFilmPlaying ? 'fade-in-video' : ''"
+          class="init-vid-fade iframe-wrapper"
+        >
           <vimeo-player
             ref="vid"
             key="650434994"
             video-url="https://vimeo.com/650434994"
             video-id="650434994"
             :options="options"
-            @playing="onVidPlaying"
-            @ended="onVidEnded"
+            @playing="onFilmPlaying"
+            @ended="onFilmEnded"
           >
           </vimeo-player>
         </div>
@@ -76,6 +80,7 @@ export default {
       isFilmEnded: false,
       isPaginationVisible: false,
       isFilmActive: false,
+      isFilmPlaying: false,
       options: {
         controls: true,
         loop: false,
@@ -89,7 +94,7 @@ export default {
   },
 
   methods: {
-    onVidEnded() {
+    onFilmEnded() {
       this.isFilmEnded = true;
       this.showPagination();
     },
@@ -107,8 +112,9 @@ export default {
     hideFilm() {
       this.isFilmActive = false;
       this.playBgVid();
+      this.pauseFilm();
     },
-    onVidPlaying() {
+    onFilmPlaying() {
       this.isFilmPlaying = true;
     },
     pauseFilm() {
