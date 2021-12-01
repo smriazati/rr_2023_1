@@ -59,9 +59,22 @@ export default {
   },
   mounted() {
     this.setWrapperHeight();
-    window.addEventListener("resize", () => {
-      this.setWrapperHeight();
-    });
+    window.addEventListener(
+      "resize",
+      () => {
+        this.setWrapperHeight();
+      },
+      false
+    );
+  },
+  unmounted() {
+    window.removeEventListener(
+      "resize",
+      () => {
+        this.setWrapperHeight();
+      },
+      false
+    );
   },
   methods: {
     setWrapperHeight() {

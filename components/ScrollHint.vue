@@ -27,8 +27,11 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll, false);
     setTimeout(this.startTimer, this.delay * 1000);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll, false);
   },
   methods: {
     startTimer() {

@@ -1,11 +1,5 @@
 <template>
   <main class="content">
-    <StoryTitle
-      title="Luba Chomut"
-      sectionTitle="Aftermath"
-      img="/images/01/intro_01.png"
-      imgAlt="Young girl in a dark dress"
-    />
     <div class="row">
       <div class="row">
         <div class="col">
@@ -34,19 +28,21 @@
       </div>
     </div>
     <div class="row">
-      <figure>
-        <img
-          src="/images/04/chomut_02.jpg"
-          alt="Photograph of large family with several men, women, and children all in darker clothing in 1930s-1940s era clothing. Jewish Stars of David are overlaid on top of a number of people."
-        />
-        <figcaption>Chomut Family, Courtesy Michael Emmett.</figcaption>
-      </figure>
-      <div class="col">
-        <p>
-          Much of Luba’s family in Tuchyn was killed during the Holocaust. In
-          this portrait, the Stars of David denote her family members who
-          perished.
-        </p>
+      <div class="row">
+        <figure>
+          <img
+            src="/images/04/chomut_02.jpg"
+            alt="Photograph of large family with several men, women, and children all in darker clothing in 1930s-1940s era clothing. Jewish Stars of David are overlaid on top of a number of people."
+          />
+          <figcaption>Chomut Family, Courtesy Michael Emmett.</figcaption>
+        </figure>
+        <div class="col">
+          <p>
+            Much of Luba’s family in Tuchyn was killed during the Holocaust. In
+            this portrait, the Stars of David denote her family members who
+            perished.
+          </p>
+        </div>
       </div>
     </div>
     <div class="row">

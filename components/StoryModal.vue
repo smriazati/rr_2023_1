@@ -16,7 +16,8 @@
           class="inline-close-button bright centered"
           @click="closeModal()"
         >
-          <span>Back to the map</span><IconArrow />
+          <span>Back to the map</span
+          ><SystemIcon type="arrow" color="light" :width="25" />
         </button>
       </div>
       <div ref="imageWrapper" class="image-wrapper">
@@ -57,7 +58,6 @@ export default {
       boxes.forEach((box) => {
         box.classList.add("hover-cursor");
         box.addEventListener("click", () => {
-          // console.log(e, box);
           box.classList.toggle("lightbox-expanded");
         });
       });

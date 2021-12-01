@@ -47,12 +47,12 @@ export default {
 
       gsap.set(title, {
         autoAlpha: 0,
-        x: "10vw",
+        // x: "10vw",
       });
 
       gsap.set(subheadline, {
         autoAlpha: 0,
-        x: "10vw",
+        // x: "10vw",
       });
 
       const tl = gsap.timeline({
@@ -98,7 +98,7 @@ header.story-title {
   }
   h1,
   h2 {
-    transform: translateX(100vw);
+    // transform: translateX(100vw);
     opacity: 0;
   }
 

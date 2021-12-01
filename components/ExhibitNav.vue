@@ -48,7 +48,6 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
   },
-
   mounted() {
     const nav = this.$refs.navLinks;
     if (nav) {

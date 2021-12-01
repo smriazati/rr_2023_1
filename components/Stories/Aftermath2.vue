@@ -1,11 +1,5 @@
 <template>
   <main class="content">
-    <StoryTitle
-      title="Yosef Zilberberg"
-      sectionTitle="Aftermath"
-      img="/images/01/intro_02.png"
-      imgAlt="Adolescent boy in a shirt and jacket"
-    />
     <div class="row">
       <div class="row">
         <div class="col">
@@ -28,7 +22,7 @@
         <VimeoComponent vidId="650436733" />
       </div>
     </div>
-    <div class="row dark">
+    <div class="row">
       <div class="col">
         <figure class="banner">
           <img
@@ -63,7 +57,7 @@
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="row">
         <figure>
           <img
             src="/images/04/zilberberg_02.jpg"
@@ -74,16 +68,16 @@
             Courtesy Yosef Zilberberg.
           </figcaption>
         </figure>
-      </div>
-      <div class="col">
-        <p>
-          Currently Yosef resides in Israel where he pursued painting. While
-          there are no photographs of the Tuchyn massacres, he has illustrated
-          what happened. Anton Ozertchuk and his family were honored as
-          Righteous Among the Nations for saving the lives of the Zilberberg
-          family. Yosef himself later thanked the Ozertchuks by sending
-          financial support and visiting them.
-        </p>
+        <div class="col">
+          <p>
+            Currently Yosef resides in Israel where he pursued painting. While
+            there are no photographs of the Tuchyn massacres, he has illustrated
+            what happened. Anton Ozertchuk and his family were honored as
+            Righteous Among the Nations for saving the lives of the Zilberberg
+            family. Yosef himself later thanked the Ozertchuks by sending
+            financial support and visiting them.
+          </p>
+        </div>
       </div>
     </div>
   </main>

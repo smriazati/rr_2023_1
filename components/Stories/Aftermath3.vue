@@ -1,11 +1,5 @@
 <template>
   <main class="content">
-    <StoryTitle
-      title="Mania Schwartzman"
-      sectionTitle="Aftermath"
-      img="/images/01/intro_03.png"
-      imgAlt="Young woman in 1940s era clothing"
-    />
     <div class="row flat-padding">
       <figure>
         <blockquote>

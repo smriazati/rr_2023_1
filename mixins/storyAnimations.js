@@ -105,11 +105,11 @@ export default {
                   right = innerRow.lastChild;
                 }
                 gsap.set(left, {
-                  x: '-10vw',
+                  // x: '-10vw',
                   autoAlpha: 0
                 })
                 gsap.set(right, {
-                  x: '10vw',
+                  // x: '10vw',
                   autoAlpha: 0
                 })
 

@@ -67,7 +67,7 @@ export default {
 .vimeo-component {
   flex: 1;
   padding: 30px;
-  // background: rgba(lighten($sage, 10), 0.3);
+  background: rgba(lighten($gray, 10), 0.3);
   border-radius: 6px;
   margin: 1rem;
   iframe {
