@@ -37,9 +37,11 @@ export default {
   },
   googleFonts: {
     prefetch: true,
+    preconnect: true,
     families: {
       'Atkinson+Hyperlegible': true,
-    }
+    },
+    display: 'swap'
   },
   buildModules: [
     '@nuxtjs/google-fonts', 'nuxt-gsap-module',
