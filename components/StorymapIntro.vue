@@ -86,6 +86,13 @@ export default {
 </script>
 
 <style lang="scss">
+@media (max-width: $collapse-bp) {
+  .modal-container {
+    // height: unset;
+    // position: absolute;
+    overflow-y: scroll;
+  }
+}
 .instruction-modal {
   outline: 0;
   &:focus {
@@ -106,12 +113,21 @@ export default {
     "b q"
     "f q";
 
+  @media (max-width: $collapse-bp) {
+    display: flex;
+    flex-direction: column;
+  }
   header,
   section.text,
   footer,
   .button-wrapper {
     background: $gray;
-    padding-left: 30px;
+    @media (min-width: $collapse-bp) {
+      padding-left: 30px;
+    }
+    @media (max-width: $collapse-bp) {
+      padding: 30px;
+    }
     width: 100%;
   }
   header,
@@ -164,9 +180,15 @@ export default {
   section.text {
     grid-area: t;
     padding-top: 60px;
+    @media (max-width: $collapse-bp) {
+      padding-top: 30px;
+    }
   }
   footer {
-    padding-bottom: 30px;
+    @media (min-width: $collapse-bp) {
+      padding-bottom: 30px;
+      text-align: center;
+    }
     grid-area: f;
     height: 100%;
     display: flex;
@@ -179,10 +201,7 @@ export default {
     }
   }
   blockquote {
-    font-size: 36px;
-    line-height: 44px;
-    font-weight: 400;
-    letter-spacing: 0.09px;
+    @include pBigStyle;
     figcaption {
       margin-top: 30px;
     }

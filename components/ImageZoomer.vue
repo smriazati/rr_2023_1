@@ -78,8 +78,10 @@ export default {
     }
     figcaption {
       position: absolute;
-      top: 30px;
-      right: 30px;
+      top: 0px;
+      right: 0px;
+      padding: 30px;
+      text-align: right;
     }
   }
 }

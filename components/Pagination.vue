@@ -74,11 +74,15 @@ export default {
   border-radius: 5px;
   animation: slideIn 0.8s ease-in forwards;
   bottom: 100px;
+
   right: 30px;
   color: #fff;
   text-align: center;
 
   background: $gray;
+  @media (min-width: $collapse-bp) {
+    background: $forest;
+  }
   transition: 0.3s ease all;
   &:hover {
     background: $white;
@@ -98,8 +102,12 @@ export default {
       object-fit: contain;
       object-position: left center;
       position: absolute;
-      left: -17%;
+      left: -17px;
       filter: grayscale(1);
+      @media (max-width: $collapse-bp) {
+        left: -40px;
+        filter: grayscale(1) invert(1);
+      }
     }
   }
 
@@ -120,6 +128,9 @@ export default {
   a {
     background: $gray;
     transition: 0.3s ease background;
+    @media (max-width: $collapse-bp) {
+      background: rgba($forest, 0.8);
+    }
     &:hover {
       background: rgba($white, 0.8);
       color: $gray;
@@ -157,7 +168,9 @@ export default {
   }
 
   &.back-btn {
-    left: 30px;
+    @media (min-width: $collapse-bp) {
+      left: 30px;
+    }
     right: unset;
     .tree-icon {
       left: unset;
@@ -165,6 +178,15 @@ export default {
       img {
         left: unset;
         right: -47px;
+      }
+    }
+    @media (max-width: $collapse-bp) {
+      background: darken($forest, 20);
+      a {
+        background: rgba(darken($forest, 20), 0.3);
+      }
+      .tree-icon {
+        opacity: 0.3;
       }
     }
     .cta {
@@ -178,14 +200,12 @@ export default {
   }
 }
 // .pagination mobile positions
-@media (max-width: $mobile-bp) {
+@media (max-width: $collapse-bp) {
   .occupation .pagination,
   .resistance .pagination {
     position: fixed;
   }
-}
-// .pagination mobile
-@media (max-width: $mobile-bp) {
+
   .pagination {
     display: flex;
     position: relative;
@@ -198,30 +218,8 @@ export default {
 
     .wrapper {
       margin: 0 auto;
-    }
-
-    h3 {
-      display: none;
+      padding: 30px;
     }
   }
 }
-
-// pagination custom positions
-// @media (min-width: $mobile-bp) {
-//   .occupation-talkback .pagination {
-//     bottom: 75px;
-//   }
-
-//   .intro-stories-individual .pagination {
-//     bottom: 100px;
-//   }
-
-//   .aftermath-stories-individual .pagination {
-//     bottom: 100px;
-//   }
-
-//   .resistance-talkback .pagination {
-//     bottom: 100px;
-//   }
-// }
 </style>

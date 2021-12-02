@@ -102,9 +102,12 @@
         background: $gray;
       }
 
-      &:last-child {
-        padding-bottom: 35vh;
+      @media (min-width: $collapse-bp) {
+        &:last-child {
+          padding-bottom: 35vh;
+        }
       }
+
 
       flex-direction: column;
 
@@ -134,6 +137,11 @@
         justify-content: center;
         align-items: center;
 
+        @media (max-width: $collapse-bp) {
+          flex-direction: column;
+          justify-content: center;
+        }
+
         &.narrow {
           @include siteContainer;
         }
@@ -141,6 +149,11 @@
 
       .row-reverse {
         flex-direction: row-reverse;
+
+        @media (max-width: $collapse-bp) {
+          flex-direction: column;
+          justify-content: center;
+        }
       }
 
       .col {

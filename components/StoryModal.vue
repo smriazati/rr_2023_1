@@ -94,16 +94,6 @@ export default {
 
 
 <style lang="scss">
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .modal-container {
   display: flex;
   position: fixed;

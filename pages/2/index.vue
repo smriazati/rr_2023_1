@@ -13,7 +13,6 @@
       :visitedOnce="visitedOnce"
     />
     <div v-if="isIntroVisible" class="modal-container transparent">
-      <!-- <div class="close-overlay" @click="closeIntro"></div> -->
       <StorymapIntro @close-modal="closeIntro" />
     </div>
     <div v-show="areMapControlsActive">

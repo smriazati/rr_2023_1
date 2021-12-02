@@ -11,7 +11,7 @@
       <StoriesIntro3 />
     </div>
 
-    <div v-show="isPaginationVisible">
+    <div class="pagination-row flex-row" v-show="isPaginationVisible">
       <Pagination
         link="/1/stories"
         message="Back to All Stories"
@@ -51,3 +51,6 @@ export default {
   mixins: [animation],
 };
 </script>
+
+<style lang="scss">
+</style>

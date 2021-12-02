@@ -246,7 +246,14 @@ body {
 
   &.align-center {
     align-items: center;
+  }
 
+  @media (max-width: $collapse-bp) {
+    flex-direction: column;
+
+    &.align-center {
+      justify-content: center;
+    }
   }
 }
 

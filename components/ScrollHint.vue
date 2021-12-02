@@ -45,14 +45,6 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes bounceIn {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(100px);
-  }
-}
 .scroll-hint {
   text-align: center;
   display: flex;

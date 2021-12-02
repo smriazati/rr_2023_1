@@ -64,16 +64,22 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: $collapse-bp) {
+    justify-content: space-between;
+  }
 
   .bg-image {
     width: 100%;
-    height: 100vh;
-    max-height: 100vh;
     max-width: 100vw;
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
-    overflow: hidden;
+    height: 100vh;
+    @media (min-width: $collapse-bp) {
+      max-height: 100vh;
+    }
+
     * {
       width: 100%;
       height: 100%;
@@ -86,6 +92,9 @@ export default {
   }
 
   header {
+    @media (max-width: $collapse-bp) {
+      margin-top: 30px;
+    }
     opacity: 0;
     animation: fadeIn 0.8s ease-in forwards;
     position: relative;
@@ -108,8 +117,14 @@ export default {
     .text-wrapper {
       background: rgba($gray, 0.6);
       padding: 30px;
-      * {
-        white-space: nowrap;
+      @media (min-width: $collapse-bp) {
+        * {
+          white-space: nowrap;
+        }
+      }
+      @media (max-width: $collapse-bp) {
+        width: 100%;
+        min-width: 100%;
       }
     }
 
@@ -135,12 +150,17 @@ export default {
 }
 
 .content-warning {
-  // opacity: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  @media (min-width: $collapse-bp) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  @media (max-width: $collapse-bp) {
+    margin-top: 30px;
+  }
   width: 100%;
   background: $gray;
+  z-index: 112;
   p {
     color: $white;
   }
