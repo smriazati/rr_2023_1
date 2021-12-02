@@ -44,12 +44,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("03/talkback").fetch();
-    return {
-      page,
-    };
-  },
   head() {
     return {
       title: this.name
@@ -101,6 +95,11 @@ export default {
         margin-left: auto;
         margin-right: auto;
       }
+    }
+    @media (max-width: $collapse-bp) {
+      display: flex;
+      flex-direction: column;
+      padding-top: 60px;
     }
   }
   header {

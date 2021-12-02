@@ -35,15 +35,15 @@ export default {
       scrollTrigger: true
     }
   },
-  buildModules: [
-    '@nuxtjs/google-fonts', 'nuxt-gsap-module',
-  ],
   googleFonts: {
     prefetch: true,
     families: {
       'Atkinson+Hyperlegible': true,
     }
   },
+  buildModules: [
+    '@nuxtjs/google-fonts', 'nuxt-gsap-module',
+  ],
   modules: [
     '@nuxtjs/style-resources',
     '@nuxt/content',

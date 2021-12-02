@@ -8,7 +8,7 @@
     </div>
     <header class="flex-col align-center">
       <div class="logo-wrapper">
-        <ExhibitLogo />
+        <SystemLogo />
       </div>
       <div class="text-wrapper centered">
         <h1 class="subheadline collapsed-mb">Roots of Resistance</h1>

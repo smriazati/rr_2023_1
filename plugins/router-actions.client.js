@@ -1,8 +1,4 @@
 export default ({ app: { router, store } }) => {
-    // router.beforeEach((to, from, next) => {
-    //     window.scrollTo(0, 0);
-    //     next();
-    // })
     router.afterEach((to, from) => {
         if (from.path == '/2') {
             if (store.state.occupation.isFlyoverCompleted) {

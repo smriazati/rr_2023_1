@@ -6,7 +6,7 @@
     </div>
     <div class="wrapper">
       <div class="image-zoom-wrapper">
-        <ImageZoomer
+        <SystemImageZoomer
           :height="wrapperHeight"
           :src="img.src"
           :alt="img.alt"
@@ -14,7 +14,10 @@
         />
       </div>
       <div class="text-scroller-wrapper">
-        <TextScroller :panels="panels" @scrolled-to-end="showPagination()" />
+        <SystemTextScroller
+          :panels="panels"
+          @scrolled-to-end="showPagination()"
+        />
       </div>
       <div v-show="isPaginationVisible">
         <Pagination link="/1/stories" message="Meet the People" />
@@ -25,12 +28,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("01/introduction").fetch();
-    return {
-      page,
-    };
-  },
   data() {
     return {
       name: "introduction",

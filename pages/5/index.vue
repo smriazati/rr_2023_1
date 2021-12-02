@@ -87,7 +87,7 @@
           </div>
         </section>
       </div>
-      <footer ref="footer"><ConclusionEndingSlide /></footer>
+      <footer ref="footer"><ConclusionEnd /></footer>
     </main>
   </div>
 </template>
@@ -132,7 +132,7 @@ export default {
         pinSpacing: false,
         // markers: true,
         start: "top center",
-        end: `+=${window.innerWidth / 4}`,
+        end: `+=${window.innerWidth}`,
       });
     },
     setContentAnimation() {
@@ -277,6 +277,7 @@ export default {
   height: 100%;
   max-height: 100%;
   overflow: hidden;
+
   figure {
     width: 100%;
     height: 100%;
@@ -284,14 +285,20 @@ export default {
       min-width: 100%;
       width: 100%;
       max-height: 100%;
+      @media (max-width: $collapse-bp) {
+        min-height: 100%;
+      }
       //   height: 100%;
       object-fit: cover;
       opacity: 0.6;
     }
     figcaption {
       position: absolute;
-      top: 30px;
-      right: 30px;
+      top: 0;
+      right: 0;
+      padding: 30px;
+      width: 50%;
+      text-align: right;
     }
   }
 }
@@ -306,9 +313,17 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 54px);
+    @media (min-width: $collapse-bp) {
+      height: calc(100vh - 54px);
+    }
+    @media (max-width: $collapse-bp) {
+      height: 100vh;
+    }
     width: 100%;
     overflow: hidden;
+    @media (max-width: $collapse-bp) {
+      padding-top: 60px;
+    }
   }
   figure.full-width {
     margin: 0;
@@ -381,6 +396,10 @@ export default {
         }
       }
     }
+  }
+  footer {
+    position: relative;
+    z-index: 900;
   }
 }
 </style>

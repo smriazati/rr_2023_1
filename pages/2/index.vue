@@ -6,14 +6,14 @@
       link="/2/talkback"
       message="Review What You Learned"
     />
-    <Storymap
+    <MapStorymap
       ref="storymap"
       :animActive="true"
       :markers="markers"
       :visitedOnce="visitedOnce"
     />
     <div v-if="isIntroVisible" class="modal-container transparent">
-      <StorymapIntro @close-modal="closeIntro" />
+      <MapIntro @close-modal="closeIntro" />
     </div>
     <div v-show="areMapControlsActive">
       <MapControls :markers="markers" @show-intro="showIntro()" />
@@ -21,7 +21,7 @@
 
     <div v-if="isModalVisible" class="modal-container">
       <div class="close-overlay" @click="closeModal"></div>
-      <StoryModal :content="activeStoryContent" @close-modal="closeModal" />
+      <MapModal :content="activeStoryContent" @close-modal="closeModal" />
     </div>
   </div>
 </template>

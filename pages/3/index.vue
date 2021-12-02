@@ -143,8 +143,10 @@ export default {
     z-index: 999;
   }
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  @media (min-height: $collapse-bp) {
+    height: 100vh;
+    overflow: hidden;
+  }
 
   .video-intro {
     position: relative;
@@ -160,30 +162,37 @@ export default {
     }
   }
   .video-intro-text {
-    width: 50ch;
-    position: absolute;
     z-index: 11;
-    left: calc((100% - 50ch) / 2);
-    max-height: 80%;
-    height: 100%;
-    max-width: 80%;
-    // width: auto;
-    top: 10%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: $collapse-bp) {
+      width: 50ch;
+      position: absolute;
+      left: calc((100% - 50ch) / 2);
+      max-height: 80%;
+      height: 100%;
+      max-width: 80%;
+      top: 10%;
+    }
+
     .call-out {
       background: rgba($gray, 0.8);
+      @media (max-width: $collapse-bp) {
+        overflow-y: scroll;
+        padding-top: 60px;
+      }
       @media (max-height: 620px) {
         overflow-y: scroll;
       }
       border: 0;
     }
-    p.big {
-      font-size: 24px;
-      line-height: 30px;
-    }
+    // p.big {
+    //   font-size: 24px;
+    //   line-height: 30px;
+    // }
   }
   .resistance-film {
     position: fixed;
@@ -192,9 +201,10 @@ export default {
     left: 0;
     width: 100%;
     height: 100vw;
-    background: rgba($gray, 0.95);
+    // background: rgba($gray, 0.95);
 
     div.col {
+      background: rgba($gray, 0.95);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -207,8 +217,9 @@ export default {
       margin-top: 30px;
       width: 100%;
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 0px;
+      right: 0px;
+      padding: 30px;
       p {
         font-size: 16px;
         font-style: italic;

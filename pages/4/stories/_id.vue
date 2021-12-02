@@ -49,7 +49,7 @@
       <div class="story" v-if="this.$route.params.id === '3'">
         <StoriesAftermath3 />
       </div>
-      <div v-if="isPaginationVisible">
+      <div class="pagination" v-if="isPaginationVisible">
         <Pagination
           link="/4/stories"
           message="Back to All Stories"
@@ -65,22 +65,6 @@
 import animation from "~/mixins/storyAnimations.js";
 
 export default {
-  async asyncData({ $content, params, error }) {
-    const validRoutes = ["1", "2", "3"];
-    if (!validRoutes.includes(params.id)) {
-      return error({ statusCode: 404, message: "oops" });
-    } else {
-      const page_start = await $content(`04/${params.id}_start`).fetch();
-      const page_end = await $content(`04/${params.id}_end`).fetch();
-      return {
-        page: {
-          start: page_start,
-          end: page_end,
-        },
-      };
-    }
-  },
-
   data() {
     return {
       name: "aftermath-stories-individual",
@@ -172,38 +156,65 @@ export default {
 <style lang="scss">
 .aftermath-stories-individual {
   .slider-controls {
-    // position: fixed;
     z-index: 100;
     display: flex;
     justify-content: center;
-    bottom: 80px;
+    @media (max-width: $collapse-bp) {
+      padding: 15px 0 30px;
+    }
   }
   main.content > * {
     opacity: 0;
   }
   header.story-title .story-title-container {
-    grid-template-rows: 5vh 1fr 25px;
+    grid-template-rows: 165px 1fr 25px;
     .image-wrapper {
       max-width: 150px;
     }
     .text-wrapper {
       padding-top: 0;
+      padding-bottom: 0;
+    }
+    @media (max-width: $collapse-bp) {
+      grid-template-rows: 65px 1fr 25px;
+      .image-wrapper {
+        max-width: 50px;
+      }
+      .banner {
+        grid-row-end: 4;
+      }
     }
   }
   .slider-wrapper {
     // @include siteContainer();
+
     padding: 0 30px;
+    @media (max-width: $collapse-bp) {
+      padding-top: 30px;
+    }
     position: relative;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    grid-auto-rows: 100%;
     place-items: center;
+    @media (max-width: $collapse-bp) {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
     .slide {
       grid-column: 1 / 1;
       grid-row: 1 / 1;
       width: 100%;
       // height: 100%;
-      transition: 0.3s ease all;
+      height: 0%;
+      @media (max-width: $collapse-bp) {
+        flex: 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      transition: 0.3s ease opacity;
       opacity: 0;
       pointer-events: none;
       z-index: 9;
@@ -212,6 +223,11 @@ export default {
       top: 0;
       display: flex;
       opacity: 1;
+      height: auto;
+      @media (max-width: $collapse-bp) {
+        flex: 100%;
+        position: relative;
+      }
       pointer-events: none;
       z-index: 11;
     }
@@ -226,6 +242,25 @@ export default {
     // grid-template-rows: 225px 1fr 100px;
     grid-template-rows: 25% 60% 15%;
     height: calc(100vh - 54px);
+    @media (max-width: $collapse-bp) {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      .title {
+        order: 1;
+      }
+      .story {
+        order: 2;
+      }
+      .slider-controls {
+        order: 3;
+      }
+      .pagination {
+        order: 4;
+        display: flex;
+        flex-direction: column;
+      }
+    }
     width: 100%;
     top: 0;
     position: absolute;
@@ -250,8 +285,10 @@ export default {
       grid-column-end: 3;
       grid-row-start: 3;
       grid-row-end: 4;
-      width: 100%;
-      height: 100%;
+      @media (min-width: $collapse-bp) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   &.stories-individual main.content > .row figure {
@@ -268,6 +305,14 @@ export default {
       margin: 0 auto;
       text-align: center;
       background: transparent;
+    }
+  }
+}
+
+@media (max-width: $collapse-bp) {
+  .slider-wrapper {
+    .vimeo-component {
+      width: 100%;
     }
   }
 }

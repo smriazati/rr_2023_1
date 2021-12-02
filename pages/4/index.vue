@@ -6,7 +6,10 @@
     </div>
     <div class="wrapper">
       <div class="text-scroller-wrapper">
-        <TextScroller :panels="panels" @scrolled-to-end="showPagination()" />
+        <SystemTextScroller
+          :panels="panels"
+          @scrolled-to-end="showPagination()"
+        />
       </div>
       <div v-show="isPaginationVisible">
         <Pagination link="/4/stories" message="Hear People's Stories" />
@@ -17,12 +20,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("04/intro").fetch();
-    return {
-      page,
-    };
-  },
   head() {
     return {
       title: this.name.charAt(0).toUpperCase() + this.name.slice(1),

@@ -33,12 +33,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("01/stories").fetch();
-    return {
-      page,
-    };
-  },
   data() {
     return {
       name: "introduction-stories",

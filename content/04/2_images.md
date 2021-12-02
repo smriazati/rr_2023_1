@@ -1,2 +1,0 @@
-![Photograph of a sculpture of a group of people crowded into a hiding place under a barn. A man is bringing water to them.](/images/04/zilberberg_01.jpg 'Anton Ozertrchuk brings water to a hiding place under his barn, by Yosef Zilberberg, courtesy of Yosef Zilberberg.')
-![Painting of family being attacked in their home](/images/04/zilberberg_02.jpg 'A painting by Yosef Zilberberg depicting the pogrom in Tuchyn, Courtesy Yosef Zilberberg.')

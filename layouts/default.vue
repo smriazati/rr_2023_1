@@ -1,6 +1,5 @@
 <template>
   <div class="default-layout" :class="`route-${page}`">
-    <!-- <ExhibitLogo /> -->
     <ExhibitNav />
     <nuxt :key="$route.fullPath" />
   </div>
@@ -26,17 +25,17 @@ export default {
     },
   },
   computed: {
-    ...mapState("site", {
+    ...mapState("exhibitNav", {
       isExhibitNavVisible: (state) => state.isExhibitNavVisible,
     }),
   },
   methods: {
     hideNavInIntroduction() {
       if (this.page === "1" || this.page === "index") {
-        this.$store.commit("site/hideExhibitNav");
+        this.$store.commit("exhibitNav/hideExhibitNav");
       } else {
         if (!this.isExhibitNavVisible) {
-          this.$store.commit("site/showExhibitNav");
+          this.$store.commit("exhibitNav/showExhibitNav");
         }
       }
     },

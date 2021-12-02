@@ -13,12 +13,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("04/stories").fetch();
-    return {
-      page,
-    };
-  },
   data() {
     return {
       name: "aftermath-stories",
@@ -55,5 +49,11 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
+.aftermath-stories {
+  @media (max-width: $collapse-bp) {
+    padding-top: 60px;
+  }
+}
 </style>

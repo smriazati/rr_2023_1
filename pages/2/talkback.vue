@@ -1,8 +1,7 @@
 <template>
   <div :class="name">
-    <!-- <h1 class="visually-hidden">{{ name }}</h1> -->
     <div class="center">
-      <h1 class="collapsed-mb">Talkback</h1>
+      <h1 class="collapsed-mb">Review What You Learned</h1>
       <p class="instructions">Please take a moment to define these terms:</p>
       <div class="terms-list" :class="areDefsVisible ? 'reveal' : ''">
         <div class="term-wrapper">
@@ -46,7 +45,6 @@
       </div>
     </div>
 
-    <!-- <Talkback :data="page" /> -->
     <div v-if="isPaginationVisible">
       <Pagination link="/3" message="Video About Resistance" />
     </div>
@@ -55,12 +53,6 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const page = await $content("02/talkback").fetch();
-    return {
-      page,
-    };
-  },
   data() {
     return {
       name: "occupation-talkback",
@@ -99,6 +91,7 @@ export default {
   min-width: 100vw;
   height: 100%;
   min-height: 100vh;
+  padding: 200px 0;
   // background: #35452b73;
   display: flex;
   justify-content: center;

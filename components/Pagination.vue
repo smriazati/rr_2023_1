@@ -7,8 +7,8 @@
       <h3 v-if="!back" class="subheadline">Next section</h3>
       <h3 v-else class="subheadline">Previous section</h3>
       <span class="cta" :to="link"
-        >{{ message }} <IconArrow class="icon-light"
-      /></span>
+        >{{ message }} <SystemIcon type="arrow" color="light" :width="25" />
+      </span>
     </nuxt-link>
   </nav>
 </template>
@@ -71,7 +71,9 @@ export default {
   overflow: hidden;
   position: fixed;
   z-index: 130;
-  border-radius: 5px;
+  @media (min-width: $collapse-bp) {
+    border-radius: 5px;
+  }
   animation: slideIn 0.8s ease-in forwards;
   bottom: 100px;
 
@@ -86,6 +88,9 @@ export default {
   transition: 0.3s ease all;
   &:hover {
     background: $white;
+    .icon.light {
+      filter: invert(0);
+    }
   }
 
   .tree-icon {

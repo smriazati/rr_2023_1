@@ -1,6 +1,0 @@
-Much of Luba’s family in Tuchyn was killed during the Holocaust. In this portrait, the Stars of David denote her family members who perished.  
-
-After the Russians liberated Tuchyn, Luba’s family spent three years in a displaced persons camp in Linz, Austria. There, the Chomut family changed their name to Emmett and Luba took the name Laura. Her parents went by Pearl and Isaak and they had a son Michael in the camp. The family originally hoped to settle in Israel (then Palestine) but they ultimately emigrated to the United States in 1949. Hear Laura speak about her family’s migration to the United States.
-
-Pavlo Gerasimchik, his wife Lubka, and their children were honored as The Righteous Among the Nations for their actions. This award honors people who risked their own lives to save Jewish people during the Holocaust.
-Authors published two books about Laura’s experiences: Brisko and The Girl in the Haystack. These works teach about her family’s survival in the face of hatred and antisemitism. Today, Laura Emmett Oberlender lives in Florida and New Jersey. She is a mother of three and grandmother of six. 

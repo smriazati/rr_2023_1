@@ -3,8 +3,6 @@
 .icon {
   display: flex;
 
-  &.icon-arrow {}
-
   &.icon-arrow-down {
     transform: rotate(90deg);
   }
@@ -22,7 +20,6 @@
   }
 }
 
-
 .icon-close {
   -webkit-mask-image: url("./assets/icons/close.svg");
   mask-image: url("./assets/icons/close.svg");
@@ -33,7 +30,6 @@
   background-color: $white;
   transition: .3s ease all;
 }
-
 
 .close-button {
   color: white;

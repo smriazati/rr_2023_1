@@ -1,1 +1,0 @@
-![Photograph of large family with several men, women, and children all in darker clothing in 1930s-1940s era clothing. Jewish Stars of David are overlaid on top of a number of people.](/images/04/chomut_02.jpg 'Chomut Family, Courtesy Michael Emmett.')
