@@ -1,7 +1,7 @@
 <template>
   <nav ref="pagination" class="pagination" :class="back ? 'back-btn' : ''">
     <div class="tree-icon">
-      <img src="/tree.svg" alt="" />
+      <img src="/icons/tree.svg" alt="" />
     </div>
     <nuxt-link :to="link" class="wrapper">
       <h3 v-if="!back" class="subheadline">Next section</h3>

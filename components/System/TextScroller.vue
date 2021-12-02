@@ -78,6 +78,7 @@ export default {
     setActiveSection(i) {
       // console.log("activating section", i);
       this.activeSection = i;
+      // console.log("triggered set active section", i);
     },
     setTextScrollerAnim() {
       const gsap = this.$gsap;
@@ -87,24 +88,15 @@ export default {
       panels.forEach((panel, i) => {
         ScrollTrigger.create({
           trigger: panel,
-          start: `top bottom+=${window.innerHeight / 4}`,
-          end: "+=200%",
-          //   markers: true,
-          // onToggle: (self) =>
-          //   self.isActive && !this.scrollTween && this.goToSection(i),
+          start: `top-=${window.innerWidth / 4} top`,
+          end: `bottom top`,
+          // markers: true,
           onToggle: (self) => {
             self.isActive && this.setActiveSection(i);
           },
           toggleClass: { targets: panel, className: "is-active" },
         });
       });
-
-      // just in case the user forces the scroll to an inbetween spot (like a momentum scroll on a Mac that ends AFTER the scrollTo tween finishes):
-      // ScrollTrigger.create({
-      //   start: 0,
-      //   end: "max",
-      //   snap: 1 / (panels.length - 1),
-      // });
     },
   },
 };

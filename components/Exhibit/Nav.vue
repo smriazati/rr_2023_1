@@ -203,10 +203,13 @@ export default {
       background: transparent;
       width: 50px;
     }
+    @media (max-width: $collapse-bp) {
+      ul {
+        opacity: 0;
+      }
+    }
   }
-  ul {
-    opacity: 0;
-  }
+
   &.expanded {
     height: 100vh;
     width: auto;

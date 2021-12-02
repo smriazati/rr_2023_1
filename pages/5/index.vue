@@ -131,7 +131,7 @@ export default {
         pin: pin,
         pinSpacing: false,
         // markers: true,
-        start: "top center",
+        start: `top-=${window.innerWidth / 2} center`,
         end: `+=${window.innerWidth}`,
       });
     },
