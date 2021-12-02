@@ -1,20 +1,22 @@
 <template>
   <div class="vimeo-component">
-    <div class="iframe-wrapper" v-if="vidId" ref="vidWrapper">
-      <vimeo-player
-        ref="vid"
-        :key="vidId"
-        :video-url="`https://vimeo.com/${vidId}`"
-        :video-id="vidId"
-        :options="options"
-        @ready="onVidReady"
-        @loaded="onVidLoaded"
-        @playing="onVidPlaying"
-        @timeupdate="onVidTimeUpdate"
-        @ended="onVidEnded"
-      >
-      </vimeo-player>
-    </div>
+    <client-only>
+      <div class="iframe-wrapper" v-if="vidId" ref="vidWrapper">
+        <vimeo-player
+          ref="vid"
+          :key="vidId"
+          :video-url="`https://vimeo.com/${vidId}`"
+          :video-id="vidId"
+          :options="options"
+          @ready="onVidReady"
+          @loaded="onVidLoaded"
+          @playing="onVidPlaying"
+          @timeupdate="onVidTimeUpdate"
+          @ended="onVidEnded"
+        >
+        </vimeo-player>
+      </div>
+    </client-only>
   </div>
 </template>
 

@@ -4,17 +4,19 @@
     class="init-vid-fade vimeo-component-bg"
   >
     <div v-if="vidId" ref="vidWrapper" class="vid-wrapper vid-background">
-      <vimeo-player
-        class="video-foreground"
-        ref="player"
-        :key="vidId"
-        :video-url="`https://vimeo.com/${vidId}`"
-        :video-id="vidId"
-        :options="options"
-        @ready="onVidReady"
-        @playing="onVidPlaying"
-      >
-      </vimeo-player>
+      <client-only>
+        <vimeo-player
+          class="video-foreground"
+          ref="player"
+          :key="vidId"
+          :video-url="`https://vimeo.com/${vidId}`"
+          :video-id="vidId"
+          :options="options"
+          @ready="onVidReady"
+          @playing="onVidPlaying"
+        >
+        </vimeo-player>
+      </client-only>
     </div>
   </div>
 </template>

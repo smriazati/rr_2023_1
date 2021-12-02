@@ -40,16 +40,18 @@
           :class="isFilmPlaying ? 'fade-in-video' : ''"
           class="init-vid-fade iframe-wrapper"
         >
-          <vimeo-player
-            ref="vid"
-            key="650434994"
-            video-url="https://vimeo.com/650434994"
-            video-id="650434994"
-            :options="options"
-            @playing="onFilmPlaying"
-            @ended="onFilmEnded"
-          >
-          </vimeo-player>
+          <client-only>
+            <vimeo-player
+              ref="vid"
+              key="650434994"
+              video-url="https://vimeo.com/650434994"
+              video-id="650434994"
+              :options="options"
+              @playing="onFilmPlaying"
+              @ended="onFilmEnded"
+            >
+            </vimeo-player>
+          </client-only>
         </div>
         <div v-show="!isPaginationVisible" class="text">
           <p class="small muted">Complete the video to unlock the next page.</p>
