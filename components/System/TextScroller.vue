@@ -131,6 +131,10 @@ body {
       @include pBigStyle();
       font-size: 28px;
       line-height: 32px;
+      @media (max-width: $collapse-bp) {
+        font-size: 18px;
+        line-height: 24px;
+      }
     }
     transition: 0.3s ease all;
     filter: blur(30px);

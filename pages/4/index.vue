@@ -67,5 +67,15 @@ export default {
       @include pBigStyle();
     }
   }
+  @media (max-width: $collapse-bp) {
+    .text-scroller .panel:last-child {
+      padding-bottom: 100px;
+    }
+    .pagination {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 }
 </style>

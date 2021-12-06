@@ -120,7 +120,7 @@ export default {
 
 .exhibit-nav {
   position: fixed;
-  z-index: 99;
+  z-index: 199;
   bottom: 0;
   left: 0;
   width: 100%;

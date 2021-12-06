@@ -109,10 +109,12 @@ header.story-title {
     grid-gap: 30px;
     @media (max-width: $collapse-bp) {
       grid-template-rows: 130px 1fr 25px;
+      grid-template-columns: 10px 1fr 10px;
       grid-gap: 10px;
     }
     > * {
       position: relative;
+      max-width: 100%;
     }
     .banner {
       background: $gray;
@@ -135,7 +137,6 @@ header.story-title {
       padding-bottom: 15px;
       * {
         margin: 0;
-        white-space: nowrap;
       }
     }
     .image-wrapper {

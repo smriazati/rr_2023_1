@@ -1,8 +1,11 @@
 <template>
   <div :class="isExpanded ? 'expanded' : 'collapsed'" class="map-controls">
-    <button class="menu-toggle" @click="toggleMenu">
-      <span v-if="isExpanded" class="text">Close Map Menu</span>
-      <span v-else class="text">Open Map Menu</span>
+    <button v-if="!isExpanded" class="menu-toggle" @click="toggleMenu">
+      <span class="text">Open Map Menu</span>
+    </button>
+    <button v-else class="flat menu-toggle" @click="toggleMenu">
+      <span class="visually-hidden">Close Map Menu</span>
+      <SystemIcon type="close" color="light" :width="30" />
     </button>
     <h2 class="visually-hidden">Map controls</h2>
     <div class="map-box-wrapper">
@@ -103,9 +106,11 @@ export default {
 
 .map-controls {
   .map-box-wrapper {
-    position: fixed;
-    left: 15px;
-    top: 150px;
+    @media (min-width: $collapse-bp) {
+      position: fixed;
+      left: 15px;
+      top: 150px;
+    }
   }
   .map-box {
     display: flex;
@@ -268,6 +273,38 @@ $marker-color-5: #a16231;
         text-decoration: line-through;
         color: $gray;
       }
+    }
+  }
+}
+
+@media (max-width: $collapse-bp) {
+  .map-controls.expanded {
+    background: rgba($gray, 0.9);
+    position: fixed;
+    z-index: 201;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 50px 0;
+    .menu-toggle {
+      position: fixed;
+      z-index: 202;
+      top: 0;
+      right: 0;
+      left: unset;
+      width: 50px;
+      height: 50px;
+      padding: 11px;
+      background: transparent;
+      .icon {
+        padding: 0;
+      }
+    }
+    .map-box-wrapper {
+      width: calc(100% - 50px);
+      margin: 0 auto;
     }
   }
 }

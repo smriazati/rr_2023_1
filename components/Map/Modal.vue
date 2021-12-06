@@ -97,7 +97,7 @@ export default {
 .modal-container {
   display: flex;
   position: fixed;
-  z-index: 113;
+  z-index: 311;
   top: 0;
   left: 0;
   animation: fadeIn 0.3s ease forwards;
@@ -128,7 +128,6 @@ export default {
 
   .modal-wrapper {
     position: relative;
-    z-index: 11;
   }
 }
 

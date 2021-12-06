@@ -226,6 +226,12 @@ export default {
         font-size: 16px;
         font-style: italic;
         color: lighten($gray, 60);
+        @media (max-width: $collapse-bp) {
+          font-size: 12px;
+          line-height: 16px;
+          max-width: 50%;
+          margin-left: auto;
+        }
       }
     }
     .iframe-wrapper {

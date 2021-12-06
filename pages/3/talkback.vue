@@ -126,5 +126,11 @@ export default {
       @include pBigStyle();
     }
   }
+
+  .pagination {
+    @media (max-width: $collapse-bp) {
+      margin-top: 30px;
+    }
+  }
 }
 </style>

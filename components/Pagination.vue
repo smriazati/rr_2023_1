@@ -163,6 +163,7 @@ export default {
       display: flex;
       justify-content: center;
       font-size: 22px;
+      line-height: 24px;
 
       > .icon {
         margin-left: 15px;

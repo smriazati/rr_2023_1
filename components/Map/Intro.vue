@@ -145,7 +145,9 @@ export default {
   }
   header {
     padding-top: 10vh;
-
+    @media (max-width: $collapse-bp) {
+      padding-top: 100px;
+    }
     grid-area: h;
     > * {
       display: flex;
@@ -188,6 +190,9 @@ export default {
     @media (min-width: $collapse-bp) {
       padding-bottom: 30px;
       text-align: center;
+    }
+    @media (max-width: $collapse-bp) {
+      padding-top: 0;
     }
     grid-area: f;
     height: 100%;

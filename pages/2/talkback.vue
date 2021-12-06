@@ -1,6 +1,6 @@
 <template>
   <div :class="name">
-    <div class="center">
+    <div class="center talkback-container">
       <h1 class="collapsed-mb">Review What You Learned</h1>
       <p class="instructions">Please take a moment to define these terms:</p>
       <div class="terms-list" :class="areDefsVisible ? 'reveal' : ''">
@@ -91,7 +91,12 @@ export default {
   min-width: 100vw;
   height: 100%;
   min-height: 100vh;
-  padding: 200px 0;
+  @media (min-width: $collapse-bp) {
+    padding: 200px 0;
+  }
+  @media (max-width: $collapse-bp) {
+    padding-top: 60px;
+  }
   // background: #35452b73;
   display: flex;
   justify-content: center;
@@ -102,6 +107,9 @@ export default {
   }
 }
 .terms-list {
+  @media (max-width: $collapse-bp) {
+    margin-bottom: 30px;
+  }
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -153,6 +161,15 @@ export default {
     }
     &:hover h2 {
       font-size: 42px;
+    }
+  }
+}
+@media (max-width: $collapse-bp) {
+  .occupation-talkback {
+    .talkback-container {
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

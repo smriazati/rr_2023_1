@@ -143,7 +143,9 @@ export default {
         img {
           position: relative;
           z-index: 10;
-          filter: blur(1px) grayscale(1) brightness(0.9);
+          @media (min-width: $collapse-bp) {
+            filter: blur(1px) grayscale(1) brightness(0.9);
+          }
           // opacity: 0.3;
           transition: 3s ease filter;
         }
