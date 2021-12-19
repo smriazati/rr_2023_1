@@ -69,9 +69,10 @@
         <div class="col">
           <p>
             Mania’s father Getzl ran the town’s transportation company and
-            garage. Many people considered him a “soltis,” a village elder and a
-            leader in the Jewish community. He later became the head of the
-            Judenrat, Jewish Council, during the German occupation.
+            garage. Getzl was a &ldquo;soltis,&rdquo; a leader in the town
+            council and a respected member of the Jewish community. He later
+            became the head of the Judenrat, Jewish Council, during the German
+            occupation.
           </p>
         </div>
       </div>
@@ -80,8 +81,11 @@
       <div class="col">
         <p>
           In 1939, when Mania was fifteen, war broke out and the Russians took
-          over Tuchyn. Two years later in the summer of 1941, the Germans
-          invaded the Soviet Union and drove the Russians out of the area.
+          over Tuchyn. The Russians added classes to the Jewish school drafted
+          young Jews including Mania's brother Leib into the army. In the summer
+          of 1941, the Germans invaded the Soviet Union and drove the Russians
+          out of the area. Many Jews ultimately fought with the Russians against
+          the Nazis during World War II.
         </p>
         <p>
           In this exhibition, you will learn what happened under the Germans by

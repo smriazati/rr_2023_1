@@ -1,8 +1,8 @@
-# The Chumot House
+# The Chomut House
 
 Luba Chomut lived as a child with her family in a beautiful new home. When the German army arrived in Tuchyn in July 1941, they appointed many Ukrainians to high-ranking positions. With newfound power, a group of Ukrainian police organized a pogrom, a violent riot in which gangs robbed, beat, and killed Jewish people.  
 
-Some local Ukrainians had noticed the Chomut house and pounded on the door where Laura lived. They threw Luba’s mother Perla into the courtyard and beat her with studded wooden planks until they thought she was dead.
+Some local Ukrainians had noticed the Chomut house and pounded on the door where Luba lived. They threw Luba’s mother Perla into the courtyard and beat her with studded wooden planks until they thought she was dead.
 
 > I remember my sister and I were standing in the doorway; we were screaming. [My mother’s] blood was gushing out of her head….
 –Luba Chomut

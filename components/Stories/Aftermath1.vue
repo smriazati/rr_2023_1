@@ -54,7 +54,7 @@
             family changed their name to Emmett and Luba took the name Laura.
             Her parents went by Pearl and Isaak and they had a son Michael in
             the camp. The family originally hoped to settle in Israel (then
-            Palestine) but they ultimately emigrated to the United States in
+            Palestine) but they ultimately immigrated to the United States in
             1949. Hear Laura speak about her family’s migration to the United
             States.
           </p>

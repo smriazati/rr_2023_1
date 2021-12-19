@@ -33,9 +33,9 @@
           <div class="row">
             <div class="text-wrapper">
               <p class="grid-intro-text">
-                In 2011, Zeev Portnoy, Yosef Zilberberg, and Miriam Schwartzman
-                Koutz’s son Gideon erected a monument on the site of the Tuchyn
-                ghetto in honor of the uprising and the lives lost.
+                In 2011, Ze&rsquo;ev Portnoy, Yosef Zilberberg, and Miriam
+                Schwartzman Koutz’s son Gideon erected a monument on the site of
+                the Tuchyn ghetto in honor of the uprising and the lives lost.
               </p>
             </div>
             <div class="left image-wrapper">
@@ -69,7 +69,7 @@
           <div class="row">
             <div class="text-wrapper">
               <p>
-                The places where people died lie unmarked today, No traces
+                The places where people died lie unmarked today. No traces
                 remain of the massacres that happened there.
               </p>
             </div>

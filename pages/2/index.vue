@@ -33,15 +33,15 @@ export default {
   async asyncData({ $content }) {
     const intro = await $content("02/introduction").fetch();
 
-    const chumot_house = await $content("02/chumot_house").fetch();
+    const chomut_house = await $content("02/chomut_house").fetch();
     const german_hq = await $content("02/german_hq").fetch();
     const ghetto = await $content("02/ghetto").fetch();
     const horyn_river = await $content("02/horyn_river").fetch();
     const synagogue = await $content("02/synagogue").fetch();
     const zaltsman_house = await $content("02/zaltsman_house").fetch();
 
-    const chumot_house_images = await $content(
-      "02/chumot_house_images"
+    const chomut_house_images = await $content(
+      "02/chomut_house_images"
     ).fetch();
     const german_hq_images = await $content("02/german_hq_images").fetch();
     const ghetto_images = await $content("02/ghetto_images").fetch();
@@ -52,9 +52,9 @@ export default {
     ).fetch();
 
     const markerContent = {
-      chumot_house: {
-        text: chumot_house,
-        images: chumot_house_images,
+      chomut_house: {
+        text: chomut_house,
+        images: chomut_house_images,
       },
       german_hq: {
         text: german_hq,
@@ -94,14 +94,14 @@ export default {
         {
           id: 0,
           name: "zaltsman_house",
-          title: "Zaltsman House",
+          title: "Judenrat",
           lat: 50.7003356,
           lng: 26.5719255,
         },
         {
           id: 1,
-          name: "chumot_house",
-          title: "Chumot House",
+          name: "chomut_house",
+          title: "Chomut House",
           lat: 50.6988032,
           lng: 26.570062,
         },
@@ -116,7 +116,7 @@ export default {
         {
           id: 3,
           name: "german_hq",
-          title: "German Headquarters",
+          title: "Gendarmerie",
           lat: 50.698633,
           lng: 26.5661871,
         },

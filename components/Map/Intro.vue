@@ -29,8 +29,8 @@
           <p>
             Click on the map’s locations and learn about this history. Think of
             places in your own childhood where you played, laughed, or cried.
-            Remember that it was home for the Jewish community and filled with
-            just as many memories as your places.
+            Remember that Tuchyn was home for the Jewish community and filled
+            with just as many memories as your places.
           </p>
         </div>
       </section>

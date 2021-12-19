@@ -1,4 +1,4 @@
-# German HQ
+# Gendarmerie
 
 The German military maintained an outpost known as the gendarmerie in Tuchyn, a site of violence and abuse. When the German military arrived, they created an auxiliary police force. They also brought with them their antisemitic policies and exacerbated local anti-Jewish sentiments. 
 
