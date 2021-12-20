@@ -128,6 +128,7 @@ export default {
 
   .modal-wrapper {
     position: relative;
+    z-index: 11;
   }
 }
 

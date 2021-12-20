@@ -1,21 +1,6 @@
 <template>
   <div :class="name" class="story stories-individual" ref="story">
     <div class="page-grid">
-      <div class="slider-controls">
-        <button @click="goToPrev()" class="flat">
-          <span class="visually-hidden">Prev</span
-          ><SystemIcon
-            type="arrow"
-            color="light"
-            :width="25"
-            class="icon icon-arrow-left"
-          />
-        </button>
-        <button @click="goToNext()" class="flat">
-          <span class="visually-hidden">Next</span
-          ><SystemIcon type="arrow" color="light" :width="25" />
-        </button>
-      </div>
       <div class="title" v-if="this.$route.params.id === '1'">
         <StoryTitle
           title="Luba Chomut"
@@ -40,23 +25,51 @@
           imgAlt="Young woman in 1940s era clothing"
         />
       </div>
-      <div class="story" v-if="this.$route.params.id === '1'">
+      <div class="slider-controls">
+        <button @click="goToPrev()" class="flat">
+          <span class="visually-hidden">Prev</span
+          ><SystemIcon
+            type="arrow"
+            color="light"
+            :width="25"
+            class="icon icon-arrow-left"
+          />
+        </button>
+        <div class="slide-counter">
+          <ul>
+            <li
+              v-for="index in slideNum"
+              :key="index"
+              class="link-hover"
+              :class="activeSlide === index - 1 ? 'active-slide' : ''"
+              @click="goToSlide(index)"
+            >
+              <span class="visually-hidden">{{ index }}</span>
+            </li>
+          </ul>
+        </div>
+        <button @click="goToNext()" class="flat">
+          <span class="visually-hidden">Next</span
+          ><SystemIcon type="arrow" color="light" :width="25" />
+        </button>
+      </div>
+      <div class="story" v-if="this.$route.params.id === '1'" ref="theStory">
         <StoriesAftermath1 />
       </div>
-      <div class="story" v-if="this.$route.params.id === '2'">
+      <div class="story" v-if="this.$route.params.id === '2'" ref="theStory">
         <StoriesAftermath2 />
       </div>
-      <div class="story" v-if="this.$route.params.id === '3'">
+      <div class="story" v-if="this.$route.params.id === '3'" ref="theStory">
         <StoriesAftermath3 />
       </div>
-      <div class="pagination" v-if="isPaginationVisible">
-        <Pagination
-          link="/4/stories"
-          message="Back to All Stories"
-          :back="true"
-        />
-        <Pagination link="/5" message="Move on to the Conclusion" />
-      </div>
+    </div>
+    <div class="pagination" v-if="isPaginationVisible">
+      <Pagination
+        link="/4/stories"
+        message="Back to All Stories"
+        :back="true"
+      />
+      <Pagination link="/5" message="Move on to the Conclusion" />
     </div>
   </div>
 </template>
@@ -94,6 +107,7 @@ export default {
   },
   watch: {
     activeSlide() {
+      this.pauseActiveVids();
       const activeSlideClass = this.activeSlideClass;
       const activeSlideEl = document.querySelector(
         `.slide-${this.activeSlide}`
@@ -104,7 +118,7 @@ export default {
         `.slide-${this.previousActiveSlide}`
       );
       previousActiveSlideEl?.classList.remove(activeSlideClass);
-      // console.log(activeSlideEl);
+      // console.log(previousActiveSlideEl, activeSlideEl);
 
       if (this.activeSlide === this.slideNum - 1) {
         this.isPaginationVisible = true;
@@ -112,6 +126,16 @@ export default {
     },
   },
   methods: {
+    pauseActiveVids() {
+      let activeVid = document.querySelector(".vimeo-component.playing");
+      if (activeVid) {
+        let pauseBtn = activeVid.querySelector(".pauseBtn");
+        console.log(pauseBtn);
+        if (pauseBtn) {
+          pauseBtn.click();
+        }
+      }
+    },
     initSlider() {
       const parent = this.$refs.story;
 
@@ -131,6 +155,8 @@ export default {
       });
     },
     goToNext() {
+      // console.log("going to next");
+
       this.previousActiveSlide = this.activeSlide;
       if (this.activeSlide === this.slideNum - 1) {
         this.activeSlide = 0;
@@ -139,12 +165,19 @@ export default {
       }
     },
     goToPrev() {
+      // console.log("going to prev");
       this.previousActiveSlide = this.activeSlide;
       if (this.activeSlide === 0) {
         this.activeSlide = this.slideNum - 1;
       } else {
         this.activeSlide = this.activeSlide - 1;
       }
+    },
+    goToSlide(index) {
+      this.previousActiveSlide = this.activeSlide;
+      // console.log(index - 1);
+      this.activeSlide = index - 1;
+      // console.log(this.activeSlide);
     },
   },
   mixins: [animation],
@@ -154,165 +187,169 @@ export default {
 
 
 <style lang="scss">
-.aftermath-stories-individual {
-  .slider-controls {
-    z-index: 100;
+.aftermath-stories-individual.stories-individual {
+  .page-grid {
     display: flex;
-    justify-content: center;
-    @media (max-width: $collapse-bp) {
-      padding: 15px 0 30px;
-    }
-  }
-  main.content > * {
-    opacity: 0;
-  }
-  header.story-title .story-title-container {
-    grid-template-rows: 165px 1fr 25px;
-    .image-wrapper {
-      max-width: 150px;
-    }
-    .text-wrapper {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    @media (max-width: $collapse-bp) {
-      grid-template-rows: 65px 1fr 25px;
-      .image-wrapper {
-        max-width: 50px;
+    flex-direction: column;
+    height: calc(100vh - 54px);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    .story-title-container {
+      grid-gap: 0;
+      grid-column-gap: 15px;
+      @media (max-width: $collapse-bp) {
+        grid-row-gap: 15px;
+      }
+      .text-wrapper {
+        padding: 0;
       }
       .banner {
-        grid-row-end: 4;
+        @media (max-width: $collapse-bp) {
+          grid-row: 1 / 4;
+        }
       }
-    }
-  }
-  .slider-wrapper {
-    // @include siteContainer();
 
-    padding: 0 30px;
-    @media (max-width: $collapse-bp) {
-      padding-top: 30px;
-    }
-    position: relative;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-auto-rows: 100%;
-    place-items: center;
-    @media (max-width: $collapse-bp) {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .slide {
-      grid-column: 1 / 1;
-      grid-row: 1 / 1;
-      width: 100%;
-      // height: 100%;
-      height: 0%;
-      @media (max-width: $collapse-bp) {
-        flex: 0 0 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      transition: 0.3s ease opacity;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 9;
-    }
-    .active-slide {
-      top: 0;
-      display: flex;
-      opacity: 1;
-      height: auto;
-      @media (max-width: $collapse-bp) {
-        flex: 100%;
-        position: relative;
-      }
-      pointer-events: none;
-      z-index: 11;
-    }
-  }
-
-  &.stories-individual main.content > .row {
-    padding: 0 !important;
-  }
-  .page-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: 225px 1fr 100px;
-    grid-template-rows: 25% 60% 15%;
-    height: calc(100vh - 54px);
-    @media (max-width: $collapse-bp) {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      .title {
-        order: 1;
-      }
-      .story {
-        order: 2;
-      }
-      .slider-controls {
-        order: 3;
-      }
-      .pagination {
-        order: 4;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    width: 100%;
-    top: 0;
-    position: absolute;
-    .title {
-      grid-column-start: 1;
-      grid-column-end: 4;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      width: 100%;
-      height: 100%;
-    }
-    .story {
-      grid-column-start: 1;
-      grid-column-end: 4;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      width: 100%;
-      height: 100%;
-    }
-    .slider-controls {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 3;
-      grid-row-end: 4;
-      @media (min-width: $collapse-bp) {
+      .image-wrapper {
+        max-width: 150px;
+        justify-self: end;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        grid-row: 1 / 4;
+        position: relative;
+        z-index: 1000;
+        @media (max-width: $collapse-bp) {
+          place-self: center;
+          grid-row: 1 / 2;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+    .slider-controls {
+      // position: fixed;
+      // bottom: 54px;
+      width: 100%;
+      height: 54px;
+      background: $sage;
+      display: flex;
+      justify-content: center;
+      margin-top: -25px;
+      @media (max-width: $collapse-bp) {
+        z-index: 10;
+      }
+      .slide-counter {
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul {
+        display: flex;
+        padding: 10px;
+        list-style: none;
+        > *:not(:last-child) {
+          margin-right: 15px;
+        }
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:before {
+            content: " ";
+            width: 10px;
+            height: 10px;
+            display: block;
+            border-radius: 3px;
+            background: #fff;
+            transition: 0.3s ease all;
+          }
+          &.active-slide {
+            &:before {
+              background: $gray;
+            }
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+      .icon.light {
+        &:hover {
+          filter: grayscale(1) invert(0) brightness(90);
+        }
+      }
+      ul li:hover::before {
+        background: $gray;
+      }
+    }
+    .story {
+      flex: 100%;
+      padding: 54px 0 79px 0;
+      @include siteContainerBig(400);
+
+      main.content {
+        height: 100%;
+        > .row {
+          position: absolute;
+          top: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          .vimeo-component {
+            flex: 100%;
+            width: 100%;
+            height: 100%;
+          }
+          &.slide {
+            &:not(.active-slide) {
+              display: none;
+            }
+
+            &.active-slide {
+              opacity: 0;
+              animation: fadeIn 0.3s ease-in forwards;
+            }
+          }
+
+          figure.banner img {
+            max-height: 60vh;
+          }
+
+          .row {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
       }
     }
   }
-  &.stories-individual main.content > .row figure {
-    img {
-      // max-height: 50vh;
-      height: 100%;
-      // width: 100%;
-      overflow: hidden;
-    }
-
-    &.banner {
-      max-width: 800px;
-      max-height: 100%;
-      margin: 0 auto;
-      text-align: center;
-      background: transparent;
+  div.pagination {
+    @media (max-width: $collapse-bp) {
+      margin-top: 30px;
     }
   }
-}
-
-@media (max-width: $collapse-bp) {
-  .slider-wrapper {
-    .vimeo-component {
-      width: 100%;
+  nav.pagination {
+    top: 100px;
+    bottom: unset;
+    .wrapper {
+      background: darken($sage, 10);
+      &:hover {
+        background: rgba(255, 255, 255, 0.8);
+      }
     }
   }
 }

@@ -104,7 +104,7 @@ header.story-title {
   .story-title-container {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr min-content 1fr;
+    grid-template-columns: 1fr max-content 1fr;
     grid-template-rows: 5vh 1fr 25px;
     grid-gap: 30px;
     @media (max-width: $collapse-bp) {
@@ -134,6 +134,10 @@ header.story-title {
       width: 100%;
       height: 100%;
       text-align: center;
+      place-self: center;
+      flex-direction: column;
+      display: flex;
+      flex-direction: column;
       padding-bottom: 15px;
       * {
         margin: 0;

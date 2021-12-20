@@ -214,7 +214,7 @@ export default {
     height: 100vh;
     width: auto;
     display: flex;
-    z-index: 113;
+    z-index: 300;
     flex-direction: column;
     justify-content: center;
     background: rgba($forest, 1);

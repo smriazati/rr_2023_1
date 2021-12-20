@@ -127,12 +127,13 @@ export default {
       const footer = this.$refs.footer;
       // console.log(pin, footer);
       ScrollTrigger.create({
-        trigger: footer,
+        trigger: pin,
         pin: pin,
         pinSpacing: false,
         // markers: true,
-        start: `top-=${window.innerWidth / 4} center`,
-        end: `+=${window.innerWidth}`,
+        start: `bottom bottom`,
+        endTrigger: footer,
+        end: `bottom bottom`,
       });
     },
     setContentAnimation() {
@@ -376,8 +377,8 @@ export default {
       }
     }
     &.unmarked {
+      padding-bottom: 15vh;
       .row {
-        padding-bottom: 25vh;
         .text-wrapper {
           grid-row: 6 / 7;
           grid-column: 1 / 4;
@@ -400,6 +401,7 @@ export default {
   footer {
     position: relative;
     z-index: 900;
+    padding-top: 25vh;
   }
 }
 </style>

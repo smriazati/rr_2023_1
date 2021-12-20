@@ -46,7 +46,7 @@ export default {
       if (this.height) {
         gsap.to(img, {
           scale: 1,
-          autoAlpha: 0.5,
+          autoAlpha: 1,
           scrollTrigger: {
             trigger: img,
             start: "top top",

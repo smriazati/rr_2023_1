@@ -93,6 +93,10 @@ export default {
     overflow-y: scroll;
   }
 }
+.modal-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 .instruction-modal {
   outline: 0;
   &:focus {

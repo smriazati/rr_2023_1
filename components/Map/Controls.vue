@@ -170,6 +170,9 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    li {
+      padding-right: 30px;
+    }
   }
   .map-marker-list {
     top: 300px;

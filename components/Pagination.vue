@@ -86,12 +86,6 @@ export default {
     background: $forest;
   }
   transition: 0.3s ease all;
-  &:hover {
-    background: $white;
-    .icon.light {
-      filter: invert(0);
-    }
-  }
 
   .tree-icon {
     position: absolute;
@@ -225,6 +219,25 @@ export default {
     .wrapper {
       margin: 0 auto;
       padding: 30px;
+    }
+  }
+}
+
+nav.pagination:hover {
+  background: $white;
+  .icon.light {
+    filter: invert(0);
+  }
+}
+
+@media (max-width: $collapse-bp) {
+  div.pagination {
+    align-items: stretch;
+    nav.pagination {
+      min-height: 100%;
+      .wrapper {
+        min-height: 100%;
+      }
     }
   }
 }

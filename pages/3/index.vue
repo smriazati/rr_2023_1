@@ -80,7 +80,7 @@ export default {
     return {
       name: "resistance",
       isFilmEnded: false,
-      isPaginationVisible: false,
+      isPaginationVisible: true,
       isFilmActive: false,
       isFilmPlaying: false,
       options: {
@@ -141,6 +141,9 @@ export default {
 
 <style lang="scss">
 .resistance {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   .pagination {
     z-index: 999;
   }
@@ -154,6 +157,8 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
     .video-background {
       position: absolute;
       z-index: 9;
@@ -166,10 +171,12 @@ export default {
   .video-intro-text {
     z-index: 11;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    width: 100%;
+    height: 100%;
     @media (min-width: $collapse-bp) {
       width: 50ch;
       position: absolute;

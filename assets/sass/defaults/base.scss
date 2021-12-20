@@ -439,3 +439,9 @@ body {
 p.big {
   @include pBigStyle;
 }
+
+.link-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
