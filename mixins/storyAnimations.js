@@ -3,17 +3,18 @@ export default {
       showPaginationAtBodyEnd() {
 
         const ScrollTrigger = this.$ScrollTrigger;
-        const body = document.querySelector("main.content");
-        const bodyH = body.offsetHeight;
-        if (bodyH > 0) {
-          // console.log('height',bodyH);
+        // const body = document.querySelector("main.content");
+        const body = this.$refs.wrapper;
+        // const bodyH = body.offsetHeight;
+        if (body) {
+          console.log(body);
           ScrollTrigger.create({
             trigger: body,
             // markers: true,
-            start: 'top top',
-            end: `top+=${bodyH - window.innerHeight / 2} bottom`,
+            start: 'top-=100px top',
+            end: `bottom-=${window.innerHeight / 2} bottom`,
             onToggle: (self) => {
-              // console.log(self.isActive);
+              console.log(self.isActive);
               if (!self.isActive) {
                 this.isPaginationVisible = true;
               }

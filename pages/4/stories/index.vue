@@ -55,5 +55,14 @@ export default {
   @media (max-width: $collapse-bp) {
     padding-top: 60px;
   }
+  .text-wrapper {
+    background: $gray;
+    padding: 30px;
+    max-width: 60ch;
+    margin-bottom: 60px;
+    > *:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }
 </style>

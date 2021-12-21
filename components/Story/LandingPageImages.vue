@@ -1,6 +1,6 @@
 <template>
   <div class="story-landing-page-images">
-    <div class="text-wrapper center">
+    <div class="text-wrapper center call-out">
       <h2 v-if="title" class="collapsed-mb">{{ title }}</h2>
       <p v-if="msg" class="small">
         {{ msg }}
@@ -117,7 +117,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
+    background: rgba($gray, 0.6);
     > *:last-child {
       margin-bottom: 0;
     }
@@ -158,6 +158,7 @@ export default {
         margin-top: 0.5rem;
         font-size: 24px;
         line-height: 30px;
+        transition: 0.3s ease all;
       }
       &:hover {
         img {
@@ -165,6 +166,13 @@ export default {
           opacity: 1;
           // transform: scale(1);
         }
+      }
+    }
+  }
+  .image-col {
+    &:hover {
+      figcaption {
+        color: lighten($sage, 30);
       }
     }
   }

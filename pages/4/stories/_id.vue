@@ -99,11 +99,7 @@ export default {
     };
   },
   mounted() {
-    // this.setAnim();
-    // this.showPaginationAtBodyEnd();
-
     this.initSlider();
-    // console.log(slides);
   },
   watch: {
     activeSlide() {

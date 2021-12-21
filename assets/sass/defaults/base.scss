@@ -183,44 +183,44 @@ figcaption,
     padding-top: 30px;
     position: relative;
 
-    &:before {
-      content: '\201c';
-      line-height: 0;
-      // width: 30px;
-      // height: 30px;
-      display: inline;
-      position: absolute;
-      font-size: 150px;
-      left: -55px;
-      top: 65px;
-      opacity: 0.8;
+    // &:before {
+    //   content: '\201c';
+    //   line-height: 0;
+    //   // width: 30px;
+    //   // height: 30px;
+    //   display: inline;
+    //   position: absolute;
+    //   font-size: 150px;
+    //   left: -55px;
+    //   top: 65px;
+    //   opacity: 0.8;
 
-      @media (max-width: $mobile-bp) {
-        font-size: 80px;
-        left: -25px;
-        top: 50px;
-      }
-    }
+    //   @media (max-width: $mobile-bp) {
+    //     font-size: 80px;
+    //     left: -25px;
+    //     top: 50px;
+    //   }
+    // }
 
-    &:after {
-      content: '\201d';
-      line-height: 0;
-      // width: 30px;
-      // height: 30px;
-      opacity: 0.8;
+    // &:after {
+    //   content: '\201d';
+    //   line-height: 0;
+    //   // width: 30px;
+    //   // height: 30px;
+    //   opacity: 0.8;
 
-      display: block;
-      position: absolute;
-      font-size: 150px;
-      right: -20px;
-      top: 95px;
+    //   display: block;
+    //   position: absolute;
+    //   font-size: 150px;
+    //   right: -20px;
+    //   top: 95px;
 
-      @media (max-width: $mobile-bp) {
-        font-size: 80px;
-        right: 0px;
-        top: 50px;
-      }
-    }
+    //   @media (max-width: $mobile-bp) {
+    //     font-size: 80px;
+    //     right: 0px;
+    //     top: 50px;
+    //   }
+    // }
 
     p {
       margin-bottom: 0;

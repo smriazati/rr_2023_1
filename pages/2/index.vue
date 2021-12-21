@@ -21,7 +21,7 @@
 
     <div v-if="isModalVisible" class="modal-container">
       <div class="close-overlay" @click="closeModal"></div>
-      <MapModal :content="activeStoryContent" @close-modal="closeModal" />
+      <MapModal :activeStoryId="activeStoryId" @close-modal="closeModal" />
     </div>
   </div>
 </template>
@@ -205,6 +205,7 @@ export default {
       this.areMapControlsActive = true;
     },
   },
+
   computed: {
     ...mapState("occupation", {
       activeStoryId: (state) => state.activeStory,
@@ -212,12 +213,6 @@ export default {
       panAnimComplete: (state) => state.panAnimComplete,
       visitedOnce: (state) => state.visitedOnce,
     }),
-    activeStoryContent() {
-      if (this.activeStoryId === null) {
-        return null;
-      }
-      return this.markerContent[this.markers[this.activeStoryId].name];
-    },
   },
 };
 </script>

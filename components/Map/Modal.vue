@@ -10,19 +10,28 @@
       <div class="icon icon-close"></div>
     </div>
     <div class="story-container">
-      <div ref="textWrapper" class="text-wrapper">
-        <nuxt-content :document="content.text" />
-        <button
-          class="inline-close-button bright centered"
-          @click="closeModal()"
-        >
-          <span>Back to the map</span
-          ><SystemIcon type="arrow" color="light" :width="25" />
-        </button>
+      <div v-if="activeStoryId === 0" class="stories-modal">
+        <MapModalsS0 />
       </div>
-      <div ref="imageWrapper" class="image-wrapper">
-        <nuxt-content :document="content.images" />
+      <div v-if="activeStoryId === 1" class="stories-modal">
+        <MapModalsS1 />
       </div>
+      <div v-if="activeStoryId === 2" class="stories-modal">
+        <MapModalsS2 />
+      </div>
+      <div v-if="activeStoryId === 3" class="stories-modal">
+        <MapModalsS3 />
+      </div>
+      <div v-if="activeStoryId === 4" class="stories-modal">
+        <MapModalsS4 />
+      </div>
+      <div v-if="activeStoryId === 5" class="stories-modal">
+        <MapModalsS5 />
+      </div>
+      <button class="inline-close-button bright centered" @click="closeModal()">
+        <span>Back to the map</span
+        ><SystemIcon type="arrow" color="light" :width="25" />
+      </button>
     </div>
   </div>
 </template>
@@ -31,8 +40,8 @@
 <script>
 export default {
   props: {
-    content: {
-      type: Object,
+    activeStoryId: {
+      type: Number,
       required: true,
     },
   },
@@ -42,15 +51,15 @@ export default {
     if (wrapper) {
       wrapper.focus();
     }
-    this.showTitlesAsCaption();
     this.initLightbox();
+    // this.setAnim();
   },
   methods: {
     closeModal() {
       this.$emit("close-modal");
     },
     initLightbox() {
-      const boxes = document.querySelectorAll('[data-lightbox="true"]');
+      const boxes = document.querySelectorAll("figure:not(.no-lb)");
       if (!boxes) {
         return;
       }
@@ -60,32 +69,6 @@ export default {
         box.addEventListener("click", () => {
           box.classList.toggle("lightbox-expanded");
         });
-      });
-    },
-    showTitlesAsCaption() {
-      const ref = this.$refs.imageWrapper;
-      if (!ref) {
-        return;
-      }
-      // console.log("ref", ref);
-      const imgs = Array.from(ref.querySelectorAll("img:not(.icon)"));
-      if (!imgs) {
-        return;
-      }
-      // console.log("imgs", imgs);
-      imgs.forEach((img) => {
-        const figure = document.createElement("figure");
-
-        const parent = img.parentElement;
-        parent.dataset.lightbox = "true";
-        figure.appendChild(img);
-        const title = img.title;
-        if (title) {
-          const caption = document.createElement("figcaption");
-          caption.innerHTML = title;
-          figure.appendChild(caption);
-        }
-        parent.appendChild(figure);
       });
     },
   },
@@ -176,40 +159,53 @@ export default {
   border: none;
 }
 
-@media (max-width: $mobile-bp) and (orientation: landscape) {
-  .story-container .image-wrapper figure {
-    // max-height: 80vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+// @media (max-width: $mobile-bp) and (orientation: landscape) {
+//   .story-container .image-wrapper figure {
+//     // max-height: 80vh;
+//     overflow: hidden;
+//     display: flex;
+//     flex-direction: column;
 
-    img {
-      flex: 0 0 400px;
-      object-fit: contain;
-      overflow: hidden;
-    }
+//     img {
+//       flex: 0 0 400px;
+//       object-fit: contain;
+//       overflow: hidden;
+//     }
+//   }
+// }
+
+// .story-container {
+//   display: grid;
+//   max-width: 1000px;
+//   margin: 0 auto;
+//   grid-template-columns: minmax(200px, 50ch) 2fr;
+//   // @media (min-width: 1280px) {
+//   //   grid-template-columns: 1fr 2fr;
+//   // }
+//   grid-gap: 30px;
+
+//   .image-wrapper {
+//     figure {
+//       margin-bottom: 30px;
+//     }
+//   }
+
+//   @media (max-width: $mobile-bp) {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+.stories-modal {
+  main.content > .row.title {
+    padding: 0 0 54px 0;
   }
-}
-
-.story-container {
-  display: grid;
-  max-width: 1000px;
-  margin: 0 auto;
-  grid-template-columns: minmax(200px, 50ch) 2fr;
-  // @media (min-width: 1280px) {
-  //   grid-template-columns: 1fr 2fr;
-  // }
-  grid-gap: 30px;
-
-  .image-wrapper {
-    figure {
-      margin-bottom: 30px;
-    }
+  main.content > .row:last-child {
+    padding-bottom: 100px;
   }
-
-  @media (max-width: $mobile-bp) {
-    display: flex;
-    flex-direction: column;
+  main.content > .row blockquote {
+    max-width: unset;
+    @include pBigStyle();
   }
 }
 </style>
