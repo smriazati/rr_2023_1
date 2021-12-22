@@ -23,7 +23,8 @@
           <div class="text-wrapper center">
             <figure class="full-width">
               <blockquote>
-                They tried to bury us, they didn’t know we were seeds.
+                &ldquo;They tried to bury us, they didn’t know we were
+                seeds.&rdquo;
               </blockquote>
               <figcaption>Dinos Christianopoulos</figcaption>
             </figure>
@@ -121,6 +122,7 @@ export default {
     setWrapperHeight() {
       this.wrapperHeight = this.$refs.page.offsetHeight;
     },
+
     setPinningAnimation() {
       const ScrollTrigger = this.$ScrollTrigger;
       const pin = this.$refs.pin;
@@ -142,7 +144,6 @@ export default {
       const header = grid.querySelector("header");
       const monuments = grid.querySelector("section.monuments");
       const unmarked = grid.querySelector("section.unmarked");
-      const footer = grid.querySelector("footer");
 
       // First Row
       const monumentsC1 = monuments.querySelector(".text-wrapper");
@@ -286,9 +287,8 @@ export default {
       min-width: 100%;
       width: 100%;
       max-height: 100%;
-      @media (max-width: $collapse-bp) {
-        min-height: 100%;
-      }
+
+      min-height: 100%;
       //   height: 100%;
       object-fit: cover;
       opacity: 0.6;
@@ -307,6 +307,13 @@ export default {
   p,
   blockquote {
     @include pBigStyle();
+  }
+
+  blockquote {
+    @media (max-width: $nav-bp) {
+      font-size: 30px;
+      line-height: 38px;
+    }
   }
 
   header {

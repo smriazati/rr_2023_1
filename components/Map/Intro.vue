@@ -37,12 +37,12 @@
       <section class="featured-quote">
         <figure>
           <blockquote>
-            It was precious to us, we were born there, studied, and spent our
-            childhood days there…<br />Sometimes you stand and ask yourself: Is
-            it true? Did all of this happen in the progressive world of the
-            twentieth century?
+            &ldquo;It was precious to us, we were born there, studied, and spent
+            our childhood days there…<br />Sometimes you stand and ask yourself:
+            Is it true? Did all of this happen in the progressive world of the
+            twentieth century?&rdquo;
             <figcaption>
-              Yitzchak Gilberg, a Jewish resident of Tuchyn
+              <p>Yitzchak Gilberg, a Jewish resident of Tuchyn</p>
             </figcaption>
           </blockquote>
         </figure>

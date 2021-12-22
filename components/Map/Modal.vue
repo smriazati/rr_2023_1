@@ -98,6 +98,11 @@ export default {
 
   width: 100%;
 
+  figcaption p {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 24px;
+  }
   .close-overlay {
     width: 100%;
     height: 100%;
@@ -204,7 +209,7 @@ export default {
     padding-bottom: 100px;
   }
   main.content > .row blockquote {
-    max-width: unset;
+    max-width: 40ch;
     @include pBigStyle();
   }
 }

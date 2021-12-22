@@ -3,12 +3,12 @@
     <div class="row flat-padding">
       <figure>
         <blockquote>
-          That night I left Tuchyn with my sister Basia. My mother Rivka and my
-          brothers David and Liova were killed in the ghetto. Out of all of our
-          family, including uncles and aunts and their families, only we
-          remained, my sister Basia and I.
+          &ldquo;That night I left Tuchyn with my sister Basia. My mother Rivka
+          and my brothers David and Liova were killed in the ghetto. Out of all
+          of our family, including uncles and aunts and their families, only we
+          remained, my sister Basia and I.&rdquo;
         </blockquote>
-        <figcaption>--Mania Schwartzman</figcaption>
+        <figcaption>Mania Schwartzman</figcaption>
       </figure>
     </div>
     <div class="row">

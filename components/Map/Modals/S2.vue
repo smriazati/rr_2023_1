@@ -33,12 +33,13 @@
     <div class="row">
       <figure class="banner">
         <blockquote>
-          On Sabbath eve [the Jewish day of rest], fathers and sons dressed in
-          their Sabbath clothes, started to stream for prayers… And how
-          beautiful was the sight of the burning Sabbath candles and the tables
-          covered with white tablecloth that were seen from each house.
+          &ldquo;On Sabbath eve [the Jewish day of rest], fathers and sons
+          dressed in their Sabbath clothes, started to stream for prayers… And
+          how beautiful was the sight of the burning Sabbath candles and the
+          tables covered with white tablecloth that were seen from each
+          house.&rdquo;
         </blockquote>
-        <p class="caption">--Zushia Rotelman, Former Resident of Tuchyn</p>
+        <p class="caption">Zushia Rotelman, Former Resident of Tuchyn</p>
       </figure>
     </div>
     <div class="row">

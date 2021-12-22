@@ -1,5 +1,5 @@
 <template>
-  <main class="content">
+  <main ref="content" class="content">
     <StoryTitle
       title="Luba Chomut"
       sectionTitle="Introduction"
@@ -95,3 +95,13 @@
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  methods: {
+    onScrollEnd() {
+      this.$emit("on-scroll-end");
+    },
+  },
+};
+</script>

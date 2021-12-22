@@ -100,3 +100,38 @@
     </div>
   </main>
 </template>
+<script>
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.checkScrollToBottom();
+    });
+  },
+  methods: {
+    checkScrollToBottom() {
+      const ScrollTrigger = this.$ScrollTrigger;
+      const trigger = this.$refs.content;
+      const endTrigger = this.$refs.content.lastElementChild;
+
+      if (trigger && endTrigger) {
+        ScrollTrigger.create({
+          trigger: trigger,
+          endTrigger: endTrigger,
+          // markers: true,
+          start: "top-=100px top",
+          end: `bottom-=${window.innerHeight / 2} bottom`,
+          onToggle: (self) => {
+            // console.log(self.isActive);
+            if (!self.isActive) {
+              this.onScrollEnd();
+            }
+          },
+        });
+      }
+    },
+    onScrollEnd() {
+      this.$emit("on-scroll-end");
+    },
+  },
+};
+</script>

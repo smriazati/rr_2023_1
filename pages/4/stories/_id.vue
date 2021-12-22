@@ -75,8 +75,6 @@
 </template>
 
 <script>
-import animation from "~/mixins/storyAnimations.js";
-
 export default {
   data() {
     return {
@@ -176,7 +174,6 @@ export default {
       // console.log(this.activeSlide);
     },
   },
-  mixins: [animation],
 };
 </script>
 

@@ -6,8 +6,8 @@
     <div class="row">
       <figure>
         <blockquote>
-          “The Judenrat was established. The Jewish population placed their
-          trust in my father.”
+          &ldquo;The Judenrat was established. The Jewish population placed
+          their trust in my father.&rdquo;
         </blockquote>
         <figcaption><p>Miriam Shvartzman-Kotz, Tuchyn (1967)</p></figcaption>
       </figure>
@@ -54,9 +54,10 @@
     <div class="row">
       <figure>
         <blockquote>
-          “My mother opposed this completely, that my father should take on this
-          role. I know that my father also did not want this, but he had no
-          choice. The Germans did not ask him. They forced this job on him.”
+          &ldquo;My mother opposed this completely, that my father should take
+          on this role. I know that my father also did not want this, but he had
+          no choice. The Germans did not ask him. They forced this job on
+          him.&rdquo;
         </blockquote>
         <figcaption><p>Mania Schwartzman</p></figcaption>
       </figure>

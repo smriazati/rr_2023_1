@@ -74,13 +74,17 @@
         padding: 0;
       }
 
+      &.flat-padding-bottom {
+        padding-bottom: 0;
+      }
+
       &.dark {
         background: $gray;
       }
 
       @media (min-width: $collapse-bp) {
         &:last-child {
-          padding-bottom: 35vh;
+          padding-bottom: 15vh;
         }
       }
 

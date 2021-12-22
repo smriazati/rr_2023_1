@@ -23,16 +23,18 @@
 .conclusion.page .conclusion-ending-slide {
   background: $white;
   padding-top: 400px;
-
+  height: 100vh;
+  max-height: 100vh;
   padding-bottom: 25%;
 
   padding-bottom: 25vh;
-  @media (min-width: $collapse-bp) {
-    margin-bottom: 54px;
-  }
+  // @media (min-width: $collapse-bp) {
+  //   margin-bottom: 54px;
+  // }
   position: relative;
   .bg-image {
     opacity: 0.3;
+
     img {
       filter: grayscale(1) brightness(3);
     }
