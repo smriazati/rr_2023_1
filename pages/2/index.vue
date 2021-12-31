@@ -30,58 +30,6 @@
 import { mapState } from "vuex";
 
 export default {
-  async asyncData({ $content }) {
-    const intro = await $content("02/introduction").fetch();
-
-    const chomut_house = await $content("02/chomut_house").fetch();
-    const german_hq = await $content("02/german_hq").fetch();
-    const ghetto = await $content("02/ghetto").fetch();
-    const horyn_river = await $content("02/horyn_river").fetch();
-    const synagogue = await $content("02/synagogue").fetch();
-    const zaltsman_house = await $content("02/zaltsman_house").fetch();
-
-    const chomut_house_images = await $content(
-      "02/chomut_house_images"
-    ).fetch();
-    const german_hq_images = await $content("02/german_hq_images").fetch();
-    const ghetto_images = await $content("02/ghetto_images").fetch();
-    const horyn_river_images = await $content("02/horyn_river_images").fetch();
-    const synagogue_images = await $content("02/synagogue_images").fetch();
-    const zaltsman_house_images = await $content(
-      "02/zaltsman_house_images"
-    ).fetch();
-
-    const markerContent = {
-      chomut_house: {
-        text: chomut_house,
-        images: chomut_house_images,
-      },
-      german_hq: {
-        text: german_hq,
-        images: german_hq_images,
-      },
-      ghetto: {
-        text: ghetto,
-        images: ghetto_images,
-      },
-      horyn_river: {
-        text: horyn_river,
-        images: horyn_river_images,
-      },
-      synagogue: {
-        text: synagogue,
-        images: synagogue_images,
-      },
-      zaltsman_house: {
-        text: zaltsman_house,
-        images: zaltsman_house_images,
-      },
-    };
-    return {
-      intro,
-      markerContent,
-    };
-  },
   data() {
     return {
       name: "occupation",
