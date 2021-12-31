@@ -126,7 +126,9 @@ export default {
   footer,
   .button-wrapper {
     background: $gray;
+
     @media (min-width: $collapse-bp) {
+      padding-right: 10px;
       padding-left: 30px;
     }
     @media (max-width: $collapse-bp) {
@@ -182,12 +184,20 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    @media (max-width: $collapse-bp) {
+      text-align: center;
+    }
   }
   section.text {
     grid-area: t;
     padding-top: 60px;
     @media (max-width: $collapse-bp) {
       padding-top: 30px;
+    }
+    .text-wrapper p:last-child {
+      margin-bottom: 0;
     }
   }
   footer {

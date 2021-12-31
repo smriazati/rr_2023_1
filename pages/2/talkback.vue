@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div v-if="isPaginationVisible">
+    <div v-if="isPaginationVisible" class="pagination-wrapper">
       <Pagination link="/3" message="Video About Resistance" />
     </div>
   </div>
@@ -171,6 +171,9 @@ export default {
       margin-left: auto;
       margin-right: auto;
     }
+  }
+  .pagination-wrapper {
+    width: 100%;
   }
 }
 </style>

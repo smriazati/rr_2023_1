@@ -199,10 +199,12 @@ figcaption,
 
 body {
   background-color: lighten($gray, 10);
-  background: url("/images/tree-texture-big.jpg") no-repeat, rgba(86, 91, 84, 0.68);
+  // background: url("/images/tree-texture-big.jpg") no-repeat, rgba(86, 91, 84, 0.68);
+
+  background: url(/images/tree-texture-big.jpg) no-repeat, rgb(143 187 124 / 20%);
   background-size: cover;
   background-attachment: fixed;
-  background-blend-mode: overlay;
+  background-blend-mode: lighten;
 }
 
 .sage {

@@ -87,7 +87,7 @@ export default {
   justify-content: center;
   height: calc(100% - 54px);
 
-  @media (max-width: $mobile-bp) {
+  @media (max-width: $collapse-bp) {
     height: 100%;
     height: 100vh;
   }

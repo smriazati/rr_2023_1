@@ -186,6 +186,11 @@ export default {
       max-width: 80%;
       top: 10%;
     }
+    @media (max-width: $collapse-bp) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .call-out {
       background: rgba($gray, 0.8);

@@ -163,6 +163,8 @@ export default {
   z-index: 112;
   p {
     color: $white;
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 </style>

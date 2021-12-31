@@ -115,6 +115,7 @@ body {
 .text-scroller {
   width: 100%;
   background: rgba(10, 10, 10, 0.4);
+  padding: 0 25px;
   button {
     span {
       display: flex;

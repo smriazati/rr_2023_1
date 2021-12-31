@@ -2,21 +2,38 @@
 
 // /stories/index
 .stories-landing-page {
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   .main-row {
-    height: 100%;
-    min-height: 100%;
+
+    // padding: 50px 0;
+    @media (min-width: $collapse-bp) {
+      min-height: calc(100vh - 54px);
+      height: calc(100vh - 54px);
+    }
+
+    @media (max-width: $collapse-bp) {
+      min-height: 100%;
+
+    }
+
     justify-content: center;
     align-items: center;
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: 100%;
-    padding-bottom: 54px;
+    // padding-bottom: 54px;
+
+    @media (min-width: $mobile-bp) and (max-width: 1080px) {
+      grid-template-columns: 50% 50%;
+
+    }
 
     @media (max-width: $mobile-bp) {
       margin-top: 100px;
@@ -40,8 +57,14 @@
       grid-row-start: 1;
       grid-row-end: 2;
       flex: 1;
-      margin-left: 15px;
-      background: darken($sage, 60);
+
+      @media (min-width: $collapse-bp) {
+        height: auto;
+        margin: 30px 0;
+        // margin-left: 15px;
+      }
+
+      // background: rgba(darken($sage, 60), .3);
 
       @media (max-width: $mobile-bp) {
         margin-bottom: 3rem;
@@ -69,6 +92,10 @@
       display: flex;
       justify-content: center;
       padding: 10vh 1rem;
+
+      @media (max-width: $collapse-bp) {
+        padding: 6vh 1rem;
+      }
 
       &.flat-padding {
         padding: 0;

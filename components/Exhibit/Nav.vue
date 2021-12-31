@@ -1,23 +1,24 @@
 <template>
-  <div>
+  <div class="exhibit-nav">
+    <button
+      :class="isExpanded ? 'expanded' : 'collapsed'"
+      class="menu-toggle flat"
+      @click="toggleMenu"
+    >
+      <span class="text visually-hidden">View Menu</span>
+      <span class="menu-button"
+        ><svg viewBox="0 0 100 80" width="36" height="36">
+          <rect class="line-1" width="64" height="10"></rect>
+          <rect class="line-2" y="30" width="80" height="10"></rect>
+          <rect class="line-3" y="60" width="64" height="10"></rect></svg
+      ></span>
+    </button>
     <nav
       :class="isExpanded ? 'expanded' : 'collapsed'"
       v-show="isExhibitNavVisible"
-      class="exhibit-nav"
+      class="exhibit-nav-wrapper"
+      ref="navWrapper"
     >
-      <button
-        :class="isExpanded ? 'expanded' : 'collapsed'"
-        class="menu-toggle flat"
-        @click="toggleMenu"
-      >
-        <span class="text visually-hidden">View Menu</span>
-        <span class="menu-button"
-          ><svg viewBox="0 0 100 80" width="36" height="36">
-            <rect class="line-1" width="64" height="10"></rect>
-            <rect class="line-2" y="30" width="80" height="10"></rect>
-            <rect class="line-3" y="60" width="64" height="10"></rect></svg
-        ></span>
-      </button>
       <ul ref="navLinks">
         <li><nuxt-link to="/1">Introduction</nuxt-link></li>
         <li><nuxt-link to="/2">Occupation</nuxt-link></li>
@@ -46,6 +47,39 @@ export default {
   methods: {
     toggleMenu() {
       this.isExpanded = !this.isExpanded;
+      if (this.isExpanded) {
+        this.openMenuAnimation();
+      } else {
+        this.closeMenuAnimation();
+      }
+    },
+    setMenuAnimation() {
+      const gsap = this.$gsap;
+      const ref = this.$refs.navWrapper;
+      // console.log(ref, "set");
+
+      gsap.set(ref, {
+        x: "-100vw",
+      });
+    },
+    openMenuAnimation() {
+      const gsap = this.$gsap;
+      const ref = this.$refs.navWrapper;
+      // console.log(ref, "open");
+
+      gsap.to(ref, {
+        x: "0vw",
+        duration: 0.3,
+      });
+    },
+    closeMenuAnimation() {
+      const gsap = this.$gsap;
+      const ref = this.$refs.navWrapper;
+      // console.log(ref, "close");
+      gsap.to(ref, {
+        x: "-100vw",
+        duration: 0.3,
+      });
     },
   },
   mounted() {
@@ -60,6 +94,9 @@ export default {
           });
         });
       }
+    }
+    if (window.innerWidth < 768) {
+      this.setMenuAnimation();
     }
   },
 };
@@ -120,7 +157,7 @@ export default {
 
 .exhibit-nav {
   position: fixed;
-  z-index: 199;
+  z-index: 400;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -176,11 +213,16 @@ export default {
   @media (max-width: $collapse-bp) {
     .menu-toggle {
       display: block;
+      &:focus {
+        outline: 0;
+      }
       // top: 0;
       position: fixed;
       top: 15px;
       left: 15px;
-
+      width: 45px;
+      height: 45px;
+      z-index: 301;
       rect {
         transition: 0.3s ease all;
         fill: #fff;
@@ -195,41 +237,25 @@ export default {
       }
     }
 
-    &.collapsed {
-      ul {
-        display: none;
-      }
-
-      background: transparent;
-      width: 50px;
-    }
-    @media (max-width: $collapse-bp) {
-      ul {
-        opacity: 0;
-      }
-    }
-  }
-
-  &.expanded {
-    height: 100vh;
     width: auto;
     display: flex;
-    z-index: 300;
+    background: transparent;
     flex-direction: column;
     justify-content: center;
-    background: rgba($forest, 1);
-
+    height: 0;
     ul {
-      animation: fadeIn 0.3s ease forwards;
-
+      height: 100vh;
+      background: rgba($forest, 1);
       flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
       padding-left: 15px;
       padding-right: 30px;
       background: rgba($forest, 1);
 
       li {
         background: rgba($forest, 1);
-
+        flex: 0;
         text-transform: uppercase;
         font-size: 22px;
         text-align: left;
@@ -244,9 +270,11 @@ export default {
           &:hover {
             cursor: default;
           }
-          // transform: scale(1.1);
         }
       }
+    }
+    .exhibit-nav-wrapper.collapsed {
+      transform: translateX(-100vw);
     }
   }
 }

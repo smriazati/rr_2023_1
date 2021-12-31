@@ -67,9 +67,11 @@ export default {
 <style lang="scss">
 .resistance-talkback {
   width: 100%;
-  min-width: 100vw;
   height: 100%;
   min-height: 100vh;
+  @media (min-width: $collapse-bp) {
+    min-width: 100vw;
+  }
   h1 {
     margin-bottom: 15px;
   }
@@ -83,7 +85,10 @@ export default {
   .grid {
     display: grid;
     height: 100%;
-    min-height: 100vh;
+    @media (min-width: $collapse-bp) {
+      min-height: 100vh;
+    }
+
     width: 100%;
     min-width: 100%;
     grid-template-columns: repeat(2, 1fr);
@@ -100,6 +105,9 @@ export default {
       display: flex;
       flex-direction: column;
       padding-top: 60px;
+      > * {
+        width: 100%;
+      }
     }
   }
   header {
@@ -112,6 +120,14 @@ export default {
   section.text {
     padding-top: 0;
     grid-area: t;
+
+    .text-wrapper {
+      @media (max-width: $collapse-bp) {
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
   section.call-out-wrapper {
     grid-area: q;

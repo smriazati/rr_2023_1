@@ -290,15 +290,18 @@ $marker-color-5: #a16231;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    padding: 50px 0;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .menu-toggle {
       position: fixed;
       z-index: 202;
       top: 0;
       right: 0;
       left: unset;
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       padding: 11px;
       background: transparent;
       .icon {

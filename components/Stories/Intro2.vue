@@ -111,6 +111,10 @@ export default {
     checkScrollToBottom() {
       const ScrollTrigger = this.$ScrollTrigger;
       const trigger = this.$refs.content;
+      if (!this.$refs.content) {
+        console.log("no ref content, returning");
+        return;
+      }
       const endTrigger = this.$refs.content.lastElementChild;
 
       if (trigger && endTrigger) {
