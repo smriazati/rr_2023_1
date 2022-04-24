@@ -23,13 +23,6 @@
             named her Luba, which means “love.” She had a sister who was three
             years older than her named Chana.
           </p>
-          <p>
-            Luba’s favorite day of the week was Shabbat, a holiday and day of
-            rest that happened every Saturday. On Shabbat, she wore her blue
-            coat and leather boots that she laced up to her knees. While many
-            adults went to synagogue, the Jewish place of worship, Luba loved
-            walking around town with Chana looking at the shops.
-          </p>
         </div>
       </div>
     </div>

@@ -16,6 +16,10 @@
             </p>
           </div>
           <div class="text-wrapper instructions">
+            <button class="cursor-hover bright" @click="showFilm()">
+              <span class="text collapse-pd-right">Play video</span>
+              <SystemIcon type="play" :width="20" color="light" />
+            </button>
             <p>
               Watch a short film to learn about how Jews stood up to this
               oppression.
@@ -25,10 +29,6 @@
               resistance in your life. What did you do? How do you feel about it
               now?
             </p>
-            <button class="cursor-hover bright" @click="showFilm()">
-              <span class="text collapse-pd-right">Play video</span>
-              <SystemIcon type="play" :width="20" color="light" />
-            </button>
           </div>
         </div>
       </div>

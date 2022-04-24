@@ -12,6 +12,11 @@
           <h2>A StoryMap</h2>
         </div>
       </header>
+      <div class="button-wrapper">
+        <button class="bright flex-col" @click="closeModal()">
+          <span>Explore the map</span>
+        </button>
+      </div>
       <section ref="text" class="text">
         <div class="text-wrapper">
           <p>
@@ -47,11 +52,6 @@
           </blockquote>
         </figure>
       </section>
-      <div class="button-wrapper">
-        <button class="bright flex-col" @click="closeModal()">
-          <span>Explore the map</span>
-        </button>
-      </div>
 
       <footer class="credits">
         <div>
@@ -110,11 +110,11 @@ export default {
   width: 100%;
   min-width: 100%;
   grid-template-columns: repeat(2, 50vw);
-  grid-template-rows: 1fr min-content 1fr;
+  grid-template-rows: min-content min-content 1fr;
   grid-template-areas:
     "h q"
-    "t q"
     "b q"
+    "t q"
     "f q";
 
   @media (max-width: $collapse-bp) {
@@ -192,7 +192,7 @@ export default {
   }
   section.text {
     grid-area: t;
-    padding-top: 60px;
+    // padding-top: 60px;
     @media (max-width: $collapse-bp) {
       padding-top: 30px;
     }
@@ -211,7 +211,8 @@ export default {
     grid-area: f;
     height: 100%;
     display: flex;
-    align-items: flex-end;
+    // align-items: flex-end;
+    padding-top: 30px;
     justify-content: center;
     p {
       font-size: 14px;
