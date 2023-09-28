@@ -1,10 +1,7 @@
 <template>
   <div :class="name">
     <div ref="bg" class="bg-image">
-      <img
-        src="/images/01/bgimg.jpg"
-        alt="Painting of figure walking into a forest"
-      />
+      <img src="/images/01/bgimg.jpg" alt="Painting of figure walking into a forest" />
     </div>
     <header class="flex-col align-center">
       <div class="logo-wrapper">
@@ -19,15 +16,7 @@
       </button>
     </header>
 
-    <footer ref="warning" class="content-warning">
-      <div class="text-wrapper centered">
-        <p class="small muted">
-          Some material in this exhibit is sensitive and deals with violence,
-          antisemitism, racism, and death. Please take breaks and reach out to
-          your teacher or counselor for support as needed.
-        </p>
-      </div>
-    </footer>
+    <ExhibitLandingPageFooter></ExhibitLandingPageFooter>
   </div>
 </template>
 
@@ -49,7 +38,7 @@ export default {
     });
   },
   methods: {
-    setAnimation() {},
+    setAnimation() { },
   },
 };
 </script>
@@ -64,6 +53,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media (max-width: $collapse-bp) {
     justify-content: space-between;
   }
@@ -76,6 +66,7 @@ export default {
     top: 0;
     left: 0;
     height: 100vh;
+
     @media (min-width: $collapse-bp) {
       max-height: 100vh;
     }
@@ -84,6 +75,7 @@ export default {
       width: 100%;
       height: 100%;
     }
+
     img {
       transform: scale(3);
       opacity: 0.4;
@@ -95,12 +87,14 @@ export default {
     @media (max-width: $collapse-bp) {
       margin-top: 30px;
     }
+
     opacity: 0;
     animation: fadeIn 0.8s ease-in forwards;
     position: relative;
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 0 30px #303030d6;
+
     .logo-wrapper {
       margin: 0 auto;
       // margin-right: 30px;
@@ -108,20 +102,24 @@ export default {
       width: 100%;
       padding: 30px;
       padding-bottom: 0;
+
       figure {
         max-width: 250px;
         margin-left: auto;
         margin-right: auto;
       }
     }
+
     .text-wrapper {
       background: rgba($gray, 0.6);
       padding: 30px;
+
       @media (min-width: $collapse-bp) {
         * {
           white-space: nowrap;
         }
       }
+
       @media (max-width: $collapse-bp) {
         width: 100%;
         min-width: 100%;
@@ -136,35 +134,19 @@ export default {
       display: flex;
       justify-content: center;
       background: $forest;
+
       &:hover {
         background: $sage;
       }
     }
   }
+
   footer {
     padding: 1rem;
+
     p {
       margin: 0;
     }
-  }
-}
-
-.content-warning {
-  @media (min-width: $collapse-bp) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
-  @media (max-width: $collapse-bp) {
-    margin-top: 30px;
-  }
-  width: 100%;
-  background: $gray;
-  z-index: 112;
-  p {
-    color: $white;
-    font-size: 16px;
-    line-height: 22px;
   }
 }
 </style>
