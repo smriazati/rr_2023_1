@@ -48,14 +48,18 @@
     z-index: 112;
 
     .text-wrapper {
-        flex: 0 0 50ch;
+        max-width: unset;
         margin: unset;
+
+        @media (max-width: 1390px) {
+            flex: 0 0 50ch;
+        }
     }
 
     p {
         color: $white;
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 14px;
+        line-height: 20px;
     }
 
     ul {
@@ -75,4 +79,5 @@
             max-height: 50px;
         }
     }
-}</style>
+}
+</style>
